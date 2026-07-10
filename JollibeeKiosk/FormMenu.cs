@@ -1,271 +1,157 @@
-// ============================================================
-//  FormMenu.cs  —  Screen 3: FOOD MENU
-//  Owner: Leader (Member 3)
-//  (Member 1 fills in MenuRepository with real Jollibee data)
-//
-//  HOW THIS SCREEN WORKS:
-//    When the form LOADS, it reads the menu from MenuRepository
-//    and builds a "card" for each item inside a FlowLayoutPanel.
-//    Each card has the item name, price, and +/– quantity buttons.
-//
-//  KEY CONCEPT — DYNAMIC UI CREATION:
-//    Instead of designing each food card manually in the Designer,
-//    we BUILD them in code (CreateMenuItemCard method). This is
-//    because the number of items can change — we don't hard-code
-//    one button per menu item.
-//
-//  KEY CONCEPT — _uiQuantities DICTIONARY:
-//    A Dictionary<int, int> maps: MenuItem.Id → quantity on screen.
-//    This is how the number label on each card stays correct.
-//    When + is clicked: quantity++ in the dictionary AND in the Order.
-//    When – is clicked: quantity-- in the dictionary AND in the Order.
-//
-//  NAVIGATION:
-//    BACK button → shows opener (FormOrderType), closes this
-//    VIEW CART → validates cart is not empty → opens FormCheckout
-// ============================================================
-using System.Drawing;
+using System;
+using System.Linq;
+using System.Text;
+using System.Windows.Forms;
+using JollibeeKiosk.Models;
+using JollibeeKiosk.Services;
 
 namespace JollibeeKiosk
 {
-    /// <summary>
-    /// Screen 3 — Displays the full Jollibee menu with +/– quantity buttons.
-    /// Dynamically builds food cards in a FlowLayoutPanel.
-    /// </summary>
     public partial class FormMenu : Form
     {
-        // ── Fields ───────────────────────────────────────────────────────
         private readonly Form _opener;
 
-        /// <summary>
-        /// Tracks how many of each item the customer has added to the cart.
-        /// Key = MenuItem.Id, Value = quantity selected on this screen.
-        /// </summary>
-        private readonly Dictionary<int, int> _uiQuantities = new();
-
-        // ── Constructor ──────────────────────────────────────────────────
         public FormMenu(Form opener)
         {
             _opener = opener;
             InitializeComponent();
         }
 
-        // ── Form Load ────────────────────────────────────────────────────
-
-        /// <summary>
-        /// Runs automatically when the form first opens.
-        /// Loads menu items from MenuRepository and builds the card grid.
-        /// </summary>
         private void FormMenu_Load(object sender, EventArgs e)
         {
-            LoadMenuCards();
-        }
-
-        // ── Screen Loading ────────────────────────────────────────────────
-
-        /// <summary>
-        /// Populates flpMenuItems with one card per menu item.
-        /// Calls MenuRepository.GetAll() — Member 1 provides the real data there.
-        /// </summary>
-        private void LoadMenuCards()
-        {
-            // Update the header label to show the order type chosen in Screen 2
-            lblMenuOrderType.Text = KioskSession.CurrentOrder.OrderType == OrderType.DineIn
+            lblOrderTypeBadge.Text = KioskSession.CurrentOrder.OrderType == OrderType.DineIn
                 ? "🍽️  Dine In"
                 : "🥡  Take Out";
 
-            // Clear any existing cards (in case form is shown again after being hidden)
-            flpMenuItems.Controls.Clear();
+            SyncQuantitiesFromOrder();
+            RefreshCartSummary();
+        }
 
-            // Ask Member 1's MenuRepository for all menu items
-            List<MenuItem> allItems = MenuRepository.GetAll();
+        private void SyncQuantitiesFromOrder()
+        {
+            lblQty1.Text  = GetItemQty(1).ToString();
+            lblQty2.Text  = GetItemQty(2).ToString();
+            lblQty3.Text  = GetItemQty(3).ToString();
+            lblQty4.Text  = GetItemQty(18).ToString();
+            lblQty5.Text  = GetItemQty(4).ToString();
+            lblQty6.Text  = GetItemQty(5).ToString();
+            lblQty7.Text  = GetItemQty(6).ToString();
+            lblQty8.Text  = GetItemQty(8).ToString();
+            lblQty9.Text  = GetItemQty(9).ToString();
+            lblQty10.Text = GetItemQty(11).ToString();
+            lblQty11.Text = GetItemQty(13).ToString();
+            lblQty12.Text = GetItemQty(15).ToString();
+        }
 
-            // Build one card panel per item and add to the FlowLayoutPanel
-            foreach (MenuItem item in allItems)
+        private int GetItemQty(int itemId)
+        {
+            var item = KioskSession.CurrentOrder.Items.FirstOrDefault(x => x.Item.Id == itemId);
+            return item?.Quantity ?? 0;
+        }
+
+        private void ModifyCart(int itemId, int delta, Label lblQty)
+        {
+            var menuItem = MenuRepository.GetById(itemId);
+            if (menuItem == null) return;
+
+            int currentQty = GetItemQty(itemId);
+            if (delta < 0 && currentQty <= 0) return;
+
+            if (delta > 0)
             {
-                Panel card = CreateMenuItemCard(item);
-                flpMenuItems.Controls.Add(card);
+                KioskSession.CurrentOrder.AddItem(menuItem, 1);
+            }
+            else
+            {
+                KioskSession.CurrentOrder.RemoveItem(itemId);
             }
 
-            RefreshCartFooter();
+            lblQty.Text = GetItemQty(itemId).ToString();
+            RefreshCartSummary();
         }
 
-        // ── Card Builder ─────────────────────────────────────────────────
-
-        /// <summary>
-        /// Builds a single food item card as a Panel control.
-        /// The card contains: category badge, item name, price, and +/– buttons.
-        /// This method is called once per menu item during LoadMenuCards().
-        /// </summary>
-        private Panel CreateMenuItemCard(MenuItem item)
+        private void RefreshCartSummary()
         {
-            const int CardWidth  = 222;
-            const int CardHeight = 185;
+            var order = KioskSession.CurrentOrder;
+            var sb = new StringBuilder();
 
-            // The card itself is just a Panel with a white background
-            var card = new Panel
+            if (order.Items.Count == 0)
             {
-                Size      = new Size(CardWidth, CardHeight),
-                BackColor = Color.White,
-                Margin    = new Padding(7),
-                Tag       = item.Id   // Store the ID so we can identify this card later
-            };
-
-            // Draw a light gray border around the card every time it paints
-            card.Paint += (_, e) =>
+                sb.AppendLine("Your cart is currently empty.");
+                sb.AppendLine();
+                sb.AppendLine("Click the '+' buttons on any product to add it to your order!");
+            }
+            else
             {
-                using var borderPen = new Pen(Color.FromArgb(210, 210, 210), 1);
-                e.Graphics.DrawRectangle(borderPen, 0, 0, CardWidth - 1, CardHeight - 1);
-            };
+                sb.AppendLine("── CURRENT CART ───────────────");
+                sb.AppendLine();
+                foreach (var line in order.Items)
+                {
+                    sb.AppendLine($"{line.Quantity}x  {line.Item.Name}");
+                    sb.AppendLine($"     ₱{line.LineTotal:F2}");
+                }
+                sb.AppendLine();
+                sb.AppendLine("───────────────────────────────");
+            }
 
-            // ── Category Banner (red strip at the top of the card) ───────
-            var categoryBanner = new Panel
-            {
-                Size      = new Size(CardWidth, 22),
-                Location  = new Point(0, 0),
-                BackColor = Color.FromArgb(218, 41, 28)
-            };
-            var lblCategory = new Label
-            {
-                Text      = item.Category,
-                Font      = new Font("Segoe UI", 7.5f, FontStyle.Bold),
-                ForeColor = Color.FromArgb(255, 210, 200),
-                AutoSize  = false,
-                Size      = new Size(CardWidth, 22),
-                TextAlign = ContentAlignment.MiddleCenter
-            };
-            categoryBanner.Controls.Add(lblCategory);
-
-            // ── Item Name ────────────────────────────────────────────────
-            var lblName = new Label
-            {
-                Text      = item.Name,
-                Font      = new Font("Segoe UI", 10f, FontStyle.Bold),
-                ForeColor = Color.FromArgb(40, 40, 40),
-                AutoSize  = false,
-                Size      = new Size(CardWidth - 10, 50),
-                Location  = new Point(5, 27),
-                TextAlign = ContentAlignment.MiddleCenter
-            };
-
-            // ── Price (red, bold) ─────────────────────────────────────────
-            var lblPrice = new Label
-            {
-                Text      = $"₱{item.Price:F2}",
-                Font      = new Font("Segoe UI", 14f, FontStyle.Bold),
-                ForeColor = Color.FromArgb(218, 41, 28),
-                AutoSize  = false,
-                Size      = new Size(CardWidth, 32),
-                Location  = new Point(0, 80),
-                TextAlign = ContentAlignment.MiddleCenter
-            };
-
-            // ── Quantity Label — shows how many are in the cart ──────────
-            // Read initial value from _uiQuantities (0 if not yet added)
-            int currentQty = _uiQuantities.GetValueOrDefault(item.Id, 0);
-            var lblQty = new Label
-            {
-                Name      = $"lblQty_{item.Id}",  // Unique name for later lookup
-                Text      = currentQty.ToString(),
-                Font      = new Font("Segoe UI", 13f, FontStyle.Bold),
-                ForeColor = Color.FromArgb(40, 40, 40),
-                AutoSize  = false,
-                Size      = new Size(52, 42),
-                Location  = new Point(85, 125),
-                TextAlign = ContentAlignment.MiddleCenter
-            };
-
-            // ── Minus Button (−) ─────────────────────────────────────────
-            var btnMinus = BuildQtyButton("−", new Point(30, 125));
-            btnMinus.Click += (_, _) =>
-            {
-                // Only decrease if quantity is greater than 0
-                if (_uiQuantities.GetValueOrDefault(item.Id, 0) <= 0) return;
-
-                _uiQuantities[item.Id]--;                         // Update UI tracker
-                KioskSession.CurrentOrder.RemoveItem(item.Id);    // Update Order (Member 2)
-                lblQty.Text = _uiQuantities[item.Id].ToString();  // Refresh label
-                RefreshCartFooter();
-            };
-
-            // ── Plus Button (+) ───────────────────────────────────────────
-            var btnPlus = BuildQtyButton("+", new Point(140, 125));
-            btnPlus.Click += (_, _) =>
-            {
-                _uiQuantities.TryAdd(item.Id, 0);                 // Initialize if first time
-                _uiQuantities[item.Id]++;                         // Update UI tracker
-                KioskSession.CurrentOrder.AddItem(item, 1);       // Update Order (Member 2)
-                lblQty.Text = _uiQuantities[item.Id].ToString();  // Refresh label
-                RefreshCartFooter();
-            };
-
-            // ── Assemble the card ─────────────────────────────────────────
-            card.Controls.Add(categoryBanner);
-            card.Controls.Add(lblName);
-            card.Controls.Add(lblPrice);
-            card.Controls.Add(lblQty);
-            card.Controls.Add(btnMinus);
-            card.Controls.Add(btnPlus);
-
-            return card;
+            rtbCartSummary.Text = sb.ToString();
+            decimal subtotal = order.CalculateSubtotal();
+            lblSubtotalAmt.Text = $"Subtotal:   ₱{subtotal:F2}";
+            btnProceedCheckout.Enabled = (order.Items.Count > 0);
         }
 
-        /// <summary>
-        /// Helper: creates a small red +/– button for the food cards.
-        /// </summary>
-        private static Button BuildQtyButton(string symbol, Point position)
+        private void BtnPlus1_Click(object sender, EventArgs e)  => ModifyCart(1, 1, lblQty1);
+        private void BtnMinus1_Click(object sender, EventArgs e) => ModifyCart(1, -1, lblQty1);
+
+        private void BtnPlus2_Click(object sender, EventArgs e)  => ModifyCart(2, 1, lblQty2);
+        private void BtnMinus2_Click(object sender, EventArgs e) => ModifyCart(2, -1, lblQty2);
+
+        private void BtnPlus3_Click(object sender, EventArgs e)  => ModifyCart(3, 1, lblQty3);
+        private void BtnMinus3_Click(object sender, EventArgs e) => ModifyCart(3, -1, lblQty3);
+
+        private void BtnPlus4_Click(object sender, EventArgs e)  => ModifyCart(18, 1, lblQty4);
+        private void BtnMinus4_Click(object sender, EventArgs e) => ModifyCart(18, -1, lblQty4);
+
+        private void BtnPlus5_Click(object sender, EventArgs e)  => ModifyCart(4, 1, lblQty5);
+        private void BtnMinus5_Click(object sender, EventArgs e) => ModifyCart(4, -1, lblQty5);
+
+        private void BtnPlus6_Click(object sender, EventArgs e)  => ModifyCart(5, 1, lblQty6);
+        private void BtnMinus6_Click(object sender, EventArgs e) => ModifyCart(5, -1, lblQty6);
+
+        private void BtnPlus7_Click(object sender, EventArgs e)  => ModifyCart(6, 1, lblQty7);
+        private void BtnMinus7_Click(object sender, EventArgs e) => ModifyCart(6, -1, lblQty7);
+
+        private void BtnPlus8_Click(object sender, EventArgs e)  => ModifyCart(8, 1, lblQty8);
+        private void BtnMinus8_Click(object sender, EventArgs e) => ModifyCart(8, -1, lblQty8);
+
+        private void BtnPlus9_Click(object sender, EventArgs e)  => ModifyCart(9, 1, lblQty9);
+        private void BtnMinus9_Click(object sender, EventArgs e) => ModifyCart(9, -1, lblQty9);
+
+        private void BtnPlus10_Click(object sender, EventArgs e)  => ModifyCart(11, 1, lblQty10);
+        private void BtnMinus10_Click(object sender, EventArgs e) => ModifyCart(11, -1, lblQty10);
+
+        private void BtnPlus11_Click(object sender, EventArgs e)  => ModifyCart(13, 1, lblQty11);
+        private void BtnMinus11_Click(object sender, EventArgs e) => ModifyCart(13, -1, lblQty11);
+
+        private void BtnPlus12_Click(object sender, EventArgs e)  => ModifyCart(15, 1, lblQty12);
+        private void BtnMinus12_Click(object sender, EventArgs e) => ModifyCart(15, -1, lblQty12);
+
+        private void BtnProceedCheckout_Click(object sender, EventArgs e)
         {
-            var btn = new Button
+            if (KioskSession.CurrentOrder.Items.Count == 0)
             {
-                Text      = symbol,
-                Font      = new Font("Segoe UI", 14f, FontStyle.Bold),
-                BackColor = Color.FromArgb(218, 41, 28),
-                ForeColor = Color.White,
-                FlatStyle = FlatStyle.Flat,
-                Size      = new Size(42, 42),
-                Location  = position,
-                Cursor    = Cursors.Hand
-            };
-            btn.FlatAppearance.BorderSize = 0;
-            return btn;
+                MessageBox.Show("Your cart is empty. Please add at least one item.",
+                    "Empty Cart", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+            new FormCheckout(this).Show();
+            this.Hide();
         }
-
-        // ── Footer Refresh ───────────────────────────────────────────────
-
-        /// <summary>
-        /// Updates the bottom footer bar with total item count and subtotal.
-        /// Called every time a + or – button is clicked.
-        /// </summary>
-        private void RefreshCartFooter()
-        {
-            int     totalItems = _uiQuantities.Values.Sum();
-            decimal subtotal   = KioskSession.CurrentOrder.CalculateSubtotal(); // Member 2
-            lblCartInfo.Text   = $"{totalItems} item(s)   |   ₱{subtotal:F2}";
-        }
-
-        // ── Button Events ────────────────────────────────────────────────
 
         private void BtnBack_Click(object sender, EventArgs e)
         {
             _opener.Show();
             this.Close();
-        }
-
-        private void BtnViewCart_Click(object sender, EventArgs e)
-        {
-            // Input validation — do not allow empty cart
-            if (KioskSession.CurrentOrder.Items.Count == 0)
-            {
-                MessageBox.Show(
-                    "Your cart is empty.\nPlease add at least one item before proceeding.",
-                    "Empty Cart",
-                    MessageBoxButtons.OK,
-                    MessageBoxIcon.Information);
-                return;
-            }
-
-            new FormCheckout(this).Show();
-            this.Hide();
         }
     }
 }

@@ -1,29 +1,22 @@
-// ============================================================
-//  FormCheckout.cs  —  Screen 4: CART / CHECKOUT
-//  Owner: Leader (Member 3)
-//
-//  HOW THIS SCREEN WORKS:
-//    Shows the customer everything in their cart using a ListView.
-//    A ListView is a table-like control with columns (Item, Price, Qty, Total).
-//    The data comes from KioskSession.CurrentOrder.Items (Member 2's Order class).
-//
-//  KEY CONCEPT — LISTVIEW:
-//    A ListView in View.Details mode looks like a spreadsheet.
-//    Each row is a ListViewItem. Sub-columns are SubItems.
-//    We add rows in a loop: for each OrderItem → create a ListViewItem row.
-//
-//  NAVIGATION:
-//    BACK              → shows opener (FormMenu), closes this
-//    APPLY DISCOUNT →  → opens FormDiscount
-// ============================================================
+using System;
+using System.Drawing;
+using System.Windows.Forms;
+using JollibeeKiosk.Models;
+
 namespace JollibeeKiosk
 {
-    /// <summary>
-    /// Screen 4 — Checkout: shows cart contents, subtotal, and discount button.
-    /// </summary>
     public partial class FormCheckout : Form
     {
         private readonly Form _opener;
+
+        private PictureBox[] _picItems   = Array.Empty<PictureBox>();
+        private Label[]      _lblNames   = Array.Empty<Label>();
+        private Label[]      _lblPrices  = Array.Empty<Label>();
+        private Button[]     _btnMinuses = Array.Empty<Button>();
+        private Label[]      _lblQtys    = Array.Empty<Label>();
+        private Button[]     _btnPluses  = Array.Empty<Button>();
+        private Label[]      _lblSubs    = Array.Empty<Label>();
+        private Button[]     _btnDeletes = Array.Empty<Button>();
 
         public FormCheckout(Form opener)
         {
@@ -31,54 +24,142 @@ namespace JollibeeKiosk
             InitializeComponent();
         }
 
-        // ── Form Load ────────────────────────────────────────────────────
-
-        /// <summary>
-        /// Loads the cart data into the ListView when the form opens.
-        /// Reads from KioskSession.CurrentOrder.Items (Order class — Member 2).
-        /// </summary>
         private void FormCheckout_Load(object sender, EventArgs e)
         {
-            LoadCartIntoListView();
+            lblOrderBadge.Text = KioskSession.CurrentOrder.OrderType == OrderType.DineIn
+                ? "🍽️  Dine In Order"
+                : "🥡  Take Out Order";
+
+            _picItems   = new[] { picCOItem1, picCOItem2, picCOItem3, picCOItem4, picCOItem5, picCOItem6 };
+            _lblNames   = new[] { lblCOName1, lblCOName2, lblCOName3, lblCOName4, lblCOName5, lblCOName6 };
+            _lblPrices  = new[] { lblCOPrice1, lblCOPrice2, lblCOPrice3, lblCOPrice4, lblCOPrice5, lblCOPrice6 };
+            _btnMinuses = new[] { btnCOMinus1, btnCOMinus2, btnCOMinus3, btnCOMinus4, btnCOMinus5, btnCOMinus6 };
+            _lblQtys    = new[] { lblCOQty1, lblCOQty2, lblCOQty3, lblCOQty4, lblCOQty5, lblCOQty6 };
+            _btnPluses  = new[] { btnCOPlus1, btnCOPlus2, btnCOPlus3, btnCOPlus4, btnCOPlus5, btnCOPlus6 };
+            _lblSubs    = new[] { lblCOSub1, lblCOSub2, lblCOSub3, lblCOSub4, lblCOSub5, lblCOSub6 };
+            _btnDeletes = new[] { btnCODelete1, btnCODelete2, btnCODelete3, btnCODelete4, btnCODelete5, btnCODelete6 };
+
+            DisplayCheckoutItems();
         }
 
-        // ── Screen Loading ────────────────────────────────────────────────
-
-        /// <summary>
-        /// Populates lvwCart (the table) with the customer's order items.
-        ///
-        /// HOW IT WORKS:
-        ///   - Loop through KioskSession.CurrentOrder.Items
-        ///   - For each OrderItem: create a ListViewItem row with 4 columns:
-        ///       Col 0: item name
-        ///       Col 1: unit price (₱xx.xx)
-        ///       Col 2: quantity
-        ///       Col 3: line total (price × qty)
-        ///   - Add the row to lvwCart.Items
-        /// </summary>
-        private void LoadCartIntoListView()
+        private void DisplayCheckoutItems()
         {
-            lvwCart.Items.Clear();   // Remove any old rows first
+            var order = KioskSession.CurrentOrder;
+            lblReviewTitle.Text = $"Review Items ({order.Items.Count})";
 
-            foreach (OrderItem oi in KioskSession.CurrentOrder.Items)
+            for (int i = 0; i < 6; i++)
             {
-                // Column 0 — item name (first parameter of ListViewItem)
-                var row = new ListViewItem(oi.Item.Name);
+                if (i < order.Items.Count)
+                {
+                    var oi = order.Items[i];
+                    _lblNames[i].Text  = oi.Item.Name;
+                    _lblPrices[i].Text = $"₱{oi.Item.Price:F2}";
+                    _lblQtys[i].Text   = oi.Quantity.ToString();
+                    _lblSubs[i].Text   = $"₱{oi.LineTotal:F2}";
 
-                // Columns 1, 2, 3 — added as SubItems
-                row.SubItems.Add($"₱{oi.Item.Price:F2}");
-                row.SubItems.Add(oi.Quantity.ToString());
-                row.SubItems.Add($"₱{oi.LineTotal:F2}");
-
-                lvwCart.Items.Add(row);
+                    _picItems[i].Visible   = true;
+                    _lblNames[i].Visible   = true;
+                    _lblPrices[i].Visible  = true;
+                    _btnMinuses[i].Visible = true;
+                    _lblQtys[i].Visible    = true;
+                    _btnPluses[i].Visible  = true;
+                    _lblSubs[i].Visible    = true;
+                    _btnDeletes[i].Visible = true;
+                }
+                else
+                {
+                    _picItems[i].Visible   = false;
+                    _lblNames[i].Visible   = false;
+                    _lblPrices[i].Visible  = false;
+                    _btnMinuses[i].Visible = false;
+                    _lblQtys[i].Visible    = false;
+                    _btnPluses[i].Visible  = false;
+                    _lblSubs[i].Visible    = false;
+                    _btnDeletes[i].Visible = false;
+                }
             }
 
-            // Update the subtotal label at the bottom
-            decimal subtotal     = KioskSession.CurrentOrder.CalculateSubtotal();
-            lblCOSubtotal.Text   = $"Subtotal:   ₱{subtotal:F2}";
+            RecalculateTotals();
         }
 
-        // ── Button Events ────────────────────────────────────────────────
+        private void RecalculateTotals()
+        {
+            var order = KioskSession.CurrentOrder;
+
+            DiscountType selectedType = DiscountType.None;
+            if (rbtnSenior.Checked) selectedType = DiscountType.SeniorCitizen;
+            if (rbtnPWD.Checked)    selectedType = DiscountType.PWD;
+
+            order.ApplyDiscount(selectedType);
+
+            decimal subtotal = order.CalculateSubtotal();
+            decimal discount = order.DiscountAmount;
+            decimal total    = order.GetTotal();
+
+            lblCOSubtotalAmt.Text = $"Subtotal:                                                   ₱{subtotal:F2}";
+            lblCODiscountAmt.Text = $"Discount ({selectedType}):                                 −₱{discount:F2}";
+            lblCOTotalAmt.Text    = $"TOTAL: ₱{total:F2}";
+
+            btnConfirmOrder.Enabled = (order.Items.Count > 0);
+        }
+
+        private void Discount_CheckedChanged(object sender, EventArgs e)
+        {
+            RecalculateTotals();
+        }
+
+        private void ModifyRowQty(int index, int delta)
+        {
+            var order = KioskSession.CurrentOrder;
+            if (index >= order.Items.Count) return;
+
+            var item = order.Items[index].Item;
+            if (delta > 0)
+                order.AddItem(item, 1);
+            else
+                order.RemoveItem(item.Id);
+
+            DisplayCheckoutItems();
+        }
+
+        private void DeleteRowItem(int index)
+        {
+            var order = KioskSession.CurrentOrder;
+            if (index >= order.Items.Count) return;
+
+            order.DeleteItem(order.Items[index].Item.Id);
+            DisplayCheckoutItems();
+        }
+
+        private void BtnCOPlus1_Click(object sender, EventArgs e)   => ModifyRowQty(0, 1);
+        private void BtnCOMinus1_Click(object sender, EventArgs e)  => ModifyRowQty(0, -1);
+        private void BtnCODelete1_Click(object sender, EventArgs e) => DeleteRowItem(0);
+
+        private void BtnCOPlus2_Click(object sender, EventArgs e)   => ModifyRowQty(1, 1);
+        private void BtnCOMinus2_Click(object sender, EventArgs e)  => ModifyRowQty(1, -1);
+        private void BtnCODelete2_Click(object sender, EventArgs e) => DeleteRowItem(1);
+
+        private void BtnCOPlus3_Click(object sender, EventArgs e)   => ModifyRowQty(2, 1);
+        private void BtnCOMinus3_Click(object sender, EventArgs e)  => ModifyRowQty(2, -1);
+        private void BtnCODelete3_Click(object sender, EventArgs e) => DeleteRowItem(2);
+
+        private void BtnCOPlus4_Click(object sender, EventArgs e)   => ModifyRowQty(3, 1);
+        private void BtnCOMinus4_Click(object sender, EventArgs e)  => ModifyRowQty(3, -1);
+        private void BtnCODelete4_Click(object sender, EventArgs e) => DeleteRowItem(3);
+
+        private void BtnCOPlus5_Click(object sender, EventArgs e)   => ModifyRowQty(4, 1);
+        private void BtnCOMinus5_Click(object sender, EventArgs e)  => ModifyRowQty(4, -1);
+        private void BtnCODelete5_Click(object sender, EventArgs e) => DeleteRowItem(4);
+
+        private void BtnCOPlus6_Click(object sender, EventArgs e)   => ModifyRowQty(5, 1);
+        private void BtnCOMinus6_Click(object sender, EventArgs e)  => ModifyRowQty(5, -1);
+        private void BtnCODelete6_Click(object sender, EventArgs e) => DeleteRowItem(5);
+
+        private void BtnAddMoreItems_Click(object sender, EventArgs e)
+        {
+            _opener.Show();
+            this.Close();
+        }
 
         private void BtnBack_Click(object sender, EventArgs e)
         {
@@ -86,9 +167,15 @@ namespace JollibeeKiosk
             this.Close();
         }
 
-        private void BtnApplyDiscount_Click(object sender, EventArgs e)
+        private void BtnConfirmOrder_Click(object sender, EventArgs e)
         {
-            new FormDiscount(this).Show();
+            if (KioskSession.CurrentOrder.Items.Count == 0)
+            {
+                MessageBox.Show("Your cart is empty.", "Checkout Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+            new FormReceipt(this).Show();
             this.Hide();
         }
     }

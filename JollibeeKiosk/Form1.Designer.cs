@@ -1,109 +1,158 @@
-// Form1.Designer.cs — Screen 1: Welcome
-// Edit this screen in Visual Studio: open Form1.cs → press Shift+F7
 namespace JollibeeKiosk
 {
     partial class Form1
     {
         private System.ComponentModel.IContainer components = null;
-
         protected override void Dispose(bool disposing)
         {
-            if (disposing && (components != null))
-                components.Dispose();
+            if (disposing && components != null) components.Dispose();
             base.Dispose(disposing);
         }
 
         #region Windows Form Designer generated code
         private void InitializeComponent()
         {
-            this.lblBeeEmoji   = new System.Windows.Forms.Label();
-            this.lblBrand      = new System.Windows.Forms.Label();
-            this.lblTagline    = new System.Windows.Forms.Label();
-            this.lblSubtitle   = new System.Windows.Forms.Label();
-            this.btnStartOrder = new System.Windows.Forms.Button();
-            this.SuspendLayout();
-
-            // lblBeeEmoji — the big bee icon
-            this.lblBeeEmoji.AutoSize  = false;
-            this.lblBeeEmoji.Font      = new System.Drawing.Font("Segoe UI Emoji", 72F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.lblBeeEmoji.ForeColor = System.Drawing.Color.White;
-            this.lblBeeEmoji.Location  = new System.Drawing.Point(350, 55);
-            this.lblBeeEmoji.Name      = "lblBeeEmoji";
-            this.lblBeeEmoji.Size      = new System.Drawing.Size(300, 115);
-            this.lblBeeEmoji.TabIndex  = 0;
-            this.lblBeeEmoji.Text      = "🐝";
-            this.lblBeeEmoji.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-
-            // lblBrand — "JOLLIBEE" heading
-            this.lblBrand.AutoSize  = false;
-            this.lblBrand.Font      = new System.Drawing.Font("Segoe UI", 52F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.lblBrand.ForeColor = System.Drawing.Color.White;
-            this.lblBrand.Location  = new System.Drawing.Point(100, 175);
-            this.lblBrand.Name      = "lblBrand";
-            this.lblBrand.Size      = new System.Drawing.Size(800, 85);
-            this.lblBrand.TabIndex  = 1;
-            this.lblBrand.Text      = "JOLLIBEE";
-            this.lblBrand.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-
-            // lblTagline — "Bida ang Sarap!"
-            this.lblTagline.AutoSize  = false;
-            this.lblTagline.Font      = new System.Drawing.Font("Segoe UI", 15F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point);
-            this.lblTagline.ForeColor = System.Drawing.Color.FromArgb(253, 184, 19);
-            this.lblTagline.Location  = new System.Drawing.Point(200, 265);
-            this.lblTagline.Name      = "lblTagline";
-            this.lblTagline.Size      = new System.Drawing.Size(600, 38);
-            this.lblTagline.TabIndex  = 2;
-            this.lblTagline.Text      = "Bida ang Sarap!";
-            this.lblTagline.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-
-            // lblSubtitle — small subtitle text
-            this.lblSubtitle.AutoSize  = false;
-            this.lblSubtitle.Font      = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.lblSubtitle.ForeColor = System.Drawing.Color.FromArgb(255, 195, 175);
-            this.lblSubtitle.Location  = new System.Drawing.Point(150, 308);
-            this.lblSubtitle.Name      = "lblSubtitle";
-            this.lblSubtitle.Size      = new System.Drawing.Size(700, 32);
-            this.lblSubtitle.TabIndex  = 3;
-            this.lblSubtitle.Text      = "Order your favorites, freshly made just for you.";
-            this.lblSubtitle.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-
-            // btnStartOrder — the main CTA yellow button
-            this.btnStartOrder.BackColor                       = System.Drawing.Color.FromArgb(253, 184, 19);
-            this.btnStartOrder.Cursor                          = System.Windows.Forms.Cursors.Hand;
-            this.btnStartOrder.FlatStyle                       = System.Windows.Forms.FlatStyle.Flat;
-            this.btnStartOrder.FlatAppearance.BorderSize       = 0;
-            this.btnStartOrder.Font                            = new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.btnStartOrder.ForeColor                       = System.Drawing.Color.FromArgb(120, 15, 5);
-            this.btnStartOrder.Location                        = new System.Drawing.Point(300, 390);
-            this.btnStartOrder.Name                            = "btnStartOrder";
-            this.btnStartOrder.Size                            = new System.Drawing.Size(400, 88);
-            this.btnStartOrder.TabIndex                        = 4;
-            this.btnStartOrder.Text                            = "🛒   TAP TO ORDER";
-            this.btnStartOrder.UseVisualStyleBackColor         = false;
-            this.btnStartOrder.Click                           += new System.EventHandler(this.BtnStartOrder_Click);
-
-            // Form1 — the form itself
-            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
-            this.AutoScaleMode       = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor           = System.Drawing.Color.FromArgb(218, 41, 28);
-            this.ClientSize          = new System.Drawing.Size(1000, 720);
-            this.Controls.Add(this.btnStartOrder);
-            this.Controls.Add(this.lblSubtitle);
-            this.Controls.Add(this.lblTagline);
-            this.Controls.Add(this.lblBrand);
-            this.Controls.Add(this.lblBeeEmoji);
-            this.MinimumSize         = new System.Drawing.Size(1016, 759);
-            this.Name                = "Form1";
-            this.StartPosition       = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text                = "🐝 Jollibee Kiosk — Welcome";
-            this.ResumeLayout(false);
+            lblNavBrand = new Label();
+            lblFooter = new Label();
+            lblWelcome = new Label();
+            lblTagline = new Label();
+            lblDesc = new Label();
+            btnStartOrder = new Button();
+            lblDineHint = new Label();
+            pictureBox1 = new PictureBox();
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
+            SuspendLayout();
+            // 
+            // lblNavBrand
+            // 
+            lblNavBrand.BackColor = Color.White;
+            lblNavBrand.Font = new Font("Segoe UI", 16F, FontStyle.Bold);
+            lblNavBrand.ForeColor = Color.FromArgb(218, 41, 28);
+            lblNavBrand.Location = new Point(696, 0);
+            lblNavBrand.Margin = new Padding(4, 0, 4, 0);
+            lblNavBrand.Name = "lblNavBrand";
+            lblNavBrand.Size = new Size(181, 100);
+            lblNavBrand.TabIndex = 0;
+            lblNavBrand.Text = "HappyBee";
+            lblNavBrand.TextAlign = ContentAlignment.MiddleLeft;
+            // 
+            // lblFooter
+            // 
+            lblFooter.BackColor = Color.White;
+            lblFooter.Font = new Font("Segoe UI", 9F);
+            lblFooter.ForeColor = Color.FromArgb(160, 160, 160);
+            lblFooter.Location = new Point(0, 1133);
+            lblFooter.Margin = new Padding(4, 0, 4, 0);
+            lblFooter.Name = "lblFooter";
+            lblFooter.Size = new Size(1571, 67);
+            lblFooter.TabIndex = 1;
+            lblFooter.Text = "© 2024 Jollibee Foods Corporation  |  Terms of Service  |  Privacy Policy";
+            lblFooter.TextAlign = ContentAlignment.MiddleCenter;
+            // 
+            // lblWelcome
+            // 
+            lblWelcome.Font = new Font("Segoe UI", 16F);
+            lblWelcome.ForeColor = Color.FromArgb(100, 100, 100);
+            lblWelcome.Location = new Point(687, 125);
+            lblWelcome.Margin = new Padding(4, 0, 4, 0);
+            lblWelcome.Name = "lblWelcome";
+            lblWelcome.Size = new Size(199, 60);
+            lblWelcome.TabIndex = 4;
+            lblWelcome.Text = "Welcome to";
+            lblWelcome.Click += lblWelcome_Click;
+            // 
+            // lblTagline
+            // 
+            lblTagline.Font = new Font("Segoe UI", 18F, FontStyle.Italic);
+            lblTagline.ForeColor = Color.FromArgb(253, 184, 19);
+            lblTagline.Location = new Point(652, 542);
+            lblTagline.Margin = new Padding(4, 0, 4, 0);
+            lblTagline.Name = "lblTagline";
+            lblTagline.Size = new Size(267, 67);
+            lblTagline.TabIndex = 6;
+            lblTagline.Text = "ENJOY EATING!";
+            // 
+            // lblDesc
+            // 
+            lblDesc.Font = new Font("Segoe UI", 12F);
+            lblDesc.ForeColor = Color.FromArgb(120, 120, 120);
+            lblDesc.Location = new Point(529, 660);
+            lblDesc.Margin = new Padding(4, 0, 4, 0);
+            lblDesc.Name = "lblDesc";
+            lblDesc.Size = new Size(516, 100);
+            lblDesc.TabIndex = 7;
+            lblDesc.Text = "Order your favorites freshly made just for you.\nFast, easy, and delicious — every single time.";
+            // 
+            // btnStartOrder
+            // 
+            btnStartOrder.BackColor = Color.FromArgb(253, 184, 19);
+            btnStartOrder.Cursor = Cursors.Hand;
+            btnStartOrder.FlatAppearance.BorderSize = 0;
+            btnStartOrder.FlatStyle = FlatStyle.Flat;
+            btnStartOrder.Font = new Font("Segoe UI", 18F, FontStyle.Bold);
+            btnStartOrder.ForeColor = Color.FromArgb(120, 15, 5);
+            btnStartOrder.Location = new Point(486, 807);
+            btnStartOrder.Margin = new Padding(4, 5, 4, 5);
+            btnStartOrder.Name = "btnStartOrder";
+            btnStartOrder.Size = new Size(600, 133);
+            btnStartOrder.TabIndex = 9;
+            btnStartOrder.Text = "\U0001f6d2   START ORDER";
+            btnStartOrder.UseVisualStyleBackColor = false;
+            btnStartOrder.Click += BtnStartOrder_Click;
+            // 
+            // lblDineHint
+            // 
+            lblDineHint.Font = new Font("Segoe UI", 11F);
+            lblDineHint.ForeColor = Color.FromArgb(150, 150, 150);
+            lblDineHint.Location = new Point(624, 978);
+            lblDineHint.Margin = new Padding(4, 0, 4, 0);
+            lblDineHint.Name = "lblDineHint";
+            lblDineHint.Size = new Size(324, 50);
+            lblDineHint.TabIndex = 8;
+            lblDineHint.Text = "🍽️  Dine In   ·   \U0001f961  Take Out";
+            // 
+            // pictureBox1
+            // 
+            pictureBox1.BackgroundImage = Properties.Resources.download__1_;
+            pictureBox1.BackgroundImageLayout = ImageLayout.Zoom;
+            pictureBox1.Location = new Point(486, 190);
+            pictureBox1.Margin = new Padding(4, 5, 4, 5);
+            pictureBox1.Name = "pictureBox1";
+            pictureBox1.Size = new Size(600, 347);
+            pictureBox1.TabIndex = 10;
+            pictureBox1.TabStop = false;
+            // 
+            // Form1
+            // 
+            AutoScaleDimensions = new SizeF(10F, 25F);
+            AutoScaleMode = AutoScaleMode.Font;
+            BackColor = Color.FromArgb(250, 250, 250);
+            ClientSize = new Size(1571, 1200);
+            Controls.Add(pictureBox1);
+            Controls.Add(btnStartOrder);
+            Controls.Add(lblDineHint);
+            Controls.Add(lblDesc);
+            Controls.Add(lblTagline);
+            Controls.Add(lblWelcome);
+            Controls.Add(lblFooter);
+            Controls.Add(lblNavBrand);
+            Margin = new Padding(4, 5, 4, 5);
+            MinimumSize = new Size(1585, 1228);
+            Name = "Form1";
+            StartPosition = FormStartPosition.CenterScreen;
+            Text = "🐝 Jollibee Kiosk";
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
+            ResumeLayout(false);
         }
         #endregion
 
-        private System.Windows.Forms.Label  lblBeeEmoji;
-        private System.Windows.Forms.Label  lblBrand;
-        private System.Windows.Forms.Label  lblTagline;
-        private System.Windows.Forms.Label  lblSubtitle;
-        private System.Windows.Forms.Button btnStartOrder;
+        private System.Windows.Forms.Label      lblNavBrand;
+        private System.Windows.Forms.Label      lblFooter;
+        private System.Windows.Forms.Label      lblWelcome;
+        private System.Windows.Forms.Label      lblTagline;
+        private System.Windows.Forms.Label      lblDesc;
+        private System.Windows.Forms.Label      lblDineHint;
+        private System.Windows.Forms.Button     btnStartOrder;
+        private PictureBox pictureBox1;
     }
 }

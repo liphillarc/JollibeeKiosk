@@ -1,212 +1,215 @@
-// FormDiscount.Designer.cs — Screen 5: Discount Selection
-// To edit in Visual Studio Designer: open FormDiscount.cs → Shift+F7
 namespace JollibeeKiosk
 {
     partial class FormDiscount
     {
         private System.ComponentModel.IContainer components = null;
-
         protected override void Dispose(bool disposing)
         {
-            if (disposing && (components != null))
-                components.Dispose();
+            if (disposing && components != null) components.Dispose();
             base.Dispose(disposing);
         }
 
         #region Windows Form Designer generated code
         private void InitializeComponent()
         {
-            this.panelDCHeader     = new System.Windows.Forms.Panel();
-            this.lblDCTitle        = new System.Windows.Forms.Label();
-            this.panelDCBody       = new System.Windows.Forms.Panel();
-            this.grpDiscountType   = new System.Windows.Forms.GroupBox();
-            this.rbtnNoDiscount    = new System.Windows.Forms.RadioButton();
-            this.rbtnSeniorCitizen = new System.Windows.Forms.RadioButton();
-            this.rbtnPWD           = new System.Windows.Forms.RadioButton();
-            this.lblDiscountPreview= new System.Windows.Forms.Label();
-            this.lblDCSubtotal     = new System.Windows.Forms.Label();
-            this.lblDCDiscount     = new System.Windows.Forms.Label();
-            this.lblDCTotal        = new System.Windows.Forms.Label();
-            this.panelDCFooter     = new System.Windows.Forms.Panel();
-            this.btnBack           = new System.Windows.Forms.Button();
-            this.btnConfirmOrder   = new System.Windows.Forms.Button();
-            this.panelDCHeader.SuspendLayout();
-            this.panelDCBody.SuspendLayout();
-            this.grpDiscountType.SuspendLayout();
-            this.panelDCFooter.SuspendLayout();
-            this.SuspendLayout();
-
-            // ── HEADER ───────────────────────────────────────────────────
-            this.lblDCTitle.AutoSize  = false;
-            this.lblDCTitle.Dock      = System.Windows.Forms.DockStyle.Fill;
-            this.lblDCTitle.Font      = new System.Drawing.Font("Segoe UI", 22F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.lblDCTitle.ForeColor = System.Drawing.Color.White;
-            this.lblDCTitle.Name      = "lblDCTitle";
-            this.lblDCTitle.TabIndex  = 0;
-            this.lblDCTitle.Text      = "🎟️  APPLY DISCOUNT";
-            this.lblDCTitle.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-
-            this.panelDCHeader.BackColor = System.Drawing.Color.FromArgb(218, 41, 28);
-            this.panelDCHeader.Controls.Add(this.lblDCTitle);
-            this.panelDCHeader.Dock    = System.Windows.Forms.DockStyle.Top;
-            this.panelDCHeader.Name    = "panelDCHeader";
-            this.panelDCHeader.Size    = new System.Drawing.Size(1000, 85);
-            this.panelDCHeader.TabIndex = 0;
-
-            // ── RADIO BUTTONS (inside GroupBox) ──────────────────────────
-            this.rbtnNoDiscount.AutoSize = false;
-            this.rbtnNoDiscount.Checked  = true;
-            this.rbtnNoDiscount.Font     = new System.Drawing.Font("Segoe UI", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.rbtnNoDiscount.Location = new System.Drawing.Point(25, 35);
-            this.rbtnNoDiscount.Name     = "rbtnNoDiscount";
-            this.rbtnNoDiscount.Size     = new System.Drawing.Size(520, 46);
-            this.rbtnNoDiscount.TabIndex = 0;
-            this.rbtnNoDiscount.TabStop  = true;
-            this.rbtnNoDiscount.Text     = "No Discount — Regular Price";
-            this.rbtnNoDiscount.UseVisualStyleBackColor = true;
-            this.rbtnNoDiscount.CheckedChanged += new System.EventHandler(this.DiscountOption_CheckedChanged);
-
-            this.rbtnSeniorCitizen.AutoSize = false;
-            this.rbtnSeniorCitizen.Font     = new System.Drawing.Font("Segoe UI", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.rbtnSeniorCitizen.Location = new System.Drawing.Point(25, 96);
-            this.rbtnSeniorCitizen.Name     = "rbtnSeniorCitizen";
-            this.rbtnSeniorCitizen.Size     = new System.Drawing.Size(520, 46);
-            this.rbtnSeniorCitizen.TabIndex = 1;
-            this.rbtnSeniorCitizen.Text     = "👴  Senior Citizen  (15% discount)";
-            this.rbtnSeniorCitizen.UseVisualStyleBackColor = true;
-            this.rbtnSeniorCitizen.CheckedChanged += new System.EventHandler(this.DiscountOption_CheckedChanged);
-
-            this.rbtnPWD.AutoSize = false;
-            this.rbtnPWD.Font     = new System.Drawing.Font("Segoe UI", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.rbtnPWD.Location = new System.Drawing.Point(25, 157);
-            this.rbtnPWD.Name     = "rbtnPWD";
-            this.rbtnPWD.Size     = new System.Drawing.Size(520, 46);
-            this.rbtnPWD.TabIndex = 2;
-            this.rbtnPWD.Text     = "♿  PWD / Person with Disability  (15% discount)";
-            this.rbtnPWD.UseVisualStyleBackColor = true;
-            this.rbtnPWD.CheckedChanged += new System.EventHandler(this.DiscountOption_CheckedChanged);
-
-            this.grpDiscountType.Controls.Add(this.rbtnNoDiscount);
-            this.grpDiscountType.Controls.Add(this.rbtnSeniorCitizen);
-            this.grpDiscountType.Controls.Add(this.rbtnPWD);
-            this.grpDiscountType.Font     = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.grpDiscountType.ForeColor= System.Drawing.Color.FromArgb(218, 41, 28);
-            this.grpDiscountType.Location = new System.Drawing.Point(50, 30);
-            this.grpDiscountType.Name     = "grpDiscountType";
-            this.grpDiscountType.Size     = new System.Drawing.Size(600, 225);
-            this.grpDiscountType.TabIndex = 0;
-            this.grpDiscountType.TabStop  = false;
-            this.grpDiscountType.Text     = "Select Discount Type";
-
-            // lblDiscountPreview — italic note about the selected discount
-            this.lblDiscountPreview.AutoSize  = false;
-            this.lblDiscountPreview.Font      = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point);
-            this.lblDiscountPreview.ForeColor = System.Drawing.Color.FromArgb(100, 100, 100);
-            this.lblDiscountPreview.Location  = new System.Drawing.Point(50, 268);
-            this.lblDiscountPreview.Name      = "lblDiscountPreview";
-            this.lblDiscountPreview.Size      = new System.Drawing.Size(700, 32);
-            this.lblDiscountPreview.TabIndex  = 1;
-            this.lblDiscountPreview.Text      = "No discount will be applied.";
-
+            btnBack = new Button();
+            lblBrandLogo = new Label();
+            lblStep = new Label();
+            grpDiscountType = new GroupBox();
+            rbtnNoDiscount = new RadioButton();
+            rbtnSeniorCitizen = new RadioButton();
+            rbtnPWD = new RadioButton();
+            lblDiscountPreview = new Label();
+            lblDCSubtotal = new Label();
+            lblDCDiscount = new Label();
+            lblDivLine = new Label();
+            lblDCTotal = new Label();
+            btnConfirmOrder = new Button();
+            grpDiscountType.SuspendLayout();
+            SuspendLayout();
+            // 
+            // btnBack
+            // 
+            btnBack.BackColor = Color.FromArgb(218, 41, 28);
+            btnBack.Cursor = Cursors.Hand;
+            btnBack.FlatAppearance.BorderSize = 0;
+            btnBack.FlatStyle = FlatStyle.Flat;
+            btnBack.Font = new Font("Segoe UI", 10F, FontStyle.Bold);
+            btnBack.ForeColor = Color.White;
+            btnBack.Location = new Point(12, 12);
+            btnBack.Name = "btnBack";
+            btnBack.Size = new Size(90, 36);
+            btnBack.TabIndex = 1;
+            btnBack.Text = "← Back";
+            btnBack.UseVisualStyleBackColor = false;
+            btnBack.Click += BtnBack_Click;
+            // 
+            // lblBrandLogo
+            // 
+            lblBrandLogo.BackColor = Color.FromArgb(218, 41, 28);
+            lblBrandLogo.Font = new Font("Segoe UI", 16F, FontStyle.Bold);
+            lblBrandLogo.ForeColor = Color.White;
+            lblBrandLogo.Location = new Point(0, 0);
+            lblBrandLogo.Name = "lblBrandLogo";
+            lblBrandLogo.Size = new Size(1100, 60);
+            lblBrandLogo.TabIndex = 0;
+            lblBrandLogo.Text = "           🐝  HAPPYBEE DISCOUNTS";
+            lblBrandLogo.TextAlign = ContentAlignment.MiddleLeft;
+            // 
+            // lblStep
+            // 
+            lblStep.BackColor = Color.FromArgb(218, 41, 28);
+            lblStep.Font = new Font("Segoe UI", 13F, FontStyle.Bold);
+            lblStep.ForeColor = Color.FromArgb(253, 184, 19);
+            lblStep.Location = new Point(600, 0);
+            lblStep.Name = "lblStep";
+            lblStep.Size = new Size(480, 60);
+            lblStep.TabIndex = 2;
+            lblStep.Text = "Step 2 of 2:  Discounts & Promos";
+            lblStep.TextAlign = ContentAlignment.MiddleRight;
+            // 
+            // grpDiscountType
+            // 
+            grpDiscountType.Controls.Add(rbtnNoDiscount);
+            grpDiscountType.Controls.Add(rbtnSeniorCitizen);
+            grpDiscountType.Controls.Add(rbtnPWD);
+            grpDiscountType.Font = new Font("Segoe UI", 11F, FontStyle.Bold);
+            grpDiscountType.ForeColor = Color.FromArgb(218, 41, 28);
+            grpDiscountType.Location = new Point(40, 90);
+            grpDiscountType.Name = "grpDiscountType";
+            grpDiscountType.Size = new Size(600, 240);
+            grpDiscountType.TabIndex = 3;
+            grpDiscountType.TabStop = false;
+            grpDiscountType.Text = "Select Discount Type";
+            // 
+            // rbtnNoDiscount
+            // 
+            rbtnNoDiscount.Checked = true;
+            rbtnNoDiscount.Font = new Font("Segoe UI", 13F);
+            rbtnNoDiscount.Location = new Point(20, 35);
+            rbtnNoDiscount.Name = "rbtnNoDiscount";
+            rbtnNoDiscount.Size = new Size(550, 46);
+            rbtnNoDiscount.TabIndex = 0;
+            rbtnNoDiscount.TabStop = true;
+            rbtnNoDiscount.Text = "No Discount — Regular Price";
+            rbtnNoDiscount.UseVisualStyleBackColor = true;
+            rbtnNoDiscount.CheckedChanged += DiscountOption_CheckedChanged;
+            // 
+            // rbtnSeniorCitizen
+            // 
+            rbtnSeniorCitizen.Font = new Font("Segoe UI", 13F);
+            rbtnSeniorCitizen.Location = new Point(20, 100);
+            rbtnSeniorCitizen.Name = "rbtnSeniorCitizen";
+            rbtnSeniorCitizen.Size = new Size(550, 46);
+            rbtnSeniorCitizen.TabIndex = 1;
+            rbtnSeniorCitizen.Text = "\U0001f9d3  Senior Citizen  (20% discount — RA 9994)";
+            rbtnSeniorCitizen.UseVisualStyleBackColor = true;
+            rbtnSeniorCitizen.CheckedChanged += DiscountOption_CheckedChanged;
+            // 
+            // rbtnPWD
+            // 
+            rbtnPWD.Font = new Font("Segoe UI", 13F);
+            rbtnPWD.Location = new Point(20, 165);
+            rbtnPWD.Name = "rbtnPWD";
+            rbtnPWD.Size = new Size(550, 46);
+            rbtnPWD.TabIndex = 2;
+            rbtnPWD.Text = "♿  PWD / Person with Disability  (15% discount)";
+            rbtnPWD.UseVisualStyleBackColor = true;
+            rbtnPWD.CheckedChanged += DiscountOption_CheckedChanged;
+            // 
+            // lblDiscountPreview
+            // 
+            lblDiscountPreview.Font = new Font("Segoe UI", 11F, FontStyle.Italic);
+            lblDiscountPreview.ForeColor = Color.FromArgb(130, 130, 130);
+            lblDiscountPreview.Location = new Point(680, 100);
+            lblDiscountPreview.Name = "lblDiscountPreview";
+            lblDiscountPreview.Size = new Size(380, 34);
+            lblDiscountPreview.TabIndex = 4;
+            lblDiscountPreview.Text = "No discount will be applied.";
+            // 
             // lblDCSubtotal
-            this.lblDCSubtotal.AutoSize  = false;
-            this.lblDCSubtotal.Font      = new System.Drawing.Font("Segoe UI", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.lblDCSubtotal.ForeColor = System.Drawing.Color.FromArgb(80, 80, 80);
-            this.lblDCSubtotal.Location  = new System.Drawing.Point(50, 315);
-            this.lblDCSubtotal.Name      = "lblDCSubtotal";
-            this.lblDCSubtotal.Size      = new System.Drawing.Size(600, 38);
-            this.lblDCSubtotal.TabIndex  = 2;
-            this.lblDCSubtotal.Text      = "Subtotal:        ₱0.00";
-
+            // 
+            lblDCSubtotal.Font = new Font("Segoe UI", 14F);
+            lblDCSubtotal.ForeColor = Color.FromArgb(80, 80, 80);
+            lblDCSubtotal.Location = new Point(680, 145);
+            lblDCSubtotal.Name = "lblDCSubtotal";
+            lblDCSubtotal.Size = new Size(380, 38);
+            lblDCSubtotal.TabIndex = 5;
+            lblDCSubtotal.Text = "Subtotal:   ₱0.00";
+            // 
             // lblDCDiscount
-            this.lblDCDiscount.AutoSize  = false;
-            this.lblDCDiscount.Font      = new System.Drawing.Font("Segoe UI", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.lblDCDiscount.ForeColor = System.Drawing.Color.FromArgb(218, 41, 28);
-            this.lblDCDiscount.Location  = new System.Drawing.Point(50, 358);
-            this.lblDCDiscount.Name      = "lblDCDiscount";
-            this.lblDCDiscount.Size      = new System.Drawing.Size(600, 38);
-            this.lblDCDiscount.TabIndex  = 3;
-            this.lblDCDiscount.Text      = "Discount (None):   -₱0.00";
-
-            // lblDCTotal — large red total
-            this.lblDCTotal.AutoSize  = false;
-            this.lblDCTotal.Font      = new System.Drawing.Font("Segoe UI", 20F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.lblDCTotal.ForeColor = System.Drawing.Color.FromArgb(218, 41, 28);
-            this.lblDCTotal.Location  = new System.Drawing.Point(50, 408);
-            this.lblDCTotal.Name      = "lblDCTotal";
-            this.lblDCTotal.Size      = new System.Drawing.Size(600, 55);
-            this.lblDCTotal.TabIndex  = 4;
-            this.lblDCTotal.Text      = "TOTAL:           ₱0.00";
-
-            // panelDCBody — white area containing all the discount controls
-            this.panelDCBody.BackColor = System.Drawing.Color.White;
-            this.panelDCBody.Controls.Add(this.grpDiscountType);
-            this.panelDCBody.Controls.Add(this.lblDiscountPreview);
-            this.panelDCBody.Controls.Add(this.lblDCSubtotal);
-            this.panelDCBody.Controls.Add(this.lblDCDiscount);
-            this.panelDCBody.Controls.Add(this.lblDCTotal);
-            this.panelDCBody.Dock     = System.Windows.Forms.DockStyle.Fill;
-            this.panelDCBody.Name     = "panelDCBody";
-            this.panelDCBody.TabIndex = 1;
-
-            // ── FOOTER ───────────────────────────────────────────────────
-            this.btnBack.Cursor            = System.Windows.Forms.Cursors.Hand;
-            this.btnBack.FlatStyle         = System.Windows.Forms.FlatStyle.Flat;
-            this.btnBack.Font              = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.btnBack.Location          = new System.Drawing.Point(630, 20);
-            this.btnBack.Name              = "btnBack";
-            this.btnBack.Size              = new System.Drawing.Size(130, 44);
-            this.btnBack.TabIndex          = 0;
-            this.btnBack.Text              = "← Back";
-            this.btnBack.UseVisualStyleBackColor = true;
-            this.btnBack.Click             += new System.EventHandler(this.BtnBack_Click);
-
-            this.btnConfirmOrder.BackColor                 = System.Drawing.Color.FromArgb(34, 139, 34);
-            this.btnConfirmOrder.Cursor                    = System.Windows.Forms.Cursors.Hand;
-            this.btnConfirmOrder.FlatStyle                 = System.Windows.Forms.FlatStyle.Flat;
-            this.btnConfirmOrder.FlatAppearance.BorderSize = 0;
-            this.btnConfirmOrder.Font                      = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.btnConfirmOrder.ForeColor                 = System.Drawing.Color.White;
-            this.btnConfirmOrder.Location                  = new System.Drawing.Point(770, 17);
-            this.btnConfirmOrder.Name                      = "btnConfirmOrder";
-            this.btnConfirmOrder.Size                      = new System.Drawing.Size(212, 50);
-            this.btnConfirmOrder.TabIndex                  = 1;
-            this.btnConfirmOrder.Text                      = "✅  CONFIRM ORDER";
-            this.btnConfirmOrder.UseVisualStyleBackColor   = false;
-            this.btnConfirmOrder.Click                     += new System.EventHandler(this.BtnConfirmOrder_Click);
-
-            this.panelDCFooter.BackColor = System.Drawing.Color.FromArgb(238, 238, 238);
-            this.panelDCFooter.Controls.Add(this.btnBack);
-            this.panelDCFooter.Controls.Add(this.btnConfirmOrder);
-            this.panelDCFooter.Dock     = System.Windows.Forms.DockStyle.Bottom;
-            this.panelDCFooter.Name     = "panelDCFooter";
-            this.panelDCFooter.Size     = new System.Drawing.Size(1000, 85);
-            this.panelDCFooter.TabIndex = 2;
-
+            // 
+            lblDCDiscount.Font = new Font("Segoe UI", 14F, FontStyle.Bold);
+            lblDCDiscount.ForeColor = Color.FromArgb(34, 139, 34);
+            lblDCDiscount.Location = new Point(680, 190);
+            lblDCDiscount.Name = "lblDCDiscount";
+            lblDCDiscount.Size = new Size(380, 38);
+            lblDCDiscount.TabIndex = 6;
+            lblDCDiscount.Text = "Discount:   −₱0.00";
+            // 
+            // lblDivLine
+            // 
+            lblDivLine.BorderStyle = BorderStyle.Fixed3D;
+            lblDivLine.Location = new Point(680, 235);
+            lblDivLine.Name = "lblDivLine";
+            lblDivLine.Size = new Size(380, 2);
+            lblDivLine.TabIndex = 7;
+            // 
+            // lblDCTotal
+            // 
+            lblDCTotal.Font = new Font("Segoe UI", 24F, FontStyle.Bold);
+            lblDCTotal.ForeColor = Color.FromArgb(218, 41, 28);
+            lblDCTotal.Location = new Point(680, 250);
+            lblDCTotal.Name = "lblDCTotal";
+            lblDCTotal.Size = new Size(380, 60);
+            lblDCTotal.TabIndex = 8;
+            lblDCTotal.Text = "TOTAL:   ₱0.00";
+            // 
+            // btnConfirmOrder
+            // 
+            btnConfirmOrder.BackColor = Color.FromArgb(34, 139, 34);
+            btnConfirmOrder.Cursor = Cursors.Hand;
+            btnConfirmOrder.FlatAppearance.BorderSize = 0;
+            btnConfirmOrder.FlatStyle = FlatStyle.Flat;
+            btnConfirmOrder.Font = new Font("Segoe UI", 16F, FontStyle.Bold);
+            btnConfirmOrder.ForeColor = Color.White;
+            btnConfirmOrder.Location = new Point(680, 330);
+            btnConfirmOrder.Name = "btnConfirmOrder";
+            btnConfirmOrder.Size = new Size(380, 70);
+            btnConfirmOrder.TabIndex = 9;
+            btnConfirmOrder.Text = "✅   CONFIRM ORDER";
+            btnConfirmOrder.UseVisualStyleBackColor = false;
+            btnConfirmOrder.Click += BtnConfirmOrder_Click;
+            // 
             // FormDiscount
-            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
-            this.AutoScaleMode       = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor           = System.Drawing.Color.White;
-            this.ClientSize          = new System.Drawing.Size(1000, 720);
-            this.Controls.Add(this.panelDCBody);     // Fill
-            this.Controls.Add(this.panelDCFooter);   // Bottom
-            this.Controls.Add(this.panelDCHeader);   // Top
-            this.MinimumSize         = new System.Drawing.Size(1016, 759);
-            this.Name                = "FormDiscount";
-            this.StartPosition       = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text                = "🐝 Jollibee Kiosk — Discount";
-            this.Load                += new System.EventHandler(this.FormDiscount_Load);
-            this.panelDCHeader.ResumeLayout(false);
-            this.panelDCBody.ResumeLayout(false);
-            this.grpDiscountType.ResumeLayout(false);
-            this.panelDCFooter.ResumeLayout(false);
-            this.ResumeLayout(false);
+            // 
+            AutoScaleDimensions = new SizeF(7F, 15F);
+            AutoScaleMode = AutoScaleMode.Font;
+            BackColor = Color.White;
+            ClientSize = new Size(1100, 720);
+            Controls.Add(btnConfirmOrder);
+            Controls.Add(lblDCTotal);
+            Controls.Add(lblDivLine);
+            Controls.Add(lblDCDiscount);
+            Controls.Add(lblDCSubtotal);
+            Controls.Add(lblDiscountPreview);
+            Controls.Add(grpDiscountType);
+            Controls.Add(lblStep);
+            Controls.Add(btnBack);
+            Controls.Add(lblBrandLogo);
+            MinimumSize = new Size(1116, 759);
+            Name = "FormDiscount";
+            StartPosition = FormStartPosition.CenterScreen;
+            Text = "🐝 Jollibee Kiosk — Discount";
+            Load += FormDiscount_Load;
+            grpDiscountType.ResumeLayout(false);
+            ResumeLayout(false);
         }
         #endregion
 
-        private System.Windows.Forms.Panel       panelDCHeader;
-        private System.Windows.Forms.Label       lblDCTitle;
-        private System.Windows.Forms.Panel       panelDCBody;
+        private System.Windows.Forms.Button      btnBack;
+        private System.Windows.Forms.Label       lblBrandLogo;
+        private System.Windows.Forms.Label       lblStep;
         private System.Windows.Forms.GroupBox    grpDiscountType;
         private System.Windows.Forms.RadioButton rbtnNoDiscount;
         private System.Windows.Forms.RadioButton rbtnSeniorCitizen;
@@ -214,9 +217,8 @@ namespace JollibeeKiosk
         private System.Windows.Forms.Label       lblDiscountPreview;
         private System.Windows.Forms.Label       lblDCSubtotal;
         private System.Windows.Forms.Label       lblDCDiscount;
+        private System.Windows.Forms.Label       lblDivLine;
         private System.Windows.Forms.Label       lblDCTotal;
-        private System.Windows.Forms.Panel       panelDCFooter;
-        private System.Windows.Forms.Button      btnBack;
         private System.Windows.Forms.Button      btnConfirmOrder;
     }
 }
