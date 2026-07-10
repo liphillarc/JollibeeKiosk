@@ -14,9 +14,9 @@ namespace JollibeeKiosk.Services
             string dashLine = new string('-', ReceiptWidth);
 
             sb.AppendLine(line);
-            sb.AppendLine(CenterText("🐝  JOLLIBEE", ReceiptWidth));
+            sb.AppendLine(CenterText("🐝  HAPPYBEE", ReceiptWidth));
             sb.AppendLine(CenterText("Bida ang Sarap!", ReceiptWidth));
-            sb.AppendLine(CenterText("www.jollibee.com.ph", ReceiptWidth));
+            sb.AppendLine(CenterText("www.happybee.com.ph", ReceiptWidth));
             sb.AppendLine(dashLine);
             sb.AppendLine($"Date      : {DateTime.Now:MM/dd/yyyy  hh:mm tt}");
             sb.AppendLine($"Order Type: {order.OrderType}");

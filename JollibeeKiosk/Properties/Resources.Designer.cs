@@ -63,6 +63,17 @@ namespace JollibeeKiosk.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap _07c338f3_0268_4cca_93a9_8de88b1a9e0c_76bc42db_6a5f_4533_bb21_c75949c9e70d_1871562_image_removebg_preview {
+            get {
+                object obj = ResourceManager.GetObject("07c338f3-0268-4cca-93a9-8de88b1a9e0c_76bc42db-6a5f-4533-bb21-c75949c9e70d_1871562" +
+                        "_image-removebg-preview", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap _568d2d03_2e6a_4762_ba81_51f1ff092f98 {
             get {
                 object obj = ResourceManager.GetObject("568d2d03-2e6a-4762-ba81-51f1ff092f98", resourceCulture);

@@ -25,7 +25,7 @@ namespace JollibeeKiosk
             // 
             // lblNavBrand
             // 
-            lblNavBrand.BackColor = Color.White;
+            lblNavBrand.BackColor = Color.Transparent;
             lblNavBrand.Font = new Font("Segoe UI", 16F, FontStyle.Bold);
             lblNavBrand.ForeColor = Color.FromArgb(218, 41, 28);
             lblNavBrand.Location = new Point(696, 0);
@@ -91,7 +91,7 @@ namespace JollibeeKiosk
             btnStartOrder.FlatStyle = FlatStyle.Flat;
             btnStartOrder.Font = new Font("Segoe UI", 18F, FontStyle.Bold);
             btnStartOrder.ForeColor = Color.FromArgb(120, 15, 5);
-            btnStartOrder.Location = new Point(486, 807);
+            btnStartOrder.Location = new Point(485, 807);
             btnStartOrder.Margin = new Padding(4, 5, 4, 5);
             btnStartOrder.Name = "btnStartOrder";
             btnStartOrder.Size = new Size(600, 133);
@@ -113,9 +113,9 @@ namespace JollibeeKiosk
             // 
             // pictureBox1
             // 
-            pictureBox1.BackgroundImage = Properties.Resources.download__1_;
+            pictureBox1.BackgroundImage = Properties.Resources._07c338f3_0268_4cca_93a9_8de88b1a9e0c_76bc42db_6a5f_4533_bb21_c75949c9e70d_1871562_image_removebg_preview;
             pictureBox1.BackgroundImageLayout = ImageLayout.Zoom;
-            pictureBox1.Location = new Point(486, 190);
+            pictureBox1.Location = new Point(486, 200);
             pictureBox1.Margin = new Padding(4, 5, 4, 5);
             pictureBox1.Name = "pictureBox1";
             pictureBox1.Size = new Size(600, 347);
