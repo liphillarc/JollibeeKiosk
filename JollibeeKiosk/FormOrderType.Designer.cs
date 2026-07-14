@@ -78,6 +78,7 @@ namespace JollibeeKiosk
             // btnDineIn
             // 
             btnDineIn.BackColor = Color.White;
+            btnDineIn.BackgroundImage = Properties.Resources.Screenshot_2026_07_14_160113;
             btnDineIn.Cursor = Cursors.Hand;
             btnDineIn.FlatAppearance.BorderColor = Color.FromArgb(220, 220, 220);
             btnDineIn.FlatAppearance.BorderSize = 2;
@@ -96,7 +97,8 @@ namespace JollibeeKiosk
             // 
             // btnTakeOut
             // 
-            btnTakeOut.BackColor = Color.White;
+            btnTakeOut.BackColor = Color.Red;
+            btnTakeOut.BackgroundImage = Properties.Resources.Screenshot_2026_07_14_160113;
             btnTakeOut.Cursor = Cursors.Hand;
             btnTakeOut.FlatAppearance.BorderColor = Color.FromArgb(220, 220, 220);
             btnTakeOut.FlatAppearance.BorderSize = 2;

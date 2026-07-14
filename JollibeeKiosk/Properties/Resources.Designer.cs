@@ -74,6 +74,36 @@ namespace JollibeeKiosk.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap _19356_spaghetti_italian_VAT_Beauty_4x3_af05b7565e014c16b1c5f86d45a18738 {
+            get {
+                object obj = ResourceManager.GetObject("19356-spaghetti-italian-VAT-Beauty-4x3-af05b7565e014c16b1c5f86d45a18738", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap _2_PCS__CHICKEN_MEAL {
+            get {
+                object obj = ResourceManager.GetObject("2-PCS.-CHICKEN-MEAL", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap _25473_the_perfect_basic_burger_DDMFS_4x3_56eaba3833fd4a26a82755bcd0be0c54 {
+            get {
+                object obj = ResourceManager.GetObject("25473-the-perfect-basic-burger-DDMFS-4x3-56eaba3833fd4a26a82755bcd0be0c54", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap _568d2d03_2e6a_4762_ba81_51f1ff092f98 {
             get {
                 object obj = ResourceManager.GetObject("568d2d03-2e6a-4762-ba81-51f1ff092f98", resourceCulture);
@@ -114,6 +144,36 @@ namespace JollibeeKiosk.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap Gemini_Generated_Image_8fqos98fqos98fqo {
+            get {
+                object obj = ResourceManager.GetObject("Gemini_Generated_Image_8fqos98fqos98fqo", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Gemini_Generated_Image_brmlarbrmlarbrml {
+            get {
+                object obj = ResourceManager.GetObject("Gemini_Generated_Image_brmlarbrmlarbrml", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Gemini_Generated_Image_fj4lthfj4lthfj4l {
+            get {
+                object obj = ResourceManager.GetObject("Gemini_Generated_Image_fj4lthfj4lthfj4l", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap Gemini_Generated_Image_rmruy7rmruy7rmru {
             get {
                 object obj = ResourceManager.GetObject("Gemini_Generated_Image_rmruy7rmruy7rmru", resourceCulture);
@@ -144,9 +204,99 @@ namespace JollibeeKiosk.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap Hot_dog_in_bun {
+            get {
+                object obj = ResourceManager.GetObject("Hot dog in bun", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap images {
+            get {
+                object obj = ResourceManager.GetObject("images", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap images__1_ {
+            get {
+                object obj = ResourceManager.GetObject("images (1)", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap images__2_ {
+            get {
+                object obj = ResourceManager.GetObject("images (2)", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap images__3_ {
+            get {
+                object obj = ResourceManager.GetObject("images (3)", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap peach_mango_pie {
+            get {
+                object obj = ResourceManager.GetObject("peach-mango-pie", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap Screenshot_2026_07_09_153110 {
             get {
                 object obj = ResourceManager.GetObject("Screenshot 2026-07-09 153110", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Screenshot_2026_07_14_160113 {
+            get {
+                object obj = ResourceManager.GetObject("Screenshot 2026-07-14 160113", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap shutterstock_663493165_1_1649746177 {
+            get {
+                object obj = ResourceManager.GetObject("shutterstock-663493165-1-1649746177", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap SIZZLING_BURGER_STEAK {
+            get {
+                object obj = ResourceManager.GetObject("SIZZLING-BURGER-STEAK", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
