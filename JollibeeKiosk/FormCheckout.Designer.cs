@@ -12,732 +12,879 @@ namespace JollibeeKiosk
         #region Windows Form Designer generated code
         private void InitializeComponent()
         {
-            this.btnBack          = new System.Windows.Forms.Button();
-            this.lblHeader        = new System.Windows.Forms.Label();
-            this.lblSubheader     = new System.Windows.Forms.Label();
-            this.lblOrderBadge    = new System.Windows.Forms.Label();
-            this.lblReviewTitle   = new System.Windows.Forms.Label();
-            this.btnAddMoreItems  = new System.Windows.Forms.Button();
-
-            // Checkout Item Row 1
-            this.picCOItem1   = new System.Windows.Forms.PictureBox();
-            this.lblCOName1   = new System.Windows.Forms.Label();
-            this.lblCOPrice1  = new System.Windows.Forms.Label();
-            this.btnCOMinus1  = new System.Windows.Forms.Button();
-            this.lblCOQty1    = new System.Windows.Forms.Label();
-            this.btnCOPlus1   = new System.Windows.Forms.Button();
-            this.lblCOSub1    = new System.Windows.Forms.Label();
-            this.btnCODelete1 = new System.Windows.Forms.Button();
-
-            // Checkout Item Row 2
-            this.picCOItem2   = new System.Windows.Forms.PictureBox();
-            this.lblCOName2   = new System.Windows.Forms.Label();
-            this.lblCOPrice2  = new System.Windows.Forms.Label();
-            this.btnCOMinus2  = new System.Windows.Forms.Button();
-            this.lblCOQty2    = new System.Windows.Forms.Label();
-            this.btnCOPlus2   = new System.Windows.Forms.Button();
-            this.lblCOSub2    = new System.Windows.Forms.Label();
-            this.btnCODelete2 = new System.Windows.Forms.Button();
-
-            // Checkout Item Row 3
-            this.picCOItem3   = new System.Windows.Forms.PictureBox();
-            this.lblCOName3   = new System.Windows.Forms.Label();
-            this.lblCOPrice3  = new System.Windows.Forms.Label();
-            this.btnCOMinus3  = new System.Windows.Forms.Button();
-            this.lblCOQty3    = new System.Windows.Forms.Label();
-            this.btnCOPlus3   = new System.Windows.Forms.Button();
-            this.lblCOSub3    = new System.Windows.Forms.Label();
-            this.btnCODelete3 = new System.Windows.Forms.Button();
-
-            // Checkout Item Row 4
-            this.picCOItem4   = new System.Windows.Forms.PictureBox();
-            this.lblCOName4   = new System.Windows.Forms.Label();
-            this.lblCOPrice4  = new System.Windows.Forms.Label();
-            this.btnCOMinus4  = new System.Windows.Forms.Button();
-            this.lblCOQty4    = new System.Windows.Forms.Label();
-            this.btnCOPlus4   = new System.Windows.Forms.Button();
-            this.lblCOSub4    = new System.Windows.Forms.Label();
-            this.btnCODelete4 = new System.Windows.Forms.Button();
-
-            // Checkout Item Row 5
-            this.picCOItem5   = new System.Windows.Forms.PictureBox();
-            this.lblCOName5   = new System.Windows.Forms.Label();
-            this.lblCOPrice5  = new System.Windows.Forms.Label();
-            this.btnCOMinus5  = new System.Windows.Forms.Button();
-            this.lblCOQty5    = new System.Windows.Forms.Label();
-            this.btnCOPlus5   = new System.Windows.Forms.Button();
-            this.lblCOSub5    = new System.Windows.Forms.Label();
-            this.btnCODelete5 = new System.Windows.Forms.Button();
-
-            // Checkout Item Row 6
-            this.picCOItem6   = new System.Windows.Forms.PictureBox();
-            this.lblCOName6   = new System.Windows.Forms.Label();
-            this.lblCOPrice6  = new System.Windows.Forms.Label();
-            this.btnCOMinus6  = new System.Windows.Forms.Button();
-            this.lblCOQty6    = new System.Windows.Forms.Label();
-            this.btnCOPlus6   = new System.Windows.Forms.Button();
-            this.lblCOSub6    = new System.Windows.Forms.Label();
-            this.btnCODelete6 = new System.Windows.Forms.Button();
-
-            // Right Card: Discounts & Promos + Totals + Confirm Button
-            this.grpDiscounts     = new System.Windows.Forms.GroupBox();
-            this.rbtnRegular      = new System.Windows.Forms.RadioButton();
-            this.rbtnSenior       = new System.Windows.Forms.RadioButton();
-            this.rbtnPWD          = new System.Windows.Forms.RadioButton();
-
-            this.lblCOSubtotalAmt = new System.Windows.Forms.Label();
-            this.lblCODiscountAmt = new System.Windows.Forms.Label();
-            this.lblCOTotalAmt    = new System.Windows.Forms.Label();
-            this.btnConfirmOrder  = new System.Windows.Forms.Button();
-
-            ((System.ComponentModel.ISupportInitialize)this.picCOItem1).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)this.picCOItem2).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)this.picCOItem3).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)this.picCOItem4).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)this.picCOItem5).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)this.picCOItem6).BeginInit();
-            this.grpDiscounts.SuspendLayout();
-            this.SuspendLayout();
-
-            // ── TOP HEADER BAR (Dock=Top for clean full-screen stretching) ──
-            this.lblHeader.BackColor = System.Drawing.Color.FromArgb(218, 41, 28);
-            this.lblHeader.Dock      = System.Windows.Forms.DockStyle.Top;
-            this.lblHeader.Font      = new System.Drawing.Font("Segoe UI", 16F, System.Drawing.FontStyle.Bold);
-            this.lblHeader.ForeColor = System.Drawing.Color.White;
-            this.lblHeader.Location  = new System.Drawing.Point(0, 0);
-            this.lblHeader.Name      = "lblHeader";
-            this.lblHeader.Size      = new System.Drawing.Size(1280, 60);
-            this.lblHeader.TabIndex  = 0;
-            this.lblHeader.Text      = "           ✓  CHECKOUT & REVIEW";
-            this.lblHeader.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-
-            this.btnBack.BackColor                 = System.Drawing.Color.FromArgb(218, 41, 28);
-            this.btnBack.Cursor                    = System.Windows.Forms.Cursors.Hand;
-            this.btnBack.FlatStyle                 = System.Windows.Forms.FlatStyle.Flat;
-            this.btnBack.FlatAppearance.BorderSize = 0;
-            this.btnBack.Font                      = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold);
-            this.btnBack.ForeColor                 = System.Drawing.Color.White;
-            this.btnBack.Location                  = new System.Drawing.Point(12, 12);
-            this.btnBack.Name                      = "btnBack";
-            this.btnBack.Size                      = new System.Drawing.Size(90, 36);
-            this.btnBack.TabIndex                  = 1;
-            this.btnBack.Text                      = "← Go Back";
-            this.btnBack.UseVisualStyleBackColor   = false;
-            this.btnBack.Click                    += new System.EventHandler(this.BtnBack_Click);
-
-            this.lblOrderBadge.Anchor    = ((System.Windows.Forms.AnchorStyles)(System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right));
-            this.lblOrderBadge.BackColor = System.Drawing.Color.FromArgb(218, 41, 28);
-            this.lblOrderBadge.Font      = new System.Drawing.Font("Segoe UI", 13F, System.Drawing.FontStyle.Bold);
-            this.lblOrderBadge.ForeColor = System.Drawing.Color.FromArgb(253, 184, 19);
-            this.lblOrderBadge.Location  = new System.Drawing.Point(980, 0);
-            this.lblOrderBadge.Name      = "lblOrderBadge";
-            this.lblOrderBadge.Size      = new System.Drawing.Size(280, 60);
-            this.lblOrderBadge.TabIndex  = 2;
-            this.lblOrderBadge.Text      = "Dine In Order";
-            this.lblOrderBadge.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-
-            this.lblSubheader.Font      = new System.Drawing.Font("Segoe UI", 11F);
-            this.lblSubheader.ForeColor = System.Drawing.Color.FromArgb(100, 100, 100);
-            this.lblSubheader.Location  = new System.Drawing.Point(30, 70);
-            this.lblSubheader.Name      = "lblSubheader";
-            this.lblSubheader.Size      = new System.Drawing.Size(500, 25);
-            this.lblSubheader.TabIndex  = 3;
-            this.lblSubheader.Text      = "Please review your order items and select any applicable discount.";
-
-            // ── LEFT SECTION HEADER ──────────────────────────────────────
-            this.lblReviewTitle.Font      = new System.Drawing.Font("Segoe UI", 14F, System.Drawing.FontStyle.Bold);
-            this.lblReviewTitle.ForeColor = System.Drawing.Color.FromArgb(30, 30, 30);
-            this.lblReviewTitle.Location  = new System.Drawing.Point(30, 110);
-            this.lblReviewTitle.Name      = "lblReviewTitle";
-            this.lblReviewTitle.Size      = new System.Drawing.Size(300, 30);
-            this.lblReviewTitle.TabIndex  = 4;
-            this.lblReviewTitle.Text      = "Review Items";
-
-            this.btnAddMoreItems.Cursor                    = System.Windows.Forms.Cursors.Hand;
-            this.btnAddMoreItems.FlatStyle                 = System.Windows.Forms.FlatStyle.Flat;
-            this.btnAddMoreItems.FlatAppearance.BorderSize = 1;
-            this.btnAddMoreItems.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(218, 41, 28);
-            this.btnAddMoreItems.Font                      = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Bold);
-            this.btnAddMoreItems.ForeColor                 = System.Drawing.Color.FromArgb(218, 41, 28);
-            this.btnAddMoreItems.Location                  = new System.Drawing.Point(530, 105);
-            this.btnAddMoreItems.Name                      = "btnAddMoreItems";
-            this.btnAddMoreItems.Size                      = new System.Drawing.Size(180, 36);
-            this.btnAddMoreItems.TabIndex                  = 5;
-            this.btnAddMoreItems.Text                      = "+ Add more items";
-            this.btnAddMoreItems.UseVisualStyleBackColor   = false;
-            this.btnAddMoreItems.Click                    += new System.EventHandler(this.BtnAddMoreItems_Click);
-
-            // ════════════════════════════════════════════════════════════
-            //  CHECKOUT ITEM ROWS (Static PictureBox + Controls on Left/Center)
-            // ════════════════════════════════════════════════════════════
-
-            // ── ROW 1 (Y = 160) ──────────────────────────────────────────
-            this.picCOItem1.BackColor   = System.Drawing.Color.FromArgb(255, 248, 240);
-            this.picCOItem1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.picCOItem1.Location    = new System.Drawing.Point(30, 160);
-            this.picCOItem1.Name        = "picCOItem1";
-            this.picCOItem1.Size        = new System.Drawing.Size(90, 70);
-            this.picCOItem1.SizeMode    = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.picCOItem1.TabIndex    = 10;
-            this.picCOItem1.TabStop     = false;
-
-            this.lblCOName1.Font      = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold);
-            this.lblCOName1.Location  = new System.Drawing.Point(135, 165);
-            this.lblCOName1.Name      = "lblCOName1";
-            this.lblCOName1.Size      = new System.Drawing.Size(220, 28);
-            this.lblCOName1.Text      = "Item Name 1";
-
-            this.lblCOPrice1.Font      = new System.Drawing.Font("Segoe UI", 11F);
-            this.lblCOPrice1.ForeColor = System.Drawing.Color.FromArgb(120, 120, 120);
-            this.lblCOPrice1.Location  = new System.Drawing.Point(135, 195);
-            this.lblCOPrice1.Name      = "lblCOPrice1";
-            this.lblCOPrice1.Size      = new System.Drawing.Size(220, 24);
-            this.lblCOPrice1.Text      = "₱0.00";
-
-            this.btnCOMinus1.BackColor = System.Drawing.Color.FromArgb(235, 235, 235);
-            this.btnCOMinus1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnCOMinus1.Font      = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Bold);
-            this.btnCOMinus1.Location  = new System.Drawing.Point(370, 175);
-            this.btnCOMinus1.Name      = "btnCOMinus1";
-            this.btnCOMinus1.Size      = new System.Drawing.Size(34, 34);
-            this.btnCOMinus1.Text      = "−";
-            this.btnCOMinus1.Click    += new System.EventHandler(this.BtnCOMinus1_Click);
-
-            this.lblCOQty1.Font      = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold);
-            this.lblCOQty1.Location  = new System.Drawing.Point(404, 175);
-            this.lblCOQty1.Name      = "lblCOQty1";
-            this.lblCOQty1.Size      = new System.Drawing.Size(46, 34);
-            this.lblCOQty1.Text      = "1";
-            this.lblCOQty1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-
-            this.btnCOPlus1.BackColor = System.Drawing.Color.FromArgb(235, 235, 235);
-            this.btnCOPlus1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnCOPlus1.Font      = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Bold);
-            this.btnCOPlus1.Location  = new System.Drawing.Point(450, 175);
-            this.btnCOPlus1.Name      = "btnCOPlus1";
-            this.btnCOPlus1.Size      = new System.Drawing.Size(34, 34);
-            this.btnCOPlus1.Text      = "+";
-            this.btnCOPlus1.Click    += new System.EventHandler(this.BtnCOPlus1_Click);
-
-            this.lblCOSub1.Font      = new System.Drawing.Font("Segoe UI", 13F, System.Drawing.FontStyle.Bold);
-            this.lblCOSub1.ForeColor = System.Drawing.Color.FromArgb(30, 30, 30);
-            this.lblCOSub1.Location  = new System.Drawing.Point(510, 175);
-            this.lblCOSub1.Name      = "lblCOSub1";
-            this.lblCOSub1.Size      = new System.Drawing.Size(130, 34);
-            this.lblCOSub1.Text      = "₱0.00";
-            this.lblCOSub1.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-
-            this.btnCODelete1.BackColor = System.Drawing.Color.FromArgb(255, 235, 235);
-            this.btnCODelete1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnCODelete1.Font      = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Bold);
-            this.btnCODelete1.ForeColor = System.Drawing.Color.FromArgb(218, 41, 28);
-            this.btnCODelete1.Location  = new System.Drawing.Point(660, 175);
-            this.btnCODelete1.Name      = "btnCODelete1";
-            this.btnCODelete1.Size      = new System.Drawing.Size(46, 34);
-            this.btnCODelete1.Text      = "🗑";
-            this.btnCODelete1.Click    += new System.EventHandler(this.BtnCODelete1_Click);
-
-            // ── ROW 2 (Y = 250) ──────────────────────────────────────────
-            this.picCOItem2.BackColor   = System.Drawing.Color.FromArgb(255, 248, 240);
-            this.picCOItem2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.picCOItem2.Location    = new System.Drawing.Point(30, 250);
-            this.picCOItem2.Name        = "picCOItem2";
-            this.picCOItem2.Size        = new System.Drawing.Size(90, 70);
-            this.picCOItem2.SizeMode    = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.picCOItem2.TabIndex    = 20;
-
-            this.lblCOName2.Font      = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold);
-            this.lblCOName2.Location  = new System.Drawing.Point(135, 255);
-            this.lblCOName2.Name      = "lblCOName2";
-            this.lblCOName2.Size      = new System.Drawing.Size(220, 28);
-            this.lblCOName2.Text      = "Item Name 2";
-
-            this.lblCOPrice2.Font      = new System.Drawing.Font("Segoe UI", 11F);
-            this.lblCOPrice2.ForeColor = System.Drawing.Color.FromArgb(120, 120, 120);
-            this.lblCOPrice2.Location  = new System.Drawing.Point(135, 285);
-            this.lblCOPrice2.Name      = "lblCOPrice2";
-            this.lblCOPrice2.Size      = new System.Drawing.Size(220, 24);
-            this.lblCOPrice2.Text      = "₱0.00";
-
-            this.btnCOMinus2.BackColor = System.Drawing.Color.FromArgb(235, 235, 235);
-            this.btnCOMinus2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnCOMinus2.Font      = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Bold);
-            this.btnCOMinus2.Location  = new System.Drawing.Point(370, 265);
-            this.btnCOMinus2.Name      = "btnCOMinus2";
-            this.btnCOMinus2.Size      = new System.Drawing.Size(34, 34);
-            this.btnCOMinus2.Text      = "−";
-            this.btnCOMinus2.Click    += new System.EventHandler(this.BtnCOMinus2_Click);
-
-            this.lblCOQty2.Font      = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold);
-            this.lblCOQty2.Location  = new System.Drawing.Point(404, 265);
-            this.lblCOQty2.Name      = "lblCOQty2";
-            this.lblCOQty2.Size      = new System.Drawing.Size(46, 34);
-            this.lblCOQty2.Text      = "1";
-            this.lblCOQty2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-
-            this.btnCOPlus2.BackColor = System.Drawing.Color.FromArgb(235, 235, 235);
-            this.btnCOPlus2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnCOPlus2.Font      = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Bold);
-            this.btnCOPlus2.Location  = new System.Drawing.Point(450, 265);
-            this.btnCOPlus2.Name      = "btnCOPlus2";
-            this.btnCOPlus2.Size      = new System.Drawing.Size(34, 34);
-            this.btnCOPlus2.Text      = "+";
-            this.btnCOPlus2.Click    += new System.EventHandler(this.BtnCOPlus2_Click);
-
-            this.lblCOSub2.Font      = new System.Drawing.Font("Segoe UI", 13F, System.Drawing.FontStyle.Bold);
-            this.lblCOSub2.ForeColor = System.Drawing.Color.FromArgb(30, 30, 30);
-            this.lblCOSub2.Location  = new System.Drawing.Point(510, 265);
-            this.lblCOSub2.Name      = "lblCOSub2";
-            this.lblCOSub2.Size      = new System.Drawing.Size(130, 34);
-            this.lblCOSub2.Text      = "₱0.00";
-            this.lblCOSub2.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-
-            this.btnCODelete2.BackColor = System.Drawing.Color.FromArgb(255, 235, 235);
-            this.btnCODelete2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnCODelete2.Font      = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Bold);
-            this.btnCODelete2.ForeColor = System.Drawing.Color.FromArgb(218, 41, 28);
-            this.btnCODelete2.Location  = new System.Drawing.Point(660, 265);
-            this.btnCODelete2.Name      = "btnCODelete2";
-            this.btnCODelete2.Size      = new System.Drawing.Size(46, 34);
-            this.btnCODelete2.Text      = "🗑";
-            this.btnCODelete2.Click    += new System.EventHandler(this.BtnCODelete2_Click);
-
-            // ── ROW 3 (Y = 340) ──────────────────────────────────────────
-            this.picCOItem3.BackColor   = System.Drawing.Color.FromArgb(255, 248, 240);
-            this.picCOItem3.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.picCOItem3.Location    = new System.Drawing.Point(30, 340);
-            this.picCOItem3.Name        = "picCOItem3";
-            this.picCOItem3.Size        = new System.Drawing.Size(90, 70);
-            this.picCOItem3.SizeMode    = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.picCOItem3.TabIndex    = 30;
-
-            this.lblCOName3.Font      = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold);
-            this.lblCOName3.Location  = new System.Drawing.Point(135, 345);
-            this.lblCOName3.Name      = "lblCOName3";
-            this.lblCOName3.Size      = new System.Drawing.Size(220, 28);
-            this.lblCOName3.Text      = "Item Name 3";
-
-            this.lblCOPrice3.Font      = new System.Drawing.Font("Segoe UI", 11F);
-            this.lblCOPrice3.ForeColor = System.Drawing.Color.FromArgb(120, 120, 120);
-            this.lblCOPrice3.Location  = new System.Drawing.Point(135, 375);
-            this.lblCOPrice3.Name      = "lblCOPrice3";
-            this.lblCOPrice3.Size      = new System.Drawing.Size(220, 24);
-            this.lblCOPrice3.Text      = "₱0.00";
-
-            this.btnCOMinus3.BackColor = System.Drawing.Color.FromArgb(235, 235, 235);
-            this.btnCOMinus3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnCOMinus3.Font      = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Bold);
-            this.btnCOMinus3.Location  = new System.Drawing.Point(370, 355);
-            this.btnCOMinus3.Name      = "btnCOMinus3";
-            this.btnCOMinus3.Size      = new System.Drawing.Size(34, 34);
-            this.btnCOMinus3.Text      = "−";
-            this.btnCOMinus3.Click    += new System.EventHandler(this.BtnCOMinus3_Click);
-
-            this.lblCOQty3.Font      = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold);
-            this.lblCOQty3.Location  = new System.Drawing.Point(404, 355);
-            this.lblCOQty3.Name      = "lblCOQty3";
-            this.lblCOQty3.Size      = new System.Drawing.Size(46, 34);
-            this.lblCOQty3.Text      = "1";
-            this.lblCOQty3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-
-            this.btnCOPlus3.BackColor = System.Drawing.Color.FromArgb(235, 235, 235);
-            this.btnCOPlus3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnCOPlus3.Font      = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Bold);
-            this.btnCOPlus3.Location  = new System.Drawing.Point(450, 355);
-            this.btnCOPlus3.Name      = "btnCOPlus3";
-            this.btnCOPlus3.Size      = new System.Drawing.Size(34, 34);
-            this.btnCOPlus3.Text      = "+";
-            this.btnCOPlus3.Click    += new System.EventHandler(this.BtnCOPlus3_Click);
-
-            this.lblCOSub3.Font      = new System.Drawing.Font("Segoe UI", 13F, System.Drawing.FontStyle.Bold);
-            this.lblCOSub3.ForeColor = System.Drawing.Color.FromArgb(30, 30, 30);
-            this.lblCOSub3.Location  = new System.Drawing.Point(510, 355);
-            this.lblCOSub3.Name      = "lblCOSub3";
-            this.lblCOSub3.Size      = new System.Drawing.Size(130, 34);
-            this.lblCOSub3.Text      = "₱0.00";
-            this.lblCOSub3.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-
-            this.btnCODelete3.BackColor = System.Drawing.Color.FromArgb(255, 235, 235);
-            this.btnCODelete3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnCODelete3.Font      = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Bold);
-            this.btnCODelete3.ForeColor = System.Drawing.Color.FromArgb(218, 41, 28);
-            this.btnCODelete3.Location  = new System.Drawing.Point(660, 355);
-            this.btnCODelete3.Name      = "btnCODelete3";
-            this.btnCODelete3.Size      = new System.Drawing.Size(46, 34);
-            this.btnCODelete3.Text      = "🗑";
-            this.btnCODelete3.Click    += new System.EventHandler(this.BtnCODelete3_Click);
-
-            // ── ROW 4 (Y = 430) ──────────────────────────────────────────
-            this.picCOItem4.BackColor   = System.Drawing.Color.FromArgb(255, 248, 240);
-            this.picCOItem4.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.picCOItem4.Location    = new System.Drawing.Point(30, 430);
-            this.picCOItem4.Name        = "picCOItem4";
-            this.picCOItem4.Size        = new System.Drawing.Size(90, 70);
-            this.picCOItem4.SizeMode    = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.picCOItem4.TabIndex    = 40;
-
-            this.lblCOName4.Font      = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold);
-            this.lblCOName4.Location  = new System.Drawing.Point(135, 435);
-            this.lblCOName4.Name      = "lblCOName4";
-            this.lblCOName4.Size      = new System.Drawing.Size(220, 28);
-            this.lblCOName4.Text      = "Item Name 4";
-
-            this.lblCOPrice4.Font      = new System.Drawing.Font("Segoe UI", 11F);
-            this.lblCOPrice4.ForeColor = System.Drawing.Color.FromArgb(120, 120, 120);
-            this.lblCOPrice4.Location  = new System.Drawing.Point(135, 465);
-            this.lblCOPrice4.Name      = "lblCOPrice4";
-            this.lblCOPrice4.Size      = new System.Drawing.Size(220, 24);
-            this.lblCOPrice4.Text      = "₱0.00";
-
-            this.btnCOMinus4.BackColor = System.Drawing.Color.FromArgb(235, 235, 235);
-            this.btnCOMinus4.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnCOMinus4.Font      = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Bold);
-            this.btnCOMinus4.Location  = new System.Drawing.Point(370, 445);
-            this.btnCOMinus4.Name      = "btnCOMinus4";
-            this.btnCOMinus4.Size      = new System.Drawing.Size(34, 34);
-            this.btnCOMinus4.Text      = "−";
-            this.btnCOMinus4.Click    += new System.EventHandler(this.BtnCOMinus4_Click);
-
-            this.lblCOQty4.Font      = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold);
-            this.lblCOQty4.Location  = new System.Drawing.Point(404, 445);
-            this.lblCOQty4.Name      = "lblCOQty4";
-            this.lblCOQty4.Size      = new System.Drawing.Size(46, 34);
-            this.lblCOQty4.Text      = "1";
-            this.lblCOQty4.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-
-            this.btnCOPlus4.BackColor = System.Drawing.Color.FromArgb(235, 235, 235);
-            this.btnCOPlus4.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnCOPlus4.Font      = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Bold);
-            this.btnCOPlus4.Location  = new System.Drawing.Point(450, 445);
-            this.btnCOPlus4.Name      = "btnCOPlus4";
-            this.btnCOPlus4.Size      = new System.Drawing.Size(34, 34);
-            this.btnCOPlus4.Text      = "+";
-            this.btnCOPlus4.Click    += new System.EventHandler(this.BtnCOPlus4_Click);
-
-            this.lblCOSub4.Font      = new System.Drawing.Font("Segoe UI", 13F, System.Drawing.FontStyle.Bold);
-            this.lblCOSub4.ForeColor = System.Drawing.Color.FromArgb(30, 30, 30);
-            this.lblCOSub4.Location  = new System.Drawing.Point(510, 445);
-            this.lblCOSub4.Name      = "lblCOSub4";
-            this.lblCOSub4.Size      = new System.Drawing.Size(130, 34);
-            this.lblCOSub4.Text      = "₱0.00";
-            this.lblCOSub4.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-
-            this.btnCODelete4.BackColor = System.Drawing.Color.FromArgb(255, 235, 235);
-            this.btnCODelete4.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnCODelete4.Font      = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Bold);
-            this.btnCODelete4.ForeColor = System.Drawing.Color.FromArgb(218, 41, 28);
-            this.btnCODelete4.Location  = new System.Drawing.Point(660, 445);
-            this.btnCODelete4.Name      = "btnCODelete4";
-            this.btnCODelete4.Size      = new System.Drawing.Size(46, 34);
-            this.btnCODelete4.Text      = "🗑";
-            this.btnCODelete4.Click    += new System.EventHandler(this.BtnCODelete4_Click);
-
-            // ── ROW 5 (Y = 520) ──────────────────────────────────────────
-            this.picCOItem5.BackColor   = System.Drawing.Color.FromArgb(255, 248, 240);
-            this.picCOItem5.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.picCOItem5.Location    = new System.Drawing.Point(30, 520);
-            this.picCOItem5.Name        = "picCOItem5";
-            this.picCOItem5.Size        = new System.Drawing.Size(90, 70);
-            this.picCOItem5.SizeMode    = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.picCOItem5.TabIndex    = 50;
-
-            this.lblCOName5.Font      = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold);
-            this.lblCOName5.Location  = new System.Drawing.Point(135, 525);
-            this.lblCOName5.Name      = "lblCOName5";
-            this.lblCOName5.Size      = new System.Drawing.Size(220, 28);
-            this.lblCOName5.Text      = "Item Name 5";
-
-            this.lblCOPrice5.Font      = new System.Drawing.Font("Segoe UI", 11F);
-            this.lblCOPrice5.ForeColor = System.Drawing.Color.FromArgb(120, 120, 120);
-            this.lblCOPrice5.Location  = new System.Drawing.Point(135, 555);
-            this.lblCOPrice5.Name      = "lblCOPrice5";
-            this.lblCOPrice5.Size      = new System.Drawing.Size(220, 24);
-            this.lblCOPrice5.Text      = "₱0.00";
-
-            this.btnCOMinus5.BackColor = System.Drawing.Color.FromArgb(235, 235, 235);
-            this.btnCOMinus5.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnCOMinus5.Font      = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Bold);
-            this.btnCOMinus5.Location  = new System.Drawing.Point(370, 535);
-            this.btnCOMinus5.Name      = "btnCOMinus5";
-            this.btnCOMinus5.Size      = new System.Drawing.Size(34, 34);
-            this.btnCOMinus5.Text      = "−";
-            this.btnCOMinus5.Click    += new System.EventHandler(this.BtnCOMinus5_Click);
-
-            this.lblCOQty5.Font      = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold);
-            this.lblCOQty5.Location  = new System.Drawing.Point(404, 535);
-            this.lblCOQty5.Name      = "lblCOQty5";
-            this.lblCOQty5.Size      = new System.Drawing.Size(46, 34);
-            this.lblCOQty5.Text      = "1";
-            this.lblCOQty5.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-
-            this.btnCOPlus5.BackColor = System.Drawing.Color.FromArgb(235, 235, 235);
-            this.btnCOPlus5.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnCOPlus5.Font      = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Bold);
-            this.btnCOPlus5.Location  = new System.Drawing.Point(450, 535);
-            this.btnCOPlus5.Name      = "btnCOPlus5";
-            this.btnCOPlus5.Size      = new System.Drawing.Size(34, 34);
-            this.btnCOPlus5.Text      = "+";
-            this.btnCOPlus5.Click    += new System.EventHandler(this.BtnCOPlus5_Click);
-
-            this.lblCOSub5.Font      = new System.Drawing.Font("Segoe UI", 13F, System.Drawing.FontStyle.Bold);
-            this.lblCOSub5.ForeColor = System.Drawing.Color.FromArgb(30, 30, 30);
-            this.lblCOSub5.Location  = new System.Drawing.Point(510, 535);
-            this.lblCOSub5.Name      = "lblCOSub5";
-            this.lblCOSub5.Size      = new System.Drawing.Size(130, 34);
-            this.lblCOSub5.Text      = "₱0.00";
-            this.lblCOSub5.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-
-            this.btnCODelete5.BackColor = System.Drawing.Color.FromArgb(255, 235, 235);
-            this.btnCODelete5.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnCODelete5.Font      = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Bold);
-            this.btnCODelete5.ForeColor = System.Drawing.Color.FromArgb(218, 41, 28);
-            this.btnCODelete5.Location  = new System.Drawing.Point(660, 535);
-            this.btnCODelete5.Name      = "btnCODelete5";
-            this.btnCODelete5.Size      = new System.Drawing.Size(46, 34);
-            this.btnCODelete5.Text      = "🗑";
-            this.btnCODelete5.Click    += new System.EventHandler(this.BtnCODelete5_Click);
-
-            // ── ROW 6 (Y = 610) ──────────────────────────────────────────
-            this.picCOItem6.BackColor   = System.Drawing.Color.FromArgb(255, 248, 240);
-            this.picCOItem6.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.picCOItem6.Location    = new System.Drawing.Point(30, 610);
-            this.picCOItem6.Name        = "picCOItem6";
-            this.picCOItem6.Size        = new System.Drawing.Size(90, 70);
-            this.picCOItem6.SizeMode    = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.picCOItem6.TabIndex    = 60;
-
-            this.lblCOName6.Font      = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold);
-            this.lblCOName6.Location  = new System.Drawing.Point(135, 615);
-            this.lblCOName6.Name      = "lblCOName6";
-            this.lblCOName6.Size      = new System.Drawing.Size(220, 28);
-            this.lblCOName6.Text      = "Item Name 6";
-
-            this.lblCOPrice6.Font      = new System.Drawing.Font("Segoe UI", 11F);
-            this.lblCOPrice6.ForeColor = System.Drawing.Color.FromArgb(120, 120, 120);
-            this.lblCOPrice6.Location  = new System.Drawing.Point(135, 645);
-            this.lblCOPrice6.Name      = "lblCOPrice6";
-            this.lblCOPrice6.Size      = new System.Drawing.Size(220, 24);
-            this.lblCOPrice6.Text      = "₱0.00";
-
-            this.btnCOMinus6.BackColor = System.Drawing.Color.FromArgb(235, 235, 235);
-            this.btnCOMinus6.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnCOMinus6.Font      = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Bold);
-            this.btnCOMinus6.Location  = new System.Drawing.Point(370, 625);
-            this.btnCOMinus6.Name      = "btnCOMinus6";
-            this.btnCOMinus6.Size      = new System.Drawing.Size(34, 34);
-            this.btnCOMinus6.Text      = "−";
-            this.btnCOMinus6.Click    += new System.EventHandler(this.BtnCOMinus6_Click);
-
-            this.lblCOQty6.Font      = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold);
-            this.lblCOQty6.Location  = new System.Drawing.Point(404, 625);
-            this.lblCOQty6.Name      = "lblCOQty6";
-            this.lblCOQty6.Size      = new System.Drawing.Size(46, 34);
-            this.lblCOQty6.Text      = "1";
-            this.lblCOQty6.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-
-            this.btnCOPlus6.BackColor = System.Drawing.Color.FromArgb(235, 235, 235);
-            this.btnCOPlus6.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnCOPlus6.Font      = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Bold);
-            this.btnCOPlus6.Location  = new System.Drawing.Point(450, 625);
-            this.btnCOPlus6.Name      = "btnCOPlus6";
-            this.btnCOPlus6.Size      = new System.Drawing.Size(34, 34);
-            this.btnCOPlus6.Text      = "+";
-            this.btnCOPlus6.Click    += new System.EventHandler(this.BtnCOPlus6_Click);
-
-            this.lblCOSub6.Font      = new System.Drawing.Font("Segoe UI", 13F, System.Drawing.FontStyle.Bold);
-            this.lblCOSub6.ForeColor = System.Drawing.Color.FromArgb(30, 30, 30);
-            this.lblCOSub6.Location  = new System.Drawing.Point(510, 625);
-            this.lblCOSub6.Name      = "lblCOSub6";
-            this.lblCOSub6.Size      = new System.Drawing.Size(130, 34);
-            this.lblCOSub6.Text      = "₱0.00";
-            this.lblCOSub6.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-
-            this.btnCODelete6.BackColor = System.Drawing.Color.FromArgb(255, 235, 235);
-            this.btnCODelete6.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnCODelete6.Font      = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Bold);
-            this.btnCODelete6.ForeColor = System.Drawing.Color.FromArgb(218, 41, 28);
-            this.btnCODelete6.Location  = new System.Drawing.Point(660, 625);
-            this.btnCODelete6.Name      = "btnCODelete6";
-            this.btnCODelete6.Size      = new System.Drawing.Size(46, 34);
-            this.btnCODelete6.Text      = "🗑";
-            this.btnCODelete6.Click    += new System.EventHandler(this.BtnCODelete6_Click);
-
-            // ════════════════════════════════════════════════════════════
-            //  RIGHT CARD: DISCOUNTS & PROMOS + TOTALS + CONFIRM ORDER
-            //  (Anchored Top/Right just like Screenshot 3!)
-            // ════════════════════════════════════════════════════════════
-            this.grpDiscounts.Anchor    = ((System.Windows.Forms.AnchorStyles)(System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right));
-            this.grpDiscounts.Font      = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold);
-            this.grpDiscounts.ForeColor = System.Drawing.Color.FromArgb(40, 40, 40);
-            this.grpDiscounts.Location  = new System.Drawing.Point(760, 110);
-            this.grpDiscounts.Name      = "grpDiscounts";
-            this.grpDiscounts.Size      = new System.Drawing.Size(480, 200);
-            this.grpDiscounts.TabIndex  = 100;
-            this.grpDiscounts.TabStop   = false;
-            this.grpDiscounts.Text      = "🎟  Discounts & Promos";
-
-            this.rbtnRegular.Checked  = true;
-            this.rbtnRegular.Font     = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Bold);
-            this.rbtnRegular.Location = new System.Drawing.Point(24, 40);
-            this.rbtnRegular.Name     = "rbtnRegular";
-            this.rbtnRegular.Size     = new System.Drawing.Size(430, 40);
-            this.rbtnRegular.TabIndex = 0;
-            this.rbtnRegular.TabStop  = true;
-            this.rbtnRegular.Text     = "Regular Price                                                0%";
-            this.rbtnRegular.CheckedChanged += new System.EventHandler(this.Discount_CheckedChanged);
-
-            this.rbtnSenior.Font     = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Bold);
-            this.rbtnSenior.Location = new System.Drawing.Point(24, 90);
-            this.rbtnSenior.Name     = "rbtnSenior";
-            this.rbtnSenior.Size     = new System.Drawing.Size(430, 40);
-            this.rbtnSenior.TabIndex = 1;
-            this.rbtnSenior.Text     = "Senior Citizen                                            -20%";
-            this.rbtnSenior.CheckedChanged += new System.EventHandler(this.Discount_CheckedChanged);
-
-            this.rbtnPWD.Font     = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Bold);
-            this.rbtnPWD.Location = new System.Drawing.Point(24, 140);
-            this.rbtnPWD.Name     = "rbtnPWD";
-            this.rbtnPWD.Size     = new System.Drawing.Size(430, 40);
-            this.rbtnPWD.TabIndex = 2;
-            this.rbtnPWD.Text     = "PWD / Disability                                         -15%";
-            this.rbtnPWD.CheckedChanged += new System.EventHandler(this.Discount_CheckedChanged);
-
-            this.grpDiscounts.Controls.Add(this.rbtnRegular);
-            this.grpDiscounts.Controls.Add(this.rbtnSenior);
-            this.grpDiscounts.Controls.Add(this.rbtnPWD);
-
-            this.lblCOSubtotalAmt.Anchor    = ((System.Windows.Forms.AnchorStyles)(System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right));
-            this.lblCOSubtotalAmt.Font      = new System.Drawing.Font("Segoe UI", 12F);
-            this.lblCOSubtotalAmt.ForeColor = System.Drawing.Color.FromArgb(80, 80, 80);
-            this.lblCOSubtotalAmt.Location  = new System.Drawing.Point(760, 330);
-            this.lblCOSubtotalAmt.Name      = "lblCOSubtotalAmt";
-            this.lblCOSubtotalAmt.Size      = new System.Drawing.Size(480, 30);
-            this.lblCOSubtotalAmt.TabIndex  = 101;
-            this.lblCOSubtotalAmt.Text      = "Subtotal:                                                   ₱0.00";
-
-            this.lblCODiscountAmt.Anchor    = ((System.Windows.Forms.AnchorStyles)(System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right));
-            this.lblCODiscountAmt.Font      = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold);
-            this.lblCODiscountAmt.ForeColor = System.Drawing.Color.FromArgb(34, 139, 34);
-            this.lblCODiscountAmt.Location  = new System.Drawing.Point(760, 365);
-            this.lblCODiscountAmt.Name      = "lblCODiscountAmt";
-            this.lblCODiscountAmt.Size      = new System.Drawing.Size(480, 30);
-            this.lblCODiscountAmt.TabIndex  = 102;
-            this.lblCODiscountAmt.Text      = "Discount:                                                −₱0.00";
-
-            this.lblCOTotalAmt.Anchor    = ((System.Windows.Forms.AnchorStyles)(System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right));
-            this.lblCOTotalAmt.Font      = new System.Drawing.Font("Segoe UI", 20F, System.Drawing.FontStyle.Bold);
-            this.lblCOTotalAmt.ForeColor = System.Drawing.Color.FromArgb(253, 184, 19);
-            this.lblCOTotalAmt.BackColor = System.Drawing.Color.FromArgb(40, 20, 5);
-            this.lblCOTotalAmt.Location  = new System.Drawing.Point(760, 410);
-            this.lblCOTotalAmt.Name      = "lblCOTotalAmt";
-            this.lblCOTotalAmt.Size      = new System.Drawing.Size(480, 60);
-            this.lblCOTotalAmt.TabIndex  = 103;
-            this.lblCOTotalAmt.Text      = "TOTAL: ₱0.00";
-            this.lblCOTotalAmt.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-
-            this.btnConfirmOrder.Anchor    = ((System.Windows.Forms.AnchorStyles)(System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right));
-            this.btnConfirmOrder.BackColor = System.Drawing.Color.FromArgb(218, 41, 28);
-            this.btnConfirmOrder.Cursor    = System.Windows.Forms.Cursors.Hand;
-            this.btnConfirmOrder.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnConfirmOrder.FlatAppearance.BorderSize = 0;
-            this.btnConfirmOrder.Font      = new System.Drawing.Font("Segoe UI", 16F, System.Drawing.FontStyle.Bold);
-            this.btnConfirmOrder.ForeColor = System.Drawing.Color.White;
-            this.btnConfirmOrder.Location  = new System.Drawing.Point(760, 490);
-            this.btnConfirmOrder.Name      = "btnConfirmOrder";
-            this.btnConfirmOrder.Size      = new System.Drawing.Size(480, 70);
-            this.btnConfirmOrder.TabIndex  = 104;
-            this.btnConfirmOrder.Text      = "CONFIRM ORDER →";
-            this.btnConfirmOrder.UseVisualStyleBackColor = false;
-            this.btnConfirmOrder.Click    += new System.EventHandler(this.BtnConfirmOrder_Click);
-
-            // ── FORM ─────────────────────────────────────────────────────
-            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
-            this.AutoScaleMode       = System.Windows.Forms.AutoScaleMode.Font;
-            this.AutoScroll          = true;
-            this.BackColor           = System.Drawing.Color.White;
-            this.ClientSize          = new System.Drawing.Size(1280, 800);
-
-            this.Controls.Add(this.btnConfirmOrder);
-            this.Controls.Add(this.lblCOTotalAmt);
-            this.Controls.Add(this.lblCODiscountAmt);
-            this.Controls.Add(this.lblCOSubtotalAmt);
-            this.Controls.Add(this.grpDiscounts);
-
-            this.Controls.Add(this.btnCODelete6);
-            this.Controls.Add(this.lblCOSub6);
-            this.Controls.Add(this.btnCOPlus6);
-            this.Controls.Add(this.lblCOQty6);
-            this.Controls.Add(this.btnCOMinus6);
-            this.Controls.Add(this.lblCOPrice6);
-            this.Controls.Add(this.lblCOName6);
-            this.Controls.Add(this.picCOItem6);
-
-            this.Controls.Add(this.btnCODelete5);
-            this.Controls.Add(this.lblCOSub5);
-            this.Controls.Add(this.btnCOPlus5);
-            this.Controls.Add(this.lblCOQty5);
-            this.Controls.Add(this.btnCOMinus5);
-            this.Controls.Add(this.lblCOPrice5);
-            this.Controls.Add(this.lblCOName5);
-            this.Controls.Add(this.picCOItem5);
-
-            this.Controls.Add(this.btnCODelete4);
-            this.Controls.Add(this.lblCOSub4);
-            this.Controls.Add(this.btnCOPlus4);
-            this.Controls.Add(this.lblCOQty4);
-            this.Controls.Add(this.btnCOMinus4);
-            this.Controls.Add(this.lblCOPrice4);
-            this.Controls.Add(this.lblCOName4);
-            this.Controls.Add(this.picCOItem4);
-
-            this.Controls.Add(this.btnCODelete3);
-            this.Controls.Add(this.lblCOSub3);
-            this.Controls.Add(this.btnCOPlus3);
-            this.Controls.Add(this.lblCOQty3);
-            this.Controls.Add(this.btnCOMinus3);
-            this.Controls.Add(this.lblCOPrice3);
-            this.Controls.Add(this.lblCOName3);
-            this.Controls.Add(this.picCOItem3);
-
-            this.Controls.Add(this.btnCODelete2);
-            this.Controls.Add(this.lblCOSub2);
-            this.Controls.Add(this.btnCOPlus2);
-            this.Controls.Add(this.lblCOQty2);
-            this.Controls.Add(this.btnCOMinus2);
-            this.Controls.Add(this.lblCOPrice2);
-            this.Controls.Add(this.lblCOName2);
-            this.Controls.Add(this.picCOItem2);
-
-            this.Controls.Add(this.btnCODelete1);
-            this.Controls.Add(this.lblCOSub1);
-            this.Controls.Add(this.btnCOPlus1);
-            this.Controls.Add(this.lblCOQty1);
-            this.Controls.Add(this.btnCOMinus1);
-            this.Controls.Add(this.lblCOPrice1);
-            this.Controls.Add(this.lblCOName1);
-            this.Controls.Add(this.picCOItem1);
-
-            this.Controls.Add(this.btnAddMoreItems);
-            this.Controls.Add(this.lblReviewTitle);
-            this.Controls.Add(this.lblSubheader);
-            this.Controls.Add(this.lblOrderBadge);
-            this.Controls.Add(this.btnBack);
-            this.Controls.Add(this.lblHeader);
-
-            this.MinimumSize   = new System.Drawing.Size(1116, 759);
-            this.Name          = "FormCheckout";
-            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text          = "🐝 HappyBee Kiosk — Checkout Review";
-            this.Load         += new System.EventHandler(this.FormCheckout_Load);
-
-            ((System.ComponentModel.ISupportInitialize)this.picCOItem1).EndInit();
-            ((System.ComponentModel.ISupportInitialize)this.picCOItem2).EndInit();
-            ((System.ComponentModel.ISupportInitialize)this.picCOItem3).EndInit();
-            ((System.ComponentModel.ISupportInitialize)this.picCOItem4).EndInit();
-            ((System.ComponentModel.ISupportInitialize)this.picCOItem5).EndInit();
-            ((System.ComponentModel.ISupportInitialize)this.picCOItem6).EndInit();
-            this.grpDiscounts.ResumeLayout(false);
-            this.ResumeLayout(false);
+            btnBack = new Button();
+            lblHeader = new Label();
+            lblSubheader = new Label();
+            lblOrderBadge = new Label();
+            lblReviewTitle = new Label();
+            btnAddMoreItems = new Button();
+            picCOItem1 = new PictureBox();
+            lblCOName1 = new Label();
+            lblCOPrice1 = new Label();
+            btnCOMinus1 = new Button();
+            lblCOQty1 = new Label();
+            btnCOPlus1 = new Button();
+            lblCOSub1 = new Label();
+            btnCODelete1 = new Button();
+            picCOItem2 = new PictureBox();
+            lblCOName2 = new Label();
+            lblCOPrice2 = new Label();
+            btnCOMinus2 = new Button();
+            lblCOQty2 = new Label();
+            btnCOPlus2 = new Button();
+            lblCOSub2 = new Label();
+            btnCODelete2 = new Button();
+            picCOItem3 = new PictureBox();
+            lblCOName3 = new Label();
+            lblCOPrice3 = new Label();
+            btnCOMinus3 = new Button();
+            lblCOQty3 = new Label();
+            btnCOPlus3 = new Button();
+            lblCOSub3 = new Label();
+            btnCODelete3 = new Button();
+            picCOItem4 = new PictureBox();
+            lblCOName4 = new Label();
+            lblCOPrice4 = new Label();
+            btnCOMinus4 = new Button();
+            lblCOQty4 = new Label();
+            btnCOPlus4 = new Button();
+            lblCOSub4 = new Label();
+            btnCODelete4 = new Button();
+            picCOItem5 = new PictureBox();
+            lblCOName5 = new Label();
+            lblCOPrice5 = new Label();
+            btnCOMinus5 = new Button();
+            lblCOQty5 = new Label();
+            btnCOPlus5 = new Button();
+            lblCOSub5 = new Label();
+            btnCODelete5 = new Button();
+            picCOItem6 = new PictureBox();
+            lblCOName6 = new Label();
+            lblCOPrice6 = new Label();
+            btnCOMinus6 = new Button();
+            lblCOQty6 = new Label();
+            btnCOPlus6 = new Button();
+            lblCOSub6 = new Label();
+            btnCODelete6 = new Button();
+            grpDiscounts = new GroupBox();
+            rbtnRegular = new RadioButton();
+            rbtnSenior = new RadioButton();
+            rbtnPWD = new RadioButton();
+            lblCOSubtotalAmt = new Label();
+            lblCODiscountAmt = new Label();
+            lblCOTotalAmt = new Label();
+            btnConfirmOrder = new Button();
+            ((System.ComponentModel.ISupportInitialize)picCOItem1).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)picCOItem2).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)picCOItem3).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)picCOItem4).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)picCOItem5).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)picCOItem6).BeginInit();
+            grpDiscounts.SuspendLayout();
+            SuspendLayout();
+            // 
+            // btnBack
+            // 
+            btnBack.BackColor = Color.FromArgb(218, 41, 28);
+            btnBack.Cursor = Cursors.Hand;
+            btnBack.FlatAppearance.BorderSize = 0;
+            btnBack.FlatStyle = FlatStyle.Flat;
+            btnBack.Font = new Font("Segoe UI", 10F, FontStyle.Bold);
+            btnBack.ForeColor = Color.White;
+            btnBack.Location = new Point(12, 12);
+            btnBack.Name = "btnBack";
+            btnBack.Size = new Size(90, 36);
+            btnBack.TabIndex = 1;
+            btnBack.Text = "← Go Back";
+            btnBack.UseVisualStyleBackColor = false;
+            btnBack.Click += BtnBack_Click;
+            // 
+            // lblHeader
+            // 
+            lblHeader.BackColor = Color.FromArgb(218, 41, 28);
+            lblHeader.Dock = DockStyle.Top;
+            lblHeader.Font = new Font("Segoe UI", 16F, FontStyle.Bold);
+            lblHeader.ForeColor = Color.White;
+            lblHeader.Location = new Point(0, 0);
+            lblHeader.Name = "lblHeader";
+            lblHeader.Size = new Size(1280, 60);
+            lblHeader.TabIndex = 0;
+            lblHeader.Text = "           ✓  CHECKOUT & REVIEW";
+            lblHeader.TextAlign = ContentAlignment.MiddleLeft;
+            // 
+            // lblSubheader
+            // 
+            lblSubheader.Font = new Font("Segoe UI", 11F);
+            lblSubheader.ForeColor = Color.FromArgb(100, 100, 100);
+            lblSubheader.Location = new Point(30, 70);
+            lblSubheader.Name = "lblSubheader";
+            lblSubheader.Size = new Size(500, 25);
+            lblSubheader.TabIndex = 3;
+            lblSubheader.Text = "Please review your order items and select any applicable discount.";
+            // 
+            // lblOrderBadge
+            // 
+            lblOrderBadge.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+            lblOrderBadge.BackColor = Color.FromArgb(218, 41, 28);
+            lblOrderBadge.Font = new Font("Segoe UI", 13F, FontStyle.Bold);
+            lblOrderBadge.ForeColor = Color.FromArgb(253, 184, 19);
+            lblOrderBadge.Location = new Point(980, 0);
+            lblOrderBadge.Name = "lblOrderBadge";
+            lblOrderBadge.Size = new Size(280, 60);
+            lblOrderBadge.TabIndex = 2;
+            lblOrderBadge.Text = "Dine In Order";
+            lblOrderBadge.TextAlign = ContentAlignment.MiddleRight;
+            // 
+            // lblReviewTitle
+            // 
+            lblReviewTitle.Font = new Font("Segoe UI", 14F, FontStyle.Bold);
+            lblReviewTitle.ForeColor = Color.FromArgb(30, 30, 30);
+            lblReviewTitle.Location = new Point(30, 110);
+            lblReviewTitle.Name = "lblReviewTitle";
+            lblReviewTitle.Size = new Size(300, 30);
+            lblReviewTitle.TabIndex = 4;
+            lblReviewTitle.Text = "Review Items";
+            // 
+            // btnAddMoreItems
+            // 
+            btnAddMoreItems.Cursor = Cursors.Hand;
+            btnAddMoreItems.FlatAppearance.BorderColor = Color.FromArgb(218, 41, 28);
+            btnAddMoreItems.FlatStyle = FlatStyle.Flat;
+            btnAddMoreItems.Font = new Font("Segoe UI", 11F, FontStyle.Bold);
+            btnAddMoreItems.ForeColor = Color.FromArgb(218, 41, 28);
+            btnAddMoreItems.Location = new Point(530, 105);
+            btnAddMoreItems.Name = "btnAddMoreItems";
+            btnAddMoreItems.Size = new Size(180, 36);
+            btnAddMoreItems.TabIndex = 5;
+            btnAddMoreItems.Text = "+ Add more items";
+            btnAddMoreItems.UseVisualStyleBackColor = false;
+            btnAddMoreItems.Click += BtnAddMoreItems_Click;
+            // 
+            // picCOItem1
+            // 
+            picCOItem1.BackColor = Color.FromArgb(255, 248, 240);
+            picCOItem1.BorderStyle = BorderStyle.FixedSingle;
+            picCOItem1.Location = new Point(30, 160);
+            picCOItem1.Name = "picCOItem1";
+            picCOItem1.Size = new Size(90, 70);
+            picCOItem1.SizeMode = PictureBoxSizeMode.Zoom;
+            picCOItem1.TabIndex = 10;
+            picCOItem1.TabStop = false;
+            picCOItem1.Click += picCOItem1_Click;
+            // 
+            // lblCOName1
+            // 
+            lblCOName1.Font = new Font("Segoe UI", 12F, FontStyle.Bold);
+            lblCOName1.Location = new Point(135, 165);
+            lblCOName1.Name = "lblCOName1";
+            lblCOName1.Size = new Size(220, 28);
+            lblCOName1.TabIndex = 146;
+            lblCOName1.Text = "Item Name 1";
+            // 
+            // lblCOPrice1
+            // 
+            lblCOPrice1.Font = new Font("Segoe UI", 11F);
+            lblCOPrice1.ForeColor = Color.FromArgb(120, 120, 120);
+            lblCOPrice1.Location = new Point(135, 195);
+            lblCOPrice1.Name = "lblCOPrice1";
+            lblCOPrice1.Size = new Size(220, 24);
+            lblCOPrice1.TabIndex = 145;
+            lblCOPrice1.Text = "₱0.00";
+            // 
+            // btnCOMinus1
+            // 
+            btnCOMinus1.BackColor = Color.FromArgb(235, 235, 235);
+            btnCOMinus1.FlatStyle = FlatStyle.Flat;
+            btnCOMinus1.Font = new Font("Segoe UI", 11F, FontStyle.Bold);
+            btnCOMinus1.Location = new Point(370, 175);
+            btnCOMinus1.Name = "btnCOMinus1";
+            btnCOMinus1.Size = new Size(34, 34);
+            btnCOMinus1.TabIndex = 144;
+            btnCOMinus1.Text = "−";
+            btnCOMinus1.UseVisualStyleBackColor = false;
+            btnCOMinus1.Click += BtnCOMinus1_Click;
+            // 
+            // lblCOQty1
+            // 
+            lblCOQty1.Font = new Font("Segoe UI", 12F, FontStyle.Bold);
+            lblCOQty1.Location = new Point(404, 175);
+            lblCOQty1.Name = "lblCOQty1";
+            lblCOQty1.Size = new Size(46, 34);
+            lblCOQty1.TabIndex = 143;
+            lblCOQty1.Text = "1";
+            lblCOQty1.TextAlign = ContentAlignment.MiddleCenter;
+            // 
+            // btnCOPlus1
+            // 
+            btnCOPlus1.BackColor = Color.FromArgb(235, 235, 235);
+            btnCOPlus1.FlatStyle = FlatStyle.Flat;
+            btnCOPlus1.Font = new Font("Segoe UI", 11F, FontStyle.Bold);
+            btnCOPlus1.Location = new Point(450, 175);
+            btnCOPlus1.Name = "btnCOPlus1";
+            btnCOPlus1.Size = new Size(34, 34);
+            btnCOPlus1.TabIndex = 142;
+            btnCOPlus1.Text = "+";
+            btnCOPlus1.UseVisualStyleBackColor = false;
+            btnCOPlus1.Click += BtnCOPlus1_Click;
+            // 
+            // lblCOSub1
+            // 
+            lblCOSub1.Font = new Font("Segoe UI", 13F, FontStyle.Bold);
+            lblCOSub1.ForeColor = Color.FromArgb(30, 30, 30);
+            lblCOSub1.Location = new Point(510, 175);
+            lblCOSub1.Name = "lblCOSub1";
+            lblCOSub1.Size = new Size(130, 34);
+            lblCOSub1.TabIndex = 141;
+            lblCOSub1.Text = "₱0.00";
+            lblCOSub1.TextAlign = ContentAlignment.MiddleRight;
+            // 
+            // btnCODelete1
+            // 
+            btnCODelete1.BackColor = Color.FromArgb(255, 235, 235);
+            btnCODelete1.FlatStyle = FlatStyle.Flat;
+            btnCODelete1.Font = new Font("Segoe UI", 11F, FontStyle.Bold);
+            btnCODelete1.ForeColor = Color.FromArgb(218, 41, 28);
+            btnCODelete1.Location = new Point(660, 175);
+            btnCODelete1.Name = "btnCODelete1";
+            btnCODelete1.Size = new Size(46, 34);
+            btnCODelete1.TabIndex = 140;
+            btnCODelete1.Text = "🗑";
+            btnCODelete1.UseVisualStyleBackColor = false;
+            btnCODelete1.Click += BtnCODelete1_Click;
+            // 
+            // picCOItem2
+            // 
+            picCOItem2.BackColor = Color.FromArgb(255, 248, 240);
+            picCOItem2.BorderStyle = BorderStyle.FixedSingle;
+            picCOItem2.Location = new Point(30, 250);
+            picCOItem2.Name = "picCOItem2";
+            picCOItem2.Size = new Size(90, 70);
+            picCOItem2.SizeMode = PictureBoxSizeMode.Zoom;
+            picCOItem2.TabIndex = 20;
+            picCOItem2.TabStop = false;
+            // 
+            // lblCOName2
+            // 
+            lblCOName2.Font = new Font("Segoe UI", 12F, FontStyle.Bold);
+            lblCOName2.Location = new Point(135, 255);
+            lblCOName2.Name = "lblCOName2";
+            lblCOName2.Size = new Size(220, 28);
+            lblCOName2.TabIndex = 139;
+            lblCOName2.Text = "Item Name 2";
+            // 
+            // lblCOPrice2
+            // 
+            lblCOPrice2.Font = new Font("Segoe UI", 11F);
+            lblCOPrice2.ForeColor = Color.FromArgb(120, 120, 120);
+            lblCOPrice2.Location = new Point(135, 285);
+            lblCOPrice2.Name = "lblCOPrice2";
+            lblCOPrice2.Size = new Size(220, 24);
+            lblCOPrice2.TabIndex = 138;
+            lblCOPrice2.Text = "₱0.00";
+            // 
+            // btnCOMinus2
+            // 
+            btnCOMinus2.BackColor = Color.FromArgb(235, 235, 235);
+            btnCOMinus2.FlatStyle = FlatStyle.Flat;
+            btnCOMinus2.Font = new Font("Segoe UI", 11F, FontStyle.Bold);
+            btnCOMinus2.Location = new Point(370, 265);
+            btnCOMinus2.Name = "btnCOMinus2";
+            btnCOMinus2.Size = new Size(34, 34);
+            btnCOMinus2.TabIndex = 137;
+            btnCOMinus2.Text = "−";
+            btnCOMinus2.UseVisualStyleBackColor = false;
+            btnCOMinus2.Click += BtnCOMinus2_Click;
+            // 
+            // lblCOQty2
+            // 
+            lblCOQty2.Font = new Font("Segoe UI", 12F, FontStyle.Bold);
+            lblCOQty2.Location = new Point(404, 265);
+            lblCOQty2.Name = "lblCOQty2";
+            lblCOQty2.Size = new Size(46, 34);
+            lblCOQty2.TabIndex = 136;
+            lblCOQty2.Text = "1";
+            lblCOQty2.TextAlign = ContentAlignment.MiddleCenter;
+            // 
+            // btnCOPlus2
+            // 
+            btnCOPlus2.BackColor = Color.FromArgb(235, 235, 235);
+            btnCOPlus2.FlatStyle = FlatStyle.Flat;
+            btnCOPlus2.Font = new Font("Segoe UI", 11F, FontStyle.Bold);
+            btnCOPlus2.Location = new Point(450, 265);
+            btnCOPlus2.Name = "btnCOPlus2";
+            btnCOPlus2.Size = new Size(34, 34);
+            btnCOPlus2.TabIndex = 135;
+            btnCOPlus2.Text = "+";
+            btnCOPlus2.UseVisualStyleBackColor = false;
+            btnCOPlus2.Click += BtnCOPlus2_Click;
+            // 
+            // lblCOSub2
+            // 
+            lblCOSub2.Font = new Font("Segoe UI", 13F, FontStyle.Bold);
+            lblCOSub2.ForeColor = Color.FromArgb(30, 30, 30);
+            lblCOSub2.Location = new Point(510, 265);
+            lblCOSub2.Name = "lblCOSub2";
+            lblCOSub2.Size = new Size(130, 34);
+            lblCOSub2.TabIndex = 134;
+            lblCOSub2.Text = "₱0.00";
+            lblCOSub2.TextAlign = ContentAlignment.MiddleRight;
+            // 
+            // btnCODelete2
+            // 
+            btnCODelete2.BackColor = Color.FromArgb(255, 235, 235);
+            btnCODelete2.FlatStyle = FlatStyle.Flat;
+            btnCODelete2.Font = new Font("Segoe UI", 11F, FontStyle.Bold);
+            btnCODelete2.ForeColor = Color.FromArgb(218, 41, 28);
+            btnCODelete2.Location = new Point(660, 265);
+            btnCODelete2.Name = "btnCODelete2";
+            btnCODelete2.Size = new Size(46, 34);
+            btnCODelete2.TabIndex = 133;
+            btnCODelete2.Text = "🗑";
+            btnCODelete2.UseVisualStyleBackColor = false;
+            btnCODelete2.Click += BtnCODelete2_Click;
+            // 
+            // picCOItem3
+            // 
+            picCOItem3.BackColor = Color.FromArgb(255, 248, 240);
+            picCOItem3.BorderStyle = BorderStyle.FixedSingle;
+            picCOItem3.Location = new Point(30, 340);
+            picCOItem3.Name = "picCOItem3";
+            picCOItem3.Size = new Size(90, 70);
+            picCOItem3.SizeMode = PictureBoxSizeMode.Zoom;
+            picCOItem3.TabIndex = 30;
+            picCOItem3.TabStop = false;
+            // 
+            // lblCOName3
+            // 
+            lblCOName3.Font = new Font("Segoe UI", 12F, FontStyle.Bold);
+            lblCOName3.Location = new Point(135, 345);
+            lblCOName3.Name = "lblCOName3";
+            lblCOName3.Size = new Size(220, 28);
+            lblCOName3.TabIndex = 132;
+            lblCOName3.Text = "Item Name 3";
+            // 
+            // lblCOPrice3
+            // 
+            lblCOPrice3.Font = new Font("Segoe UI", 11F);
+            lblCOPrice3.ForeColor = Color.FromArgb(120, 120, 120);
+            lblCOPrice3.Location = new Point(135, 375);
+            lblCOPrice3.Name = "lblCOPrice3";
+            lblCOPrice3.Size = new Size(220, 24);
+            lblCOPrice3.TabIndex = 131;
+            lblCOPrice3.Text = "₱0.00";
+            // 
+            // btnCOMinus3
+            // 
+            btnCOMinus3.BackColor = Color.FromArgb(235, 235, 235);
+            btnCOMinus3.FlatStyle = FlatStyle.Flat;
+            btnCOMinus3.Font = new Font("Segoe UI", 11F, FontStyle.Bold);
+            btnCOMinus3.Location = new Point(370, 355);
+            btnCOMinus3.Name = "btnCOMinus3";
+            btnCOMinus3.Size = new Size(34, 34);
+            btnCOMinus3.TabIndex = 130;
+            btnCOMinus3.Text = "−";
+            btnCOMinus3.UseVisualStyleBackColor = false;
+            btnCOMinus3.Click += BtnCOMinus3_Click;
+            // 
+            // lblCOQty3
+            // 
+            lblCOQty3.Font = new Font("Segoe UI", 12F, FontStyle.Bold);
+            lblCOQty3.Location = new Point(404, 355);
+            lblCOQty3.Name = "lblCOQty3";
+            lblCOQty3.Size = new Size(46, 34);
+            lblCOQty3.TabIndex = 129;
+            lblCOQty3.Text = "1";
+            lblCOQty3.TextAlign = ContentAlignment.MiddleCenter;
+            // 
+            // btnCOPlus3
+            // 
+            btnCOPlus3.BackColor = Color.FromArgb(235, 235, 235);
+            btnCOPlus3.FlatStyle = FlatStyle.Flat;
+            btnCOPlus3.Font = new Font("Segoe UI", 11F, FontStyle.Bold);
+            btnCOPlus3.Location = new Point(450, 355);
+            btnCOPlus3.Name = "btnCOPlus3";
+            btnCOPlus3.Size = new Size(34, 34);
+            btnCOPlus3.TabIndex = 128;
+            btnCOPlus3.Text = "+";
+            btnCOPlus3.UseVisualStyleBackColor = false;
+            btnCOPlus3.Click += BtnCOPlus3_Click;
+            // 
+            // lblCOSub3
+            // 
+            lblCOSub3.Font = new Font("Segoe UI", 13F, FontStyle.Bold);
+            lblCOSub3.ForeColor = Color.FromArgb(30, 30, 30);
+            lblCOSub3.Location = new Point(510, 355);
+            lblCOSub3.Name = "lblCOSub3";
+            lblCOSub3.Size = new Size(130, 34);
+            lblCOSub3.TabIndex = 127;
+            lblCOSub3.Text = "₱0.00";
+            lblCOSub3.TextAlign = ContentAlignment.MiddleRight;
+            // 
+            // btnCODelete3
+            // 
+            btnCODelete3.BackColor = Color.FromArgb(255, 235, 235);
+            btnCODelete3.FlatStyle = FlatStyle.Flat;
+            btnCODelete3.Font = new Font("Segoe UI", 11F, FontStyle.Bold);
+            btnCODelete3.ForeColor = Color.FromArgb(218, 41, 28);
+            btnCODelete3.Location = new Point(660, 355);
+            btnCODelete3.Name = "btnCODelete3";
+            btnCODelete3.Size = new Size(46, 34);
+            btnCODelete3.TabIndex = 126;
+            btnCODelete3.Text = "🗑";
+            btnCODelete3.UseVisualStyleBackColor = false;
+            btnCODelete3.Click += BtnCODelete3_Click;
+            // 
+            // picCOItem4
+            // 
+            picCOItem4.BackColor = Color.FromArgb(255, 248, 240);
+            picCOItem4.BorderStyle = BorderStyle.FixedSingle;
+            picCOItem4.Location = new Point(30, 430);
+            picCOItem4.Name = "picCOItem4";
+            picCOItem4.Size = new Size(90, 70);
+            picCOItem4.SizeMode = PictureBoxSizeMode.Zoom;
+            picCOItem4.TabIndex = 40;
+            picCOItem4.TabStop = false;
+            // 
+            // lblCOName4
+            // 
+            lblCOName4.Font = new Font("Segoe UI", 12F, FontStyle.Bold);
+            lblCOName4.Location = new Point(135, 435);
+            lblCOName4.Name = "lblCOName4";
+            lblCOName4.Size = new Size(220, 28);
+            lblCOName4.TabIndex = 125;
+            lblCOName4.Text = "Item Name 4";
+            // 
+            // lblCOPrice4
+            // 
+            lblCOPrice4.Font = new Font("Segoe UI", 11F);
+            lblCOPrice4.ForeColor = Color.FromArgb(120, 120, 120);
+            lblCOPrice4.Location = new Point(135, 465);
+            lblCOPrice4.Name = "lblCOPrice4";
+            lblCOPrice4.Size = new Size(220, 24);
+            lblCOPrice4.TabIndex = 124;
+            lblCOPrice4.Text = "₱0.00";
+            // 
+            // btnCOMinus4
+            // 
+            btnCOMinus4.BackColor = Color.FromArgb(235, 235, 235);
+            btnCOMinus4.FlatStyle = FlatStyle.Flat;
+            btnCOMinus4.Font = new Font("Segoe UI", 11F, FontStyle.Bold);
+            btnCOMinus4.Location = new Point(370, 445);
+            btnCOMinus4.Name = "btnCOMinus4";
+            btnCOMinus4.Size = new Size(34, 34);
+            btnCOMinus4.TabIndex = 123;
+            btnCOMinus4.Text = "−";
+            btnCOMinus4.UseVisualStyleBackColor = false;
+            btnCOMinus4.Click += BtnCOMinus4_Click;
+            // 
+            // lblCOQty4
+            // 
+            lblCOQty4.Font = new Font("Segoe UI", 12F, FontStyle.Bold);
+            lblCOQty4.Location = new Point(404, 445);
+            lblCOQty4.Name = "lblCOQty4";
+            lblCOQty4.Size = new Size(46, 34);
+            lblCOQty4.TabIndex = 122;
+            lblCOQty4.Text = "1";
+            lblCOQty4.TextAlign = ContentAlignment.MiddleCenter;
+            // 
+            // btnCOPlus4
+            // 
+            btnCOPlus4.BackColor = Color.FromArgb(235, 235, 235);
+            btnCOPlus4.FlatStyle = FlatStyle.Flat;
+            btnCOPlus4.Font = new Font("Segoe UI", 11F, FontStyle.Bold);
+            btnCOPlus4.Location = new Point(450, 445);
+            btnCOPlus4.Name = "btnCOPlus4";
+            btnCOPlus4.Size = new Size(34, 34);
+            btnCOPlus4.TabIndex = 121;
+            btnCOPlus4.Text = "+";
+            btnCOPlus4.UseVisualStyleBackColor = false;
+            btnCOPlus4.Click += BtnCOPlus4_Click;
+            // 
+            // lblCOSub4
+            // 
+            lblCOSub4.Font = new Font("Segoe UI", 13F, FontStyle.Bold);
+            lblCOSub4.ForeColor = Color.FromArgb(30, 30, 30);
+            lblCOSub4.Location = new Point(510, 445);
+            lblCOSub4.Name = "lblCOSub4";
+            lblCOSub4.Size = new Size(130, 34);
+            lblCOSub4.TabIndex = 120;
+            lblCOSub4.Text = "₱0.00";
+            lblCOSub4.TextAlign = ContentAlignment.MiddleRight;
+            // 
+            // btnCODelete4
+            // 
+            btnCODelete4.BackColor = Color.FromArgb(255, 235, 235);
+            btnCODelete4.FlatStyle = FlatStyle.Flat;
+            btnCODelete4.Font = new Font("Segoe UI", 11F, FontStyle.Bold);
+            btnCODelete4.ForeColor = Color.FromArgb(218, 41, 28);
+            btnCODelete4.Location = new Point(660, 445);
+            btnCODelete4.Name = "btnCODelete4";
+            btnCODelete4.Size = new Size(46, 34);
+            btnCODelete4.TabIndex = 119;
+            btnCODelete4.Text = "🗑";
+            btnCODelete4.UseVisualStyleBackColor = false;
+            btnCODelete4.Click += BtnCODelete4_Click;
+            // 
+            // picCOItem5
+            // 
+            picCOItem5.BackColor = Color.FromArgb(255, 248, 240);
+            picCOItem5.BorderStyle = BorderStyle.FixedSingle;
+            picCOItem5.Location = new Point(30, 520);
+            picCOItem5.Name = "picCOItem5";
+            picCOItem5.Size = new Size(90, 70);
+            picCOItem5.SizeMode = PictureBoxSizeMode.Zoom;
+            picCOItem5.TabIndex = 50;
+            picCOItem5.TabStop = false;
+            // 
+            // lblCOName5
+            // 
+            lblCOName5.Font = new Font("Segoe UI", 12F, FontStyle.Bold);
+            lblCOName5.Location = new Point(135, 525);
+            lblCOName5.Name = "lblCOName5";
+            lblCOName5.Size = new Size(220, 28);
+            lblCOName5.TabIndex = 118;
+            lblCOName5.Text = "Item Name 5";
+            // 
+            // lblCOPrice5
+            // 
+            lblCOPrice5.Font = new Font("Segoe UI", 11F);
+            lblCOPrice5.ForeColor = Color.FromArgb(120, 120, 120);
+            lblCOPrice5.Location = new Point(135, 555);
+            lblCOPrice5.Name = "lblCOPrice5";
+            lblCOPrice5.Size = new Size(220, 24);
+            lblCOPrice5.TabIndex = 117;
+            lblCOPrice5.Text = "₱0.00";
+            // 
+            // btnCOMinus5
+            // 
+            btnCOMinus5.BackColor = Color.FromArgb(235, 235, 235);
+            btnCOMinus5.FlatStyle = FlatStyle.Flat;
+            btnCOMinus5.Font = new Font("Segoe UI", 11F, FontStyle.Bold);
+            btnCOMinus5.Location = new Point(370, 535);
+            btnCOMinus5.Name = "btnCOMinus5";
+            btnCOMinus5.Size = new Size(34, 34);
+            btnCOMinus5.TabIndex = 116;
+            btnCOMinus5.Text = "−";
+            btnCOMinus5.UseVisualStyleBackColor = false;
+            btnCOMinus5.Click += BtnCOMinus5_Click;
+            // 
+            // lblCOQty5
+            // 
+            lblCOQty5.Font = new Font("Segoe UI", 12F, FontStyle.Bold);
+            lblCOQty5.Location = new Point(404, 535);
+            lblCOQty5.Name = "lblCOQty5";
+            lblCOQty5.Size = new Size(46, 34);
+            lblCOQty5.TabIndex = 115;
+            lblCOQty5.Text = "1";
+            lblCOQty5.TextAlign = ContentAlignment.MiddleCenter;
+            // 
+            // btnCOPlus5
+            // 
+            btnCOPlus5.BackColor = Color.FromArgb(235, 235, 235);
+            btnCOPlus5.FlatStyle = FlatStyle.Flat;
+            btnCOPlus5.Font = new Font("Segoe UI", 11F, FontStyle.Bold);
+            btnCOPlus5.Location = new Point(450, 535);
+            btnCOPlus5.Name = "btnCOPlus5";
+            btnCOPlus5.Size = new Size(34, 34);
+            btnCOPlus5.TabIndex = 114;
+            btnCOPlus5.Text = "+";
+            btnCOPlus5.UseVisualStyleBackColor = false;
+            btnCOPlus5.Click += BtnCOPlus5_Click;
+            // 
+            // lblCOSub5
+            // 
+            lblCOSub5.Font = new Font("Segoe UI", 13F, FontStyle.Bold);
+            lblCOSub5.ForeColor = Color.FromArgb(30, 30, 30);
+            lblCOSub5.Location = new Point(510, 535);
+            lblCOSub5.Name = "lblCOSub5";
+            lblCOSub5.Size = new Size(130, 34);
+            lblCOSub5.TabIndex = 113;
+            lblCOSub5.Text = "₱0.00";
+            lblCOSub5.TextAlign = ContentAlignment.MiddleRight;
+            // 
+            // btnCODelete5
+            // 
+            btnCODelete5.BackColor = Color.FromArgb(255, 235, 235);
+            btnCODelete5.FlatStyle = FlatStyle.Flat;
+            btnCODelete5.Font = new Font("Segoe UI", 11F, FontStyle.Bold);
+            btnCODelete5.ForeColor = Color.FromArgb(218, 41, 28);
+            btnCODelete5.Location = new Point(660, 535);
+            btnCODelete5.Name = "btnCODelete5";
+            btnCODelete5.Size = new Size(46, 34);
+            btnCODelete5.TabIndex = 112;
+            btnCODelete5.Text = "🗑";
+            btnCODelete5.UseVisualStyleBackColor = false;
+            btnCODelete5.Click += BtnCODelete5_Click;
+            // 
+            // picCOItem6
+            // 
+            picCOItem6.BackColor = Color.FromArgb(255, 248, 240);
+            picCOItem6.BorderStyle = BorderStyle.FixedSingle;
+            picCOItem6.Location = new Point(30, 610);
+            picCOItem6.Name = "picCOItem6";
+            picCOItem6.Size = new Size(90, 70);
+            picCOItem6.SizeMode = PictureBoxSizeMode.Zoom;
+            picCOItem6.TabIndex = 60;
+            picCOItem6.TabStop = false;
+            // 
+            // lblCOName6
+            // 
+            lblCOName6.Font = new Font("Segoe UI", 12F, FontStyle.Bold);
+            lblCOName6.Location = new Point(135, 615);
+            lblCOName6.Name = "lblCOName6";
+            lblCOName6.Size = new Size(220, 28);
+            lblCOName6.TabIndex = 111;
+            lblCOName6.Text = "Item Name 6";
+            // 
+            // lblCOPrice6
+            // 
+            lblCOPrice6.Font = new Font("Segoe UI", 11F);
+            lblCOPrice6.ForeColor = Color.FromArgb(120, 120, 120);
+            lblCOPrice6.Location = new Point(135, 645);
+            lblCOPrice6.Name = "lblCOPrice6";
+            lblCOPrice6.Size = new Size(220, 24);
+            lblCOPrice6.TabIndex = 110;
+            lblCOPrice6.Text = "₱0.00";
+            // 
+            // btnCOMinus6
+            // 
+            btnCOMinus6.BackColor = Color.FromArgb(235, 235, 235);
+            btnCOMinus6.FlatStyle = FlatStyle.Flat;
+            btnCOMinus6.Font = new Font("Segoe UI", 11F, FontStyle.Bold);
+            btnCOMinus6.Location = new Point(370, 625);
+            btnCOMinus6.Name = "btnCOMinus6";
+            btnCOMinus6.Size = new Size(34, 34);
+            btnCOMinus6.TabIndex = 109;
+            btnCOMinus6.Text = "−";
+            btnCOMinus6.UseVisualStyleBackColor = false;
+            btnCOMinus6.Click += BtnCOMinus6_Click;
+            // 
+            // lblCOQty6
+            // 
+            lblCOQty6.Font = new Font("Segoe UI", 12F, FontStyle.Bold);
+            lblCOQty6.Location = new Point(404, 625);
+            lblCOQty6.Name = "lblCOQty6";
+            lblCOQty6.Size = new Size(46, 34);
+            lblCOQty6.TabIndex = 108;
+            lblCOQty6.Text = "1";
+            lblCOQty6.TextAlign = ContentAlignment.MiddleCenter;
+            // 
+            // btnCOPlus6
+            // 
+            btnCOPlus6.BackColor = Color.FromArgb(235, 235, 235);
+            btnCOPlus6.FlatStyle = FlatStyle.Flat;
+            btnCOPlus6.Font = new Font("Segoe UI", 11F, FontStyle.Bold);
+            btnCOPlus6.Location = new Point(450, 625);
+            btnCOPlus6.Name = "btnCOPlus6";
+            btnCOPlus6.Size = new Size(34, 34);
+            btnCOPlus6.TabIndex = 107;
+            btnCOPlus6.Text = "+";
+            btnCOPlus6.UseVisualStyleBackColor = false;
+            btnCOPlus6.Click += BtnCOPlus6_Click;
+            // 
+            // lblCOSub6
+            // 
+            lblCOSub6.Font = new Font("Segoe UI", 13F, FontStyle.Bold);
+            lblCOSub6.ForeColor = Color.FromArgb(30, 30, 30);
+            lblCOSub6.Location = new Point(510, 625);
+            lblCOSub6.Name = "lblCOSub6";
+            lblCOSub6.Size = new Size(130, 34);
+            lblCOSub6.TabIndex = 106;
+            lblCOSub6.Text = "₱0.00";
+            lblCOSub6.TextAlign = ContentAlignment.MiddleRight;
+            // 
+            // btnCODelete6
+            // 
+            btnCODelete6.BackColor = Color.FromArgb(255, 235, 235);
+            btnCODelete6.FlatStyle = FlatStyle.Flat;
+            btnCODelete6.Font = new Font("Segoe UI", 11F, FontStyle.Bold);
+            btnCODelete6.ForeColor = Color.FromArgb(218, 41, 28);
+            btnCODelete6.Location = new Point(660, 625);
+            btnCODelete6.Name = "btnCODelete6";
+            btnCODelete6.Size = new Size(46, 34);
+            btnCODelete6.TabIndex = 105;
+            btnCODelete6.Text = "🗑";
+            btnCODelete6.UseVisualStyleBackColor = false;
+            btnCODelete6.Click += BtnCODelete6_Click;
+            // 
+            // grpDiscounts
+            // 
+            grpDiscounts.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+            grpDiscounts.Controls.Add(rbtnRegular);
+            grpDiscounts.Controls.Add(rbtnSenior);
+            grpDiscounts.Controls.Add(rbtnPWD);
+            grpDiscounts.Font = new Font("Segoe UI", 12F, FontStyle.Bold);
+            grpDiscounts.ForeColor = Color.FromArgb(40, 40, 40);
+            grpDiscounts.Location = new Point(760, 110);
+            grpDiscounts.Name = "grpDiscounts";
+            grpDiscounts.Size = new Size(480, 200);
+            grpDiscounts.TabIndex = 100;
+            grpDiscounts.TabStop = false;
+            grpDiscounts.Text = "🎟  Discounts & Promos";
+            // 
+            // rbtnRegular
+            // 
+            rbtnRegular.Checked = true;
+            rbtnRegular.Font = new Font("Segoe UI", 11F, FontStyle.Bold);
+            rbtnRegular.Location = new Point(24, 40);
+            rbtnRegular.Name = "rbtnRegular";
+            rbtnRegular.Size = new Size(430, 40);
+            rbtnRegular.TabIndex = 0;
+            rbtnRegular.TabStop = true;
+            rbtnRegular.Text = "Regular Price                                                0%";
+            rbtnRegular.CheckedChanged += Discount_CheckedChanged;
+            // 
+            // rbtnSenior
+            // 
+            rbtnSenior.Font = new Font("Segoe UI", 11F, FontStyle.Bold);
+            rbtnSenior.Location = new Point(24, 90);
+            rbtnSenior.Name = "rbtnSenior";
+            rbtnSenior.Size = new Size(430, 40);
+            rbtnSenior.TabIndex = 1;
+            rbtnSenior.Text = "Senior Citizen                                            -20%";
+            rbtnSenior.CheckedChanged += Discount_CheckedChanged;
+            // 
+            // rbtnPWD
+            // 
+            rbtnPWD.Font = new Font("Segoe UI", 11F, FontStyle.Bold);
+            rbtnPWD.Location = new Point(24, 140);
+            rbtnPWD.Name = "rbtnPWD";
+            rbtnPWD.Size = new Size(430, 40);
+            rbtnPWD.TabIndex = 2;
+            rbtnPWD.Text = "PWD / Disability                                         -15%";
+            rbtnPWD.CheckedChanged += Discount_CheckedChanged;
+            // 
+            // lblCOSubtotalAmt
+            // 
+            lblCOSubtotalAmt.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+            lblCOSubtotalAmt.Font = new Font("Segoe UI", 12F);
+            lblCOSubtotalAmt.ForeColor = Color.FromArgb(80, 80, 80);
+            lblCOSubtotalAmt.Location = new Point(760, 330);
+            lblCOSubtotalAmt.Name = "lblCOSubtotalAmt";
+            lblCOSubtotalAmt.Size = new Size(480, 30);
+            lblCOSubtotalAmt.TabIndex = 101;
+            lblCOSubtotalAmt.Text = "Subtotal:                                                   ₱0.00";
+            // 
+            // lblCODiscountAmt
+            // 
+            lblCODiscountAmt.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+            lblCODiscountAmt.Font = new Font("Segoe UI", 12F, FontStyle.Bold);
+            lblCODiscountAmt.ForeColor = Color.FromArgb(34, 139, 34);
+            lblCODiscountAmt.Location = new Point(760, 365);
+            lblCODiscountAmt.Name = "lblCODiscountAmt";
+            lblCODiscountAmt.Size = new Size(480, 30);
+            lblCODiscountAmt.TabIndex = 102;
+            lblCODiscountAmt.Text = "Discount:                                                −₱0.00";
+            // 
+            // lblCOTotalAmt
+            // 
+            lblCOTotalAmt.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+            lblCOTotalAmt.BackColor = Color.FromArgb(40, 20, 5);
+            lblCOTotalAmt.Font = new Font("Segoe UI", 20F, FontStyle.Bold);
+            lblCOTotalAmt.ForeColor = Color.FromArgb(253, 184, 19);
+            lblCOTotalAmt.Location = new Point(760, 410);
+            lblCOTotalAmt.Name = "lblCOTotalAmt";
+            lblCOTotalAmt.Size = new Size(480, 60);
+            lblCOTotalAmt.TabIndex = 103;
+            lblCOTotalAmt.Text = "TOTAL: ₱0.00";
+            lblCOTotalAmt.TextAlign = ContentAlignment.MiddleCenter;
+            // 
+            // btnConfirmOrder
+            // 
+            btnConfirmOrder.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+            btnConfirmOrder.BackColor = Color.FromArgb(218, 41, 28);
+            btnConfirmOrder.Cursor = Cursors.Hand;
+            btnConfirmOrder.FlatAppearance.BorderSize = 0;
+            btnConfirmOrder.FlatStyle = FlatStyle.Flat;
+            btnConfirmOrder.Font = new Font("Segoe UI", 16F, FontStyle.Bold);
+            btnConfirmOrder.ForeColor = Color.White;
+            btnConfirmOrder.Location = new Point(760, 490);
+            btnConfirmOrder.Name = "btnConfirmOrder";
+            btnConfirmOrder.Size = new Size(480, 70);
+            btnConfirmOrder.TabIndex = 104;
+            btnConfirmOrder.Text = "CONFIRM ORDER →";
+            btnConfirmOrder.UseVisualStyleBackColor = false;
+            btnConfirmOrder.Click += BtnConfirmOrder_Click;
+            // 
+            // FormCheckout
+            // 
+            AutoScaleDimensions = new SizeF(7F, 15F);
+            AutoScaleMode = AutoScaleMode.Font;
+            AutoScroll = true;
+            BackColor = Color.White;
+            ClientSize = new Size(1280, 800);
+            Controls.Add(btnConfirmOrder);
+            Controls.Add(lblCOTotalAmt);
+            Controls.Add(lblCODiscountAmt);
+            Controls.Add(lblCOSubtotalAmt);
+            Controls.Add(grpDiscounts);
+            Controls.Add(btnCODelete6);
+            Controls.Add(lblCOSub6);
+            Controls.Add(btnCOPlus6);
+            Controls.Add(lblCOQty6);
+            Controls.Add(btnCOMinus6);
+            Controls.Add(lblCOPrice6);
+            Controls.Add(lblCOName6);
+            Controls.Add(picCOItem6);
+            Controls.Add(btnCODelete5);
+            Controls.Add(lblCOSub5);
+            Controls.Add(btnCOPlus5);
+            Controls.Add(lblCOQty5);
+            Controls.Add(btnCOMinus5);
+            Controls.Add(lblCOPrice5);
+            Controls.Add(lblCOName5);
+            Controls.Add(picCOItem5);
+            Controls.Add(btnCODelete4);
+            Controls.Add(lblCOSub4);
+            Controls.Add(btnCOPlus4);
+            Controls.Add(lblCOQty4);
+            Controls.Add(btnCOMinus4);
+            Controls.Add(lblCOPrice4);
+            Controls.Add(lblCOName4);
+            Controls.Add(picCOItem4);
+            Controls.Add(btnCODelete3);
+            Controls.Add(lblCOSub3);
+            Controls.Add(btnCOPlus3);
+            Controls.Add(lblCOQty3);
+            Controls.Add(btnCOMinus3);
+            Controls.Add(lblCOPrice3);
+            Controls.Add(lblCOName3);
+            Controls.Add(picCOItem3);
+            Controls.Add(btnCODelete2);
+            Controls.Add(lblCOSub2);
+            Controls.Add(btnCOPlus2);
+            Controls.Add(lblCOQty2);
+            Controls.Add(btnCOMinus2);
+            Controls.Add(lblCOPrice2);
+            Controls.Add(lblCOName2);
+            Controls.Add(picCOItem2);
+            Controls.Add(btnCODelete1);
+            Controls.Add(lblCOSub1);
+            Controls.Add(btnCOPlus1);
+            Controls.Add(lblCOQty1);
+            Controls.Add(btnCOMinus1);
+            Controls.Add(lblCOPrice1);
+            Controls.Add(lblCOName1);
+            Controls.Add(picCOItem1);
+            Controls.Add(btnAddMoreItems);
+            Controls.Add(lblReviewTitle);
+            Controls.Add(lblSubheader);
+            Controls.Add(lblOrderBadge);
+            Controls.Add(btnBack);
+            Controls.Add(lblHeader);
+            MinimumSize = new Size(1116, 759);
+            Name = "FormCheckout";
+            StartPosition = FormStartPosition.CenterScreen;
+            Text = "🐝 HappiBee Kiosk";
+            Load += FormCheckout_Load;
+            ((System.ComponentModel.ISupportInitialize)picCOItem1).EndInit();
+            ((System.ComponentModel.ISupportInitialize)picCOItem2).EndInit();
+            ((System.ComponentModel.ISupportInitialize)picCOItem3).EndInit();
+            ((System.ComponentModel.ISupportInitialize)picCOItem4).EndInit();
+            ((System.ComponentModel.ISupportInitialize)picCOItem5).EndInit();
+            ((System.ComponentModel.ISupportInitialize)picCOItem6).EndInit();
+            grpDiscounts.ResumeLayout(false);
+            ResumeLayout(false);
         }
         #endregion
 

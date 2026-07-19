@@ -129,7 +129,7 @@ namespace JollibeeKiosk
             MinimumSize = new Size(1585, 1228);
             Name = "FormReceipt";
             StartPosition = FormStartPosition.CenterScreen;
-            Text = "🐝 Jollibee Kiosk — Receipt";
+            Text = "🐝 HappiBee Kiosk";
             Load += FormReceipt_Load;
             ResumeLayout(false);
         }

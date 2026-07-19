@@ -20,5 +20,11 @@ namespace JollibeeKiosk
         private void lblWelcome_Click(object sender, EventArgs e)
         {
         }
+
+        private void btnSalesAdmin_Click(object sender, EventArgs e)
+        {
+            new FormSales(this).Show();
+            this.Hide();
+        }
     }
 }
