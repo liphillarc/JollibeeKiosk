@@ -109,7 +109,7 @@ namespace JollibeeKiosk
             lblHeader.Name = "lblHeader";
             lblHeader.Size = new Size(1280, 60);
             lblHeader.TabIndex = 0;
-            lblHeader.Text = "           ✓  CHECKOUT & REVIEW";
+            lblHeader.Text = "                  ✓  CHECKOUT AND REVIEW";
             lblHeader.TextAlign = ContentAlignment.MiddleLeft;
             // 
             // lblSubheader
@@ -163,6 +163,7 @@ namespace JollibeeKiosk
             // picCOItem1
             // 
             picCOItem1.BackColor = Color.FromArgb(255, 248, 240);
+            picCOItem1.BackgroundImageLayout = ImageLayout.Stretch;
             picCOItem1.BorderStyle = BorderStyle.FixedSingle;
             picCOItem1.Location = new Point(30, 160);
             picCOItem1.Name = "picCOItem1";
@@ -255,6 +256,7 @@ namespace JollibeeKiosk
             // picCOItem2
             // 
             picCOItem2.BackColor = Color.FromArgb(255, 248, 240);
+            picCOItem2.BackgroundImageLayout = ImageLayout.Stretch;
             picCOItem2.BorderStyle = BorderStyle.FixedSingle;
             picCOItem2.Location = new Point(30, 250);
             picCOItem2.Name = "picCOItem2";
@@ -346,6 +348,7 @@ namespace JollibeeKiosk
             // picCOItem3
             // 
             picCOItem3.BackColor = Color.FromArgb(255, 248, 240);
+            picCOItem3.BackgroundImageLayout = ImageLayout.Stretch;
             picCOItem3.BorderStyle = BorderStyle.FixedSingle;
             picCOItem3.Location = new Point(30, 340);
             picCOItem3.Name = "picCOItem3";
@@ -437,6 +440,7 @@ namespace JollibeeKiosk
             // picCOItem4
             // 
             picCOItem4.BackColor = Color.FromArgb(255, 248, 240);
+            picCOItem4.BackgroundImageLayout = ImageLayout.Stretch;
             picCOItem4.BorderStyle = BorderStyle.FixedSingle;
             picCOItem4.Location = new Point(30, 430);
             picCOItem4.Name = "picCOItem4";
@@ -528,6 +532,7 @@ namespace JollibeeKiosk
             // picCOItem5
             // 
             picCOItem5.BackColor = Color.FromArgb(255, 248, 240);
+            picCOItem5.BackgroundImageLayout = ImageLayout.Stretch;
             picCOItem5.BorderStyle = BorderStyle.FixedSingle;
             picCOItem5.Location = new Point(30, 520);
             picCOItem5.Name = "picCOItem5";
@@ -619,6 +624,7 @@ namespace JollibeeKiosk
             // picCOItem6
             // 
             picCOItem6.BackColor = Color.FromArgb(255, 248, 240);
+            picCOItem6.BackgroundImageLayout = ImageLayout.Center;
             picCOItem6.BorderStyle = BorderStyle.FixedSingle;
             picCOItem6.Location = new Point(30, 610);
             picCOItem6.Name = "picCOItem6";

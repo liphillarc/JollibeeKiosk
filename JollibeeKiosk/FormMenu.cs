@@ -25,6 +25,17 @@ namespace JollibeeKiosk
 
             SyncQuantitiesFromOrder();
             RefreshCartSummary();
+
+            this.VisibleChanged += FormMenu_VisibleChanged;
+        }
+
+        private void FormMenu_VisibleChanged(object? sender, EventArgs e)
+        {
+            if (this.Visible)
+            {
+                SyncQuantitiesFromOrder();
+                RefreshCartSummary();
+            }
         }
 
         private void SyncQuantitiesFromOrder()

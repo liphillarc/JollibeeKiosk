@@ -40,7 +40,107 @@ namespace JollibeeKiosk
             _lblSubs = new[] { lblCOSub1, lblCOSub2, lblCOSub3, lblCOSub4, lblCOSub5, lblCOSub6 };
             _btnDeletes = new[] { btnCODelete1, btnCODelete2, btnCODelete3, btnCODelete4, btnCODelete5, btnCODelete6 };
 
+            // Create a runtime scroll panel so the form doesn't scroll the totals
+            _pnlScroll = new Panel
+            {
+                Location = new Point(20, 140),
+                Size = new Size(730, 520),
+                AutoScroll = true,
+                BorderStyle = BorderStyle.None
+            };
+            this.Controls.Add(_pnlScroll);
+
+            for (int i = 0; i < 6; i++)
+            {
+                _pnlScroll.Controls.Add(_picItems[i]);
+                _pnlScroll.Controls.Add(_lblNames[i]);
+                _pnlScroll.Controls.Add(_lblPrices[i]);
+                _pnlScroll.Controls.Add(_btnMinuses[i]);
+                _pnlScroll.Controls.Add(_lblQtys[i]);
+                _pnlScroll.Controls.Add(_btnPluses[i]);
+                _pnlScroll.Controls.Add(_lblSubs[i]);
+                _pnlScroll.Controls.Add(_btnDeletes[i]);
+
+                _picItems[i].Top -= 140;
+                _lblNames[i].Top -= 140;
+                _lblPrices[i].Top -= 140;
+                _btnMinuses[i].Top -= 140;
+                _lblQtys[i].Top -= 140;
+                _btnPluses[i].Top -= 140;
+                _lblSubs[i].Top -= 140;
+                _btnDeletes[i].Top -= 140;
+
+                _picItems[i].Left -= 10;
+                _lblNames[i].Left -= 10;
+                _lblPrices[i].Left -= 10;
+                _btnMinuses[i].Left -= 10;
+                _lblQtys[i].Left -= 10;
+                _btnPluses[i].Left -= 10;
+                _lblSubs[i].Left -= 10;
+                _btnDeletes[i].Left -= 10;
+                
+                _picItems[i].SizeMode = PictureBoxSizeMode.StretchImage;
+            }
+
             DisplayCheckoutItems();
+        }
+
+        private Panel _pnlScroll;
+
+        private void EnsureCapacity(int count)
+        {
+            if (_picItems.Length >= count) return;
+
+            int oldLen = _picItems.Length;
+            Array.Resize(ref _picItems, count);
+            Array.Resize(ref _lblNames, count);
+            Array.Resize(ref _lblPrices, count);
+            Array.Resize(ref _btnMinuses, count);
+            Array.Resize(ref _lblQtys, count);
+            Array.Resize(ref _btnPluses, count);
+            Array.Resize(ref _lblSubs, count);
+            Array.Resize(ref _btnDeletes, count);
+
+            for (int i = oldLen; i < count; i++)
+            {
+                int yOffset = _picItems[0].Top + (90 * i);
+
+                _picItems[i] = new PictureBox { Location = new Point(_picItems[0].Left, yOffset), Size = _picItems[0].Size, BackColor = _picItems[0].BackColor, BorderStyle = _picItems[0].BorderStyle, SizeMode = PictureBoxSizeMode.StretchImage };
+                
+                _lblNames[i] = new Label { Location = new Point(_lblNames[0].Left, yOffset + (_lblNames[0].Top - _picItems[0].Top)), Size = _lblNames[0].Size, Font = _lblNames[0].Font, ForeColor = _lblNames[0].ForeColor, AutoSize = _lblNames[0].AutoSize };
+                
+                _lblPrices[i] = new Label { Location = new Point(_lblPrices[0].Left, yOffset + (_lblPrices[0].Top - _picItems[0].Top)), Size = _lblPrices[0].Size, Font = _lblPrices[0].Font, ForeColor = _lblPrices[0].ForeColor, AutoSize = _lblPrices[0].AutoSize };
+                
+                _lblQtys[i] = new Label { Location = new Point(_lblQtys[0].Left, yOffset + (_lblQtys[0].Top - _picItems[0].Top)), Size = _lblQtys[0].Size, Font = _lblQtys[0].Font, ForeColor = _lblQtys[0].ForeColor, TextAlign = _lblQtys[0].TextAlign };
+                
+                _lblSubs[i] = new Label { Location = new Point(_lblSubs[0].Left, yOffset + (_lblSubs[0].Top - _picItems[0].Top)), Size = _lblSubs[0].Size, Font = _lblSubs[0].Font, ForeColor = _lblSubs[0].ForeColor, AutoSize = _lblSubs[0].AutoSize, TextAlign = _lblSubs[0].TextAlign };
+
+                _btnMinuses[i] = new Button { Location = new Point(_btnMinuses[0].Left, yOffset + (_btnMinuses[0].Top - _picItems[0].Top)), Size = _btnMinuses[0].Size, Font = _btnMinuses[0].Font, BackColor = _btnMinuses[0].BackColor, ForeColor = _btnMinuses[0].ForeColor, FlatStyle = _btnMinuses[0].FlatStyle, Text = "−", Cursor = Cursors.Hand };
+                _btnMinuses[i].FlatAppearance.BorderSize = 1;
+                _btnMinuses[i].FlatAppearance.BorderColor = Color.LightGray;
+
+                _btnPluses[i] = new Button { Location = new Point(_btnPluses[0].Left, yOffset + (_btnPluses[0].Top - _picItems[0].Top)), Size = _btnPluses[0].Size, Font = _btnPluses[0].Font, BackColor = _btnPluses[0].BackColor, ForeColor = _btnPluses[0].ForeColor, FlatStyle = _btnPluses[0].FlatStyle, Text = "+", Cursor = Cursors.Hand };
+                _btnPluses[i].FlatAppearance.BorderSize = 1;
+                _btnPluses[i].FlatAppearance.BorderColor = Color.LightGray;
+
+                _btnDeletes[i] = new Button { Location = new Point(_btnDeletes[0].Left, yOffset + (_btnDeletes[0].Top - _picItems[0].Top)), Size = _btnDeletes[0].Size, Font = _btnDeletes[0].Font, BackColor = _btnDeletes[0].BackColor, ForeColor = _btnDeletes[0].ForeColor, FlatStyle = _btnDeletes[0].FlatStyle, Text = "🗑️", Cursor = Cursors.Hand };
+                _btnDeletes[i].FlatAppearance.BorderSize = 1;
+                _btnDeletes[i].FlatAppearance.BorderColor = Color.LightGray;
+
+                int capturedIndex = i;
+                _btnMinuses[i].Click += (s, e) => ModifyRowQty(capturedIndex, -1);
+                _btnPluses[i].Click += (s, e) => ModifyRowQty(capturedIndex, 1);
+                _btnDeletes[i].Click += (s, e) => DeleteRowItem(capturedIndex);
+
+                _pnlScroll.Controls.Add(_picItems[i]);
+                _pnlScroll.Controls.Add(_lblNames[i]);
+                _pnlScroll.Controls.Add(_lblPrices[i]);
+                _pnlScroll.Controls.Add(_btnMinuses[i]);
+                _pnlScroll.Controls.Add(_lblQtys[i]);
+                _pnlScroll.Controls.Add(_btnPluses[i]);
+                _pnlScroll.Controls.Add(_lblSubs[i]);
+                _pnlScroll.Controls.Add(_btnDeletes[i]);
+            }
         }
 
         private void DisplayCheckoutItems()
@@ -48,7 +148,9 @@ namespace JollibeeKiosk
             var order = KioskSession.CurrentOrder;
             lblReviewTitle.Text = $"Review Items ({order.Items.Count})";
 
-            for (int i = 0; i < 6; i++)
+            EnsureCapacity(order.Items.Count);
+
+            for (int i = 0; i < _picItems.Length; i++)
             {
                 if (i < order.Items.Count)
                 {
@@ -64,7 +166,6 @@ namespace JollibeeKiosk
                         if (img != null)
                         {
                             _picItems[i].Image = img;
-                            _picItems[i].SizeMode = PictureBoxSizeMode.Zoom;
                         }
                     }
                     catch { }
