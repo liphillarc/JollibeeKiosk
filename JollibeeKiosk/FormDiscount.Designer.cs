@@ -65,7 +65,7 @@ namespace JollibeeKiosk
             lblStep.Name = "lblStep";
             lblStep.Size = new Size(480, 60);
             lblStep.TabIndex = 2;
-            lblStep.Text = "Step 2 of 2:  Discounts & Promos";
+            lblStep.Text = "Step 2 of 2:  Discounts And Promos";
             lblStep.TextAlign = ContentAlignment.MiddleRight;
             // 
             // grpDiscountType
