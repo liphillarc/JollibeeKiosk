@@ -1233,7 +1233,7 @@ namespace JollibeeKiosk
             MinimumSize = new Size(1585, 1228);
             Name = "FormMenu";
             StartPosition = FormStartPosition.CenterScreen;
-            Text = "🐝 HappiBee Kiosk";
+            Text = "🐝 HappyBee Kiosk";
             Load += FormMenu_Load;
             ((System.ComponentModel.ISupportInitialize)picProduct1).EndInit();
             ((System.ComponentModel.ISupportInitialize)picProduct2).EndInit();

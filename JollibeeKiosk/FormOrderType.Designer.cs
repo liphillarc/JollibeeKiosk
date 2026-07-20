@@ -131,7 +131,7 @@ namespace JollibeeKiosk
             MinimumSize = new Size(1585, 1228);
             Name = "FormOrderType";
             StartPosition = FormStartPosition.CenterScreen;
-            Text = "🐝 HappiBee Kiosk";
+            Text = "🐝 HappyBee Kiosk";
             ResumeLayout(false);
         }
         #endregion

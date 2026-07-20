@@ -150,7 +150,7 @@ namespace JollibeeKiosk
             this.Controls.Add(this.panelTop);
             this.Name = "FormSales";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "🐝 HappiBee Kiosk";
+            this.Text = "🐝 HappyBee Kiosk";
             this.Load += new System.EventHandler(this.FormSales_Load);
             
             ((System.ComponentModel.ISupportInitialize)(this.dgvSales)).EndInit();

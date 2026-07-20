@@ -45,7 +45,7 @@ namespace JollibeeKiosk
             lblFooter.Name = "lblFooter";
             lblFooter.Size = new Size(1100, 40);
             lblFooter.TabIndex = 1;
-            lblFooter.Text = "© 2024 Jollibee Foods Corporation  |  Terms of Service  |  Privacy Policy";
+            lblFooter.Text = "© HappyBee 2026  |  Terms of Service  |  Privacy Policy";
             lblFooter.TextAlign = ContentAlignment.MiddleCenter;
             // 
             // lblWelcome
@@ -149,7 +149,7 @@ namespace JollibeeKiosk
             MinimumSize = new Size(1114, 752);
             Name = "Form1";
             StartPosition = FormStartPosition.CenterScreen;
-            Text = "🐝 HappiBee Kiosk";
+            Text = "🐝 HappyBee Kiosk";
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             ResumeLayout(false);
         }

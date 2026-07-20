@@ -200,7 +200,7 @@ namespace JollibeeKiosk
             MinimumSize = new Size(1116, 759);
             Name = "FormDiscount";
             StartPosition = FormStartPosition.CenterScreen;
-            Text = "🐝 HappiBee Kiosk";
+            Text = "🐝 HappyBee Kiosk";
             Load += FormDiscount_Load;
             grpDiscountType.ResumeLayout(false);
             ResumeLayout(false);

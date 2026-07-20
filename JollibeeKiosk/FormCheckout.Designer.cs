@@ -881,7 +881,7 @@ namespace JollibeeKiosk
             MinimumSize = new Size(1116, 759);
             Name = "FormCheckout";
             StartPosition = FormStartPosition.CenterScreen;
-            Text = "🐝 HappiBee Kiosk";
+            Text = "🐝 HappyBee Kiosk";
             Load += FormCheckout_Load;
             ((System.ComponentModel.ISupportInitialize)picCOItem1).EndInit();
             ((System.ComponentModel.ISupportInitialize)picCOItem2).EndInit();
