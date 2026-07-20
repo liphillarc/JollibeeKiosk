@@ -30,23 +30,46 @@ namespace JollibeeKiosk.Services
 
         private static bool TryFindWorkingServer()
         {
-            foreach (var server in PossibleServers)
+            // We force (localdb)\MSSQLLocalDB so that the database creates an MDF file we can share via the repository
+            string server = "(localdb)\\MSSQLLocalDB";
+            _masterConnectionString = $"Server={server};Database=master;Integrated Security=True;TrustServerCertificate=True;";
+            
+            // Find the project directory to save the database file so it gets pushed to GitHub
+            string baseDir = AppDomain.CurrentDomain.BaseDirectory;
+            string projectDir = System.IO.Directory.GetParent(baseDir)?.Parent?.Parent?.Parent?.FullName ?? baseDir;
+            string dbPath = System.IO.Path.Combine(projectDir, "JollibeeKioskDB.mdf");
+
+            _connectionString = $"Server={server};Integrated Security=True;TrustServerCertificate=True;AttachDbFilename={dbPath};";
+
+            try
             {
-                string testMaster = $"Server={server};Database=master;Integrated Security=True;TrustServerCertificate=True;";
-                try
+                using var conn = new SqlConnection(_masterConnectionString);
+                conn.Open();
+                
+                // If the file doesn't exist on disk, we must create it using the master database
+                if (!System.IO.File.Exists(dbPath))
                 {
-                    using var conn = new SqlConnection(testMaster);
-                    conn.Open();
-                    _masterConnectionString = testMaster;
-                    _connectionString = $"Server={server};Database=JollibeeKioskDB;Integrated Security=True;TrustServerCertificate=True;";
-                    return true;
+                    var cmd = conn.CreateCommand();
+                    // Clean up any broken references in LocalDB
+                    cmd.CommandText = @"
+                        IF EXISTS (SELECT name FROM sys.databases WHERE name = N'JollibeeKioskDB')
+                        BEGIN
+                            ALTER DATABASE [JollibeeKioskDB] SET SINGLE_USER WITH ROLLBACK IMMEDIATE;
+                            DROP DATABASE [JollibeeKioskDB];
+                        END";
+                    cmd.ExecuteNonQuery();
+
+                    // Create the physical file in the project directory
+                    cmd.CommandText = $"CREATE DATABASE [JollibeeKioskDB] ON PRIMARY (NAME = JollibeeKioskDB_Data, FILENAME = '{dbPath}')";
+                    cmd.ExecuteNonQuery();
                 }
-                catch
-                {
-                    // Ignore and try the next one
-                }
+                
+                return true;
             }
-            return false;
+            catch
+            {
+                return false;
+            }
         }
 
         public static void InitializeDatabase()
@@ -55,20 +78,7 @@ namespace JollibeeKiosk.Services
             {
                 if (!TryFindWorkingServer())
                 {
-                    throw new Exception("Could not find a running local SQL Server instance (tried ., .\\SQLEXPRESS, and (localdb)\\MSSQLLocalDB).");
-                }
-
-                // First, ensure the database exists
-                using (var masterConnection = new SqlConnection(_masterConnectionString))
-                {
-                    masterConnection.Open();
-                    var cmd = masterConnection.CreateCommand();
-                    cmd.CommandText = @"
-                        IF NOT EXISTS (SELECT name FROM sys.databases WHERE name = N'JollibeeKioskDB')
-                        BEGIN
-                            CREATE DATABASE [JollibeeKioskDB];
-                        END";
-                    cmd.ExecuteNonQuery();
+                    throw new Exception("Could not connect to LocalDB. Make sure you have SQL Server Express LocalDB installed on your computer!");
                 }
 
                 // Next, ensure the Receipts table exists

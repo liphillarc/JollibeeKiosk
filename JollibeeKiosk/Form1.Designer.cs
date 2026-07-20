@@ -35,6 +35,7 @@ namespace JollibeeKiosk
             lblNavBrand.TabIndex = 0;
             lblNavBrand.Text = "                                                                                  HappyBee";
             lblNavBrand.TextAlign = ContentAlignment.MiddleLeft;
+            lblNavBrand.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
             // 
             // lblFooter
             // 
@@ -47,6 +48,7 @@ namespace JollibeeKiosk
             lblFooter.TabIndex = 1;
             lblFooter.Text = "© HappyBee 2026  |  Terms of Service  |  Privacy Policy";
             lblFooter.TextAlign = ContentAlignment.MiddleCenter;
+            lblFooter.Anchor = AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             // 
             // lblWelcome
             // 
@@ -57,6 +59,7 @@ namespace JollibeeKiosk
             lblWelcome.Size = new Size(139, 36);
             lblWelcome.TabIndex = 4;
             lblWelcome.Text = "Welcome to";
+            lblWelcome.Anchor = AnchorStyles.None;
             lblWelcome.Click += lblWelcome_Click;
             // 
             // lblTagline
@@ -68,6 +71,7 @@ namespace JollibeeKiosk
             lblTagline.Size = new Size(187, 40);
             lblTagline.TabIndex = 6;
             lblTagline.Text = "ENJOY EATING!";
+            lblTagline.Anchor = AnchorStyles.None;
             // 
             // lblDesc
             // 
@@ -78,6 +82,7 @@ namespace JollibeeKiosk
             lblDesc.Size = new Size(361, 60);
             lblDesc.TabIndex = 7;
             lblDesc.Text = "Order your favorites freshly made just for you.\nFast, easy, and delicious — every single time.";
+            lblDesc.Anchor = AnchorStyles.None;
             // 
             // btnStartOrder
             // 
@@ -91,8 +96,9 @@ namespace JollibeeKiosk
             btnStartOrder.Name = "btnStartOrder";
             btnStartOrder.Size = new Size(420, 80);
             btnStartOrder.TabIndex = 9;
-            btnStartOrder.Text = "\U0001f6d2   START ORDER";
+            btnStartOrder.Text = "🛒   START ORDER";
             btnStartOrder.UseVisualStyleBackColor = false;
+            btnStartOrder.Anchor = AnchorStyles.None;
             btnStartOrder.Click += BtnStartOrder_Click;
             // 
             // lblDineHint
@@ -103,7 +109,8 @@ namespace JollibeeKiosk
             lblDineHint.Name = "lblDineHint";
             lblDineHint.Size = new Size(227, 30);
             lblDineHint.TabIndex = 8;
-            lblDineHint.Text = "🍽️  Dine In   ·   \U0001f961  Take Out";
+            lblDineHint.Text = "🍽️  Dine In   ·   🍱  Take Out";
+            lblDineHint.Anchor = AnchorStyles.None;
             // 
             // pictureBox1
             // 
@@ -114,6 +121,7 @@ namespace JollibeeKiosk
             pictureBox1.Size = new Size(420, 208);
             pictureBox1.TabIndex = 10;
             pictureBox1.TabStop = false;
+            pictureBox1.Anchor = AnchorStyles.None;
             // 
             // btnSalesAdmin
             // 

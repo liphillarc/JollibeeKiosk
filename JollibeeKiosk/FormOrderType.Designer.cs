@@ -50,6 +50,7 @@ namespace JollibeeKiosk
             lblNavBrand.TabIndex = 0;
             lblNavBrand.Text = "           🐝  HAPPYBEE";
             lblNavBrand.TextAlign = ContentAlignment.MiddleLeft;
+            lblNavBrand.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
             // 
             // lblQuestion
             // 
@@ -62,6 +63,7 @@ namespace JollibeeKiosk
             lblQuestion.TabIndex = 2;
             lblQuestion.Text = "How would you like your order?";
             lblQuestion.TextAlign = ContentAlignment.MiddleCenter;
+            lblQuestion.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
             // 
             // lblSubQ
             // 
@@ -74,6 +76,7 @@ namespace JollibeeKiosk
             lblSubQ.TabIndex = 3;
             lblSubQ.Text = "Choose your preferred dining option to get started";
             lblSubQ.TextAlign = ContentAlignment.MiddleCenter;
+            lblSubQ.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
             // 
             // btnDineIn
             // 
@@ -93,6 +96,7 @@ namespace JollibeeKiosk
             btnDineIn.TabIndex = 4;
             btnDineIn.Text = "🍽️\r\n\r\nDINE IN\r\n\r\nEat here at the restaurant";
             btnDineIn.UseVisualStyleBackColor = false;
+            btnDineIn.Anchor = AnchorStyles.None;
             btnDineIn.Click += BtnDineIn_Click;
             // 
             // btnTakeOut
@@ -113,6 +117,7 @@ namespace JollibeeKiosk
             btnTakeOut.TabIndex = 5;
             btnTakeOut.Text = "\U0001f961\r\n\r\nTAKE OUT\r\n\r\nTake your food to go";
             btnTakeOut.UseVisualStyleBackColor = false;
+            btnTakeOut.Anchor = AnchorStyles.None;
             btnTakeOut.Click += BtnTakeOut_Click;
             // 
             // FormOrderType
