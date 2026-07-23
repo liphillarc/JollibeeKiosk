@@ -26,7 +26,13 @@ namespace JollibeeKiosk
             this.btnCancel = new System.Windows.Forms.Button();
             this.lblTitle = new System.Windows.Forms.Label();
             this.dgvItems = new System.Windows.Forms.DataGridView();
+            this.cmbSearchProduct = new System.Windows.Forms.ComboBox();
+            this.numQty = new System.Windows.Forms.NumericUpDown();
+            this.btnUpdateSelected = new System.Windows.Forms.Button();
+            this.btnAddItem = new System.Windows.Forms.Button();
+            this.btnDeleteItem = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvItems)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numQty)).BeginInit();
             this.SuspendLayout();
             // 
             // lblTitle
@@ -110,6 +116,65 @@ namespace JollibeeKiosk
             this.dgvItems.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvItems.Size = new System.Drawing.Size(350, 150);
             this.dgvItems.TabIndex = 8;
+            this.dgvItems.SelectionChanged += new System.EventHandler(this.DgvItems_SelectionChanged);
+            // 
+            // cmbSearchProduct
+            // 
+            this.cmbSearchProduct.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
+            this.cmbSearchProduct.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
+            this.cmbSearchProduct.FormattingEnabled = true;
+            this.cmbSearchProduct.Location = new System.Drawing.Point(22, 380);
+            this.cmbSearchProduct.Name = "cmbSearchProduct";
+            this.cmbSearchProduct.Size = new System.Drawing.Size(180, 23);
+            this.cmbSearchProduct.TabIndex = 9;
+            // 
+            // numQty
+            // 
+            this.numQty.Location = new System.Drawing.Point(210, 380);
+            this.numQty.Minimum = new decimal(new int[] { 1, 0, 0, 0 });
+            this.numQty.Name = "numQty";
+            this.numQty.Size = new System.Drawing.Size(50, 23);
+            this.numQty.TabIndex = 10;
+            this.numQty.Value = new decimal(new int[] { 1, 0, 0, 0 });
+            // 
+            // btnAddItem
+            // 
+            this.btnAddItem.BackColor = System.Drawing.Color.LightSeaGreen;
+            this.btnAddItem.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnAddItem.ForeColor = System.Drawing.Color.White;
+            this.btnAddItem.Location = new System.Drawing.Point(270, 380);
+            this.btnAddItem.Name = "btnAddItem";
+            this.btnAddItem.Size = new System.Drawing.Size(100, 23);
+            this.btnAddItem.TabIndex = 11;
+            this.btnAddItem.Text = "Add New";
+            this.btnAddItem.UseVisualStyleBackColor = false;
+            this.btnAddItem.Click += new System.EventHandler(this.BtnAddItem_Click);
+            // 
+            // btnUpdateSelected
+            // 
+            this.btnUpdateSelected.BackColor = System.Drawing.Color.SteelBlue;
+            this.btnUpdateSelected.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnUpdateSelected.ForeColor = System.Drawing.Color.White;
+            this.btnUpdateSelected.Location = new System.Drawing.Point(22, 410);
+            this.btnUpdateSelected.Name = "btnUpdateSelected";
+            this.btnUpdateSelected.Size = new System.Drawing.Size(110, 25);
+            this.btnUpdateSelected.TabIndex = 12;
+            this.btnUpdateSelected.Text = "Edit Selected";
+            this.btnUpdateSelected.UseVisualStyleBackColor = false;
+            this.btnUpdateSelected.Click += new System.EventHandler(this.BtnUpdateSelected_Click);
+            // 
+            // btnDeleteItem
+            // 
+            this.btnDeleteItem.BackColor = System.Drawing.Color.IndianRed;
+            this.btnDeleteItem.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnDeleteItem.ForeColor = System.Drawing.Color.White;
+            this.btnDeleteItem.Location = new System.Drawing.Point(140, 410);
+            this.btnDeleteItem.Name = "btnDeleteItem";
+            this.btnDeleteItem.Size = new System.Drawing.Size(120, 25);
+            this.btnDeleteItem.TabIndex = 13;
+            this.btnDeleteItem.Text = "Delete Selected";
+            this.btnDeleteItem.UseVisualStyleBackColor = false;
+            this.btnDeleteItem.Click += new System.EventHandler(this.BtnDeleteItem_Click);
             // 
             // btnSave
             // 
@@ -117,10 +182,10 @@ namespace JollibeeKiosk
             this.btnSave.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnSave.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold);
             this.btnSave.ForeColor = System.Drawing.Color.White;
-            this.btnSave.Location = new System.Drawing.Point(160, 390);
+            this.btnSave.Location = new System.Drawing.Point(160, 460);
             this.btnSave.Name = "btnSave";
             this.btnSave.Size = new System.Drawing.Size(100, 35);
-            this.btnSave.TabIndex = 9;
+            this.btnSave.TabIndex = 14;
             this.btnSave.Text = "Save";
             this.btnSave.UseVisualStyleBackColor = false;
             this.btnSave.Click += new System.EventHandler(this.BtnSave_Click);
@@ -131,10 +196,10 @@ namespace JollibeeKiosk
             this.btnCancel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnCancel.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold);
             this.btnCancel.ForeColor = System.Drawing.Color.White;
-            this.btnCancel.Location = new System.Drawing.Point(270, 390);
+            this.btnCancel.Location = new System.Drawing.Point(270, 460);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(100, 35);
-            this.btnCancel.TabIndex = 10;
+            this.btnCancel.TabIndex = 15;
             this.btnCancel.Text = "Cancel";
             this.btnCancel.UseVisualStyleBackColor = false;
             this.btnCancel.Click += new System.EventHandler(this.BtnCancel_Click);
@@ -143,7 +208,12 @@ namespace JollibeeKiosk
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(400, 440);
+            this.ClientSize = new System.Drawing.Size(400, 520);
+            this.Controls.Add(this.cmbSearchProduct);
+            this.Controls.Add(this.numQty);
+            this.Controls.Add(this.btnAddItem);
+            this.Controls.Add(this.btnUpdateSelected);
+            this.Controls.Add(this.btnDeleteItem);
             this.Controls.Add(this.btnCancel);
             this.Controls.Add(this.btnSave);
             this.Controls.Add(this.dgvItems);
@@ -162,6 +232,7 @@ namespace JollibeeKiosk
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Edit Receipt";
             ((System.ComponentModel.ISupportInitialize)(this.dgvItems)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numQty)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
         }
@@ -177,5 +248,10 @@ namespace JollibeeKiosk
         private System.Windows.Forms.Button btnSave;
         private System.Windows.Forms.Button btnCancel;
         private System.Windows.Forms.Label lblTitle;
+        private System.Windows.Forms.ComboBox cmbSearchProduct;
+        private System.Windows.Forms.NumericUpDown numQty;
+        private System.Windows.Forms.Button btnAddItem;
+        private System.Windows.Forms.Button btnUpdateSelected;
+        private System.Windows.Forms.Button btnDeleteItem;
     }
 }

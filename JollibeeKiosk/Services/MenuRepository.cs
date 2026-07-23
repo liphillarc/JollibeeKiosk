@@ -1,4 +1,4 @@
-﻿namespace JollibeeKiosk.Services
+namespace JollibeeKiosk.Services
 {
     public static class MenuRepository
     {
@@ -7,25 +7,18 @@
             new MenuItem( 1, "Chickenjoy (1 pc)",       99.00m,  "Chicken"),
             new MenuItem( 2, "Chickenjoy (2 pcs)",      179.00m, "Chicken"),
             new MenuItem( 3, "Chickenjoy (6 pcs Bucket)",499.00m,"Chicken"),
-            new MenuItem( 4, "Jolly Spaghetti",          89.00m, "Pasta"),
-            new MenuItem( 5, "Beefy Spaghetti",          99.00m, "Pasta"),
-            new MenuItem( 6, "Yumburger",                49.00m, "Burgers"),
-            new MenuItem( 7, "Big Yumburger",            89.00m, "Burgers"),
-            new MenuItem( 8, "Cheesy Yumburger",         69.00m, "Burgers"),
-            new MenuItem( 9, "Jolly Hotdog Classic",     79.00m, "Hotdog"),
-            new MenuItem(10, "Jolly Hotdog Cheesy",      89.00m, "Hotdog"),
-            new MenuItem(11, "Peach Mango Pie",          49.00m, "Desserts"),
-            new MenuItem(12, "Pineapple Sundae",         45.00m, "Desserts"),
-            new MenuItem(13, "French Fries (Regular)",   59.00m, "Sides"),
-            new MenuItem(14, "French Fries (Large)",     79.00m, "Sides"),
-            new MenuItem(15, "Coca-Cola (Regular)",      45.00m, "Drinks"),
-            new MenuItem(16, "Coca-Cola (Large)",        55.00m, "Drinks"),
-            new MenuItem(17, "Pineapple Juice",          49.00m, "Drinks"),
-            new MenuItem(18, "Burger Steak",             89.00m, "Rice Meals"),
-            new MenuItem(19, "Jolly Crispy Fries Chicken",129.00m,"Rice Meals"),
+            new MenuItem( 4, "Burger Steak",             89.00m, "Rice Meals"),
+            new MenuItem( 5, "Jolly Spaghetti",          89.00m, "Pasta"),
+            new MenuItem( 6, "Beefy Spaghetti",          99.00m, "Pasta"),
+            new MenuItem( 7, "Hapiburger",               49.00m, "Burgers"),
+            new MenuItem( 8, "Cheesy Hapiburger",        69.00m, "Burgers"),
+            new MenuItem( 9, "Hapi Hotdog Classic",      79.00m, "Hotdog"),
+            new MenuItem(10, "Peach Mango Pie",          49.00m, "Desserts"),
+            new MenuItem(11, "French Fries (Reg)",       59.00m, "Sides"),
+            new MenuItem(12, "Coca-Cola (Regular)",      45.00m, "Drinks")
         };
 
-        private static int _nextId = 20;
+        private static int _nextId = 13;
 
         public static List<MenuItem> GetAll()
         {

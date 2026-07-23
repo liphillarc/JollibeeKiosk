@@ -35,6 +35,8 @@ namespace JollibeeKiosk
             dgvItems.DataSource = _itemsList;
             dgvItems.Columns["ProductName"].HeaderText = "Product Name";
             dgvItems.Columns["Quantity"].HeaderText = "Qty";
+            
+            cmbSearchProduct.Items.AddRange(JollibeeKiosk.Services.MenuRepository.GetAll().Select(m => m.Name).ToArray());
         }
 
         private void LoadItems(string details)
@@ -85,6 +87,53 @@ namespace JollibeeKiosk
         {
             this.DialogResult = DialogResult.Cancel;
             this.Close();
+        }
+
+        private void DgvItems_SelectionChanged(object sender, EventArgs e)
+        {
+            if (dgvItems.SelectedRows.Count > 0 && !dgvItems.SelectedRows[0].IsNewRow)
+            {
+                var item = dgvItems.SelectedRows[0].DataBoundItem as ReceiptItem;
+                if (item != null)
+                {
+                    cmbSearchProduct.Text = item.ProductName;
+                    numQty.Value = item.Quantity;
+                }
+            }
+        }
+
+        private void BtnAddItem_Click(object sender, EventArgs e)
+        {
+            if (!string.IsNullOrWhiteSpace(cmbSearchProduct.Text))
+            {
+                _itemsList.Add(new ReceiptItem 
+                { 
+                    ProductName = cmbSearchProduct.Text, 
+                    Quantity = (int)numQty.Value 
+                });
+            }
+        }
+
+        private void BtnUpdateSelected_Click(object sender, EventArgs e)
+        {
+            if (dgvItems.SelectedRows.Count > 0 && !dgvItems.SelectedRows[0].IsNewRow && !string.IsNullOrWhiteSpace(cmbSearchProduct.Text))
+            {
+                var item = dgvItems.SelectedRows[0].DataBoundItem as ReceiptItem;
+                if (item != null)
+                {
+                    item.ProductName = cmbSearchProduct.Text;
+                    item.Quantity = (int)numQty.Value;
+                    dgvItems.Refresh();
+                }
+            }
+        }
+
+        private void BtnDeleteItem_Click(object sender, EventArgs e)
+        {
+            if (dgvItems.SelectedRows.Count > 0 && !dgvItems.SelectedRows[0].IsNewRow)
+            {
+                dgvItems.Rows.RemoveAt(dgvItems.SelectedRows[0].Index);
+            }
         }
     }
 }
