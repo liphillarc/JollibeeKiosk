@@ -157,6 +157,7 @@ namespace JollibeeKiosk
                     var oi = order.Items[i];
                     _lblNames[i].Text = oi.Item.Name;
                     _lblPrices[i].Text = $"₱{oi.Item.Price:F2}";
+                    _lblPrices[i].Visible = true;
                     _lblQtys[i].Text = oi.Quantity.ToString();
                     _lblSubs[i].Text = $"₱{oi.LineTotal:F2}";
 
@@ -200,8 +201,7 @@ namespace JollibeeKiosk
             var order = KioskSession.CurrentOrder;
 
             DiscountType selectedType = DiscountType.None;
-            if (rbtnSenior.Checked) selectedType = DiscountType.SeniorCitizen;
-            if (rbtnPWD.Checked) selectedType = DiscountType.PWD;
+            if (rbtnPWDSenior.Checked) selectedType = DiscountType.PWDSenior;
 
             order.ApplyDiscount(selectedType);
 
@@ -210,7 +210,7 @@ namespace JollibeeKiosk
             decimal total = order.GetTotal();
 
             lblCOSubtotalAmt.Text = $"Subtotal:                                                   ₱{subtotal:F2}";
-            lblCODiscountAmt.Text = $"Discount ({selectedType}):                                 −₱{discount:F2}";
+            lblCODiscountAmt.Text = $"Discount ({selectedType}):                                 -₱{discount:F2}";
             lblCOTotalAmt.Text = $"TOTAL: ₱{total:F2}";
 
             btnConfirmOrder.Enabled = (order.Items.Count > 0);
@@ -316,5 +316,7 @@ namespace JollibeeKiosk
         {
 
         }
-    }
 }
+}
+
+

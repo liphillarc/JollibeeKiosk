@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using System.Windows.Forms;
 
 namespace JollibeeKiosk
@@ -26,5 +26,7 @@ namespace JollibeeKiosk
             new FormSales(this).Show();
             this.Hide();
         }
-    }
 }
+}
+
+

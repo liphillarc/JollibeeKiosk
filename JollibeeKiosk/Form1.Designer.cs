@@ -1,4 +1,4 @@
-namespace JollibeeKiosk
+﻿namespace JollibeeKiosk
 {
     partial class Form1
     {
@@ -159,6 +159,7 @@ namespace JollibeeKiosk
             StartPosition = FormStartPosition.CenterScreen;
             Text = "🐝 HappyBee Kiosk";
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
+
             ResumeLayout(false);
         }
         #endregion
@@ -174,3 +175,5 @@ namespace JollibeeKiosk
         private Button btnSalesAdmin;
     }
 }
+
+

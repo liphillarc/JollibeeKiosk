@@ -1,4 +1,4 @@
-namespace JollibeeKiosk.Models
+﻿namespace JollibeeKiosk.Models
 {
     public class MenuItem
     {

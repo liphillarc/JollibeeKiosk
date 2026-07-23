@@ -1,4 +1,4 @@
-namespace JollibeeKiosk
+﻿namespace JollibeeKiosk
 {
     partial class FormMenu
     {
@@ -138,7 +138,7 @@ namespace JollibeeKiosk
             // 
             // lblOrderTypeBadge
             // 
-            lblOrderTypeBadge.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+            lblOrderTypeBadge.Anchor = AnchorStyles.Top | AnchorStyles.Left;
             lblOrderTypeBadge.BackColor = Color.FromArgb(218, 41, 28);
             lblOrderTypeBadge.Font = new Font("Segoe UI", 13F, FontStyle.Bold);
             lblOrderTypeBadge.ForeColor = Color.FromArgb(253, 184, 19);
@@ -1088,7 +1088,7 @@ namespace JollibeeKiosk
             // 
             // lblCartTitle
             // 
-            lblCartTitle.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+            lblCartTitle.Anchor = AnchorStyles.Top | AnchorStyles.Left;
             lblCartTitle.Font = new Font("Segoe UI", 14F, FontStyle.Bold);
             lblCartTitle.ForeColor = Color.FromArgb(35, 35, 35);
             lblCartTitle.Location = new Point(1357, 133);
@@ -1101,7 +1101,7 @@ namespace JollibeeKiosk
             // 
             // rtbCartSummary
             // 
-            rtbCartSummary.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+            rtbCartSummary.Anchor = AnchorStyles.Top | AnchorStyles.Left;
             rtbCartSummary.BackColor = Color.White;
             rtbCartSummary.BorderStyle = BorderStyle.FixedSingle;
             rtbCartSummary.Font = new Font("Courier New", 10F);
@@ -1115,7 +1115,7 @@ namespace JollibeeKiosk
             // 
             // lblSubtotalAmt
             // 
-            lblSubtotalAmt.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+            lblSubtotalAmt.Anchor = AnchorStyles.Top | AnchorStyles.Left;
             lblSubtotalAmt.Font = new Font("Segoe UI", 15F, FontStyle.Bold);
             lblSubtotalAmt.ForeColor = Color.FromArgb(218, 41, 28);
             lblSubtotalAmt.Location = new Point(1357, 1083);
@@ -1128,7 +1128,7 @@ namespace JollibeeKiosk
             // 
             // btnProceedCheckout
             // 
-            btnProceedCheckout.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+            btnProceedCheckout.Anchor = AnchorStyles.Top | AnchorStyles.Left;
             btnProceedCheckout.BackColor = Color.FromArgb(34, 139, 34);
             btnProceedCheckout.Cursor = Cursors.Hand;
             btnProceedCheckout.FlatStyle = FlatStyle.Flat;
@@ -1345,3 +1345,4 @@ namespace JollibeeKiosk
         private System.Windows.Forms.Button      btnProceedCheckout;
     }
 }
+

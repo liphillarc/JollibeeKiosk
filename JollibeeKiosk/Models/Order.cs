@@ -1,4 +1,4 @@
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
 
 namespace JollibeeKiosk.Models
@@ -44,10 +44,8 @@ namespace JollibeeKiosk.Models
         public decimal ApplyDiscount(DiscountType discountType)
         {
             AppliedDiscount = discountType;
-            if (discountType == DiscountType.SeniorCitizen)
+            if (discountType == DiscountType.PWDSenior)
                 DiscountAmount = CalculateSubtotal() * 0.20m;
-            else if (discountType == DiscountType.PWD)
-                DiscountAmount = CalculateSubtotal() * 0.15m;
             else
                 DiscountAmount = 0m;
 

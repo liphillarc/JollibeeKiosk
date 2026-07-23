@@ -1,4 +1,4 @@
-namespace JollibeeKiosk
+﻿namespace JollibeeKiosk
 {
     public static class KioskSession
     {
@@ -10,3 +10,4 @@ namespace JollibeeKiosk
         }
     }
 }
+

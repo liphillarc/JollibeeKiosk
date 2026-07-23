@@ -1,4 +1,4 @@
-namespace JollibeeKiosk
+﻿namespace JollibeeKiosk
 {
     internal static class Program
     {
@@ -11,3 +11,4 @@ namespace JollibeeKiosk
         }
     }
 }
+

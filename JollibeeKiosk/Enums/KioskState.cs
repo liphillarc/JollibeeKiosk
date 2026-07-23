@@ -1,4 +1,4 @@
-namespace JollibeeKiosk.Enums
+﻿namespace JollibeeKiosk.Enums
 {
     public enum KioskState
     {

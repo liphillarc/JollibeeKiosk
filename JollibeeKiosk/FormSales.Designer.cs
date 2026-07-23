@@ -132,9 +132,11 @@ namespace JollibeeKiosk
             this.btnDeleteAll.Name = "btnDeleteAll";
             this.btnDeleteAll.Size = new System.Drawing.Size(200, 50);
             this.btnDeleteAll.TabIndex = 3;
-            this.btnDeleteAll.Text = "Delete All Records";
+            this.btnDeleteAll.Text = "🗑 Delete All";
             this.btnDeleteAll.UseVisualStyleBackColor = false;
             this.btnDeleteAll.Click += new System.EventHandler(this.BtnDeleteAll_Click);
+            
+            // 
             
             // 
             // FormSales

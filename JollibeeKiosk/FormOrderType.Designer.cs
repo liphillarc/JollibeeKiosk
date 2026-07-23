@@ -1,4 +1,4 @@
-namespace JollibeeKiosk
+﻿namespace JollibeeKiosk
 {
     partial class FormOrderType
     {
@@ -137,6 +137,7 @@ namespace JollibeeKiosk
             Name = "FormOrderType";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "🐝 HappyBee Kiosk";
+
             ResumeLayout(false);
         }
         #endregion
@@ -149,3 +150,5 @@ namespace JollibeeKiosk
         private System.Windows.Forms.Button btnTakeOut;
     }
 }
+
+

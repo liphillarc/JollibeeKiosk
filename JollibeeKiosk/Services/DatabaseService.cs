@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using System.Collections.Generic;
 using Microsoft.Data.SqlClient;
 using JollibeeKiosk.Models;
@@ -153,6 +153,30 @@ namespace JollibeeKiosk.Services
                 return Convert.ToInt64(newIdObj);
             }
             return 0;
+        }
+
+        public static void UpdateReceipt(ReceiptRecord record)
+        {
+            if (string.IsNullOrEmpty(_connectionString)) return;
+            using var connection = new SqlConnection(_connectionString);
+            connection.Open();
+
+            var command = connection.CreateCommand();
+            command.CommandText = @"
+                UPDATE Receipts 
+                SET TotalAmount = @TotalAmount, 
+                    DiscountAmount = @DiscountAmount, 
+                    OrderType = @OrderType, 
+                    ItemsDetails = @ItemsDetails
+                WHERE Id = @Id;
+            ";
+            
+            command.Parameters.AddWithValue("@TotalAmount", record.TotalAmount);
+            command.Parameters.AddWithValue("@DiscountAmount", record.DiscountAmount);
+            command.Parameters.AddWithValue("@OrderType", record.OrderType);
+            command.Parameters.AddWithValue("@ItemsDetails", record.ItemsDetails);
+            command.Parameters.AddWithValue("@Id", record.Id);
+            command.ExecuteNonQuery();
         }
 
         public static List<ReceiptRecord> GetAllReceipts()

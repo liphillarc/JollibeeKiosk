@@ -65,6 +65,8 @@ namespace JollibeeKiosk
                                               .OrderByDescending(x => x.QuantitySold)
                                               .ToList();
             dgvProducts.DataSource = productSalesList;
+            if (dgvProducts.Columns["QuantitySold"] != null)
+                dgvProducts.Columns["QuantitySold"].HeaderText = "Qty";
         }
 
         private void DgvSales_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
@@ -72,13 +74,11 @@ namespace JollibeeKiosk
             if (e.RowIndex >= 0)
             {
                 var record = (ReceiptRecord)dgvSales.Rows[e.RowIndex].DataBoundItem;
-                string receiptText = $"ORDER #{record.Id}\n" +
-                                     $"Date: {record.OrderDate}\n" +
-                                     $"Type: {record.OrderType}\n\n" +
-                                     $"Items:\n{record.ItemsDetails.Replace(", ", "\n")}\n\n" +
-                                     $"Discount: ₱{record.DiscountAmount:F2}\n" +
-                                     $"TOTAL: ₱{record.TotalAmount:F2}";
-                MessageBox.Show(receiptText, $"Receipt #{record.Id}", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                var editForm = new FormEditReceipt(record);
+                if (editForm.ShowDialog() == DialogResult.OK)
+                {
+                    LoadData(); // Refresh grid
+                }
             }
         }
 
@@ -98,6 +98,8 @@ namespace JollibeeKiosk
             }
         }
 
+
+
         private void BtnBack_Click(object sender, EventArgs e)
         {
             _opener.Show();
@@ -105,3 +107,4 @@ namespace JollibeeKiosk
         }
     }
 }
+

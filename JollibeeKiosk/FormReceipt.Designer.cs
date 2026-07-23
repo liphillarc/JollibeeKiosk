@@ -1,4 +1,4 @@
-namespace JollibeeKiosk
+﻿namespace JollibeeKiosk
 {
     partial class FormReceipt
     {
@@ -131,6 +131,7 @@ namespace JollibeeKiosk
             StartPosition = FormStartPosition.CenterScreen;
             Text = "🐝 HappyBee Kiosk";
             Load += FormReceipt_Load;
+
             ResumeLayout(false);
         }
         #endregion
@@ -144,3 +145,5 @@ namespace JollibeeKiosk
         private System.Windows.Forms.Button      btnNewOrder;
     }
 }
+
+

@@ -1,4 +1,4 @@
-namespace JollibeeKiosk
+﻿namespace JollibeeKiosk
 {
     public partial class FormOrderType : Form
     {
@@ -29,5 +29,7 @@ namespace JollibeeKiosk
             _opener.Show();
             this.Close();
         }
-    }
 }
+}
+
+

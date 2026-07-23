@@ -1,4 +1,4 @@
-namespace JollibeeKiosk.Enums
+﻿namespace JollibeeKiosk.Enums
 {
     
     public enum DiscountType
@@ -7,9 +7,6 @@ namespace JollibeeKiosk.Enums
         None,
 
         
-        SeniorCitizen,
-
-        
-        PWD
+        PWDSenior
     }
 }

@@ -28,18 +28,17 @@ namespace JollibeeKiosk
             decimal total       = subtotal - discountAmt;
 
             lblDCSubtotal.Text = $"Subtotal:        ₱{subtotal,10:F2}";
-            lblDCDiscount.Text = $"Discount ({(selected == DiscountType.None ? "None" : "15%")}):   -₱{discountAmt,9:F2}";
+            lblDCDiscount.Text = $"Discount ({(selected == DiscountType.None ? "None" : "20%")}):   -₱{discountAmt,9:F2}";
             lblDCTotal.Text    = $"TOTAL:           ₱{total,10:F2}";
 
             lblDiscountPreview.Text = selected == DiscountType.None
                 ? "No discount will be applied."
-                : $"15% {selected} discount will be applied to your order.";
+                : $"20% {selected} discount will be applied to your order.";
         }
 
         private DiscountType GetSelectedDiscount()
         {
-            if (rbtnSeniorCitizen.Checked) return DiscountType.SeniorCitizen;
-            if (rbtnPWD.Checked)           return DiscountType.PWD;
+            if (rbtnPWDSenior.Checked) return DiscountType.PWDSenior;
             return DiscountType.None;
         }
 
@@ -60,5 +59,7 @@ namespace JollibeeKiosk
             new FormReceipt(this).Show();
             this.Hide();
         }
-    }
 }
+}
+
+
